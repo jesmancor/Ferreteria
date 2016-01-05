@@ -50,7 +50,28 @@ namespace Ferreteria
 
         private void dgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(dgProductos.SelectedRows.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           // MessageBox.Show(dgProductos.SelectedRows.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void dgProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (strEditarNuevo == "E")
+            {
+                DataGridViewCell cell = null;
+                foreach (DataGridViewCell selectedCell in dgProductos.SelectedCells)
+                {
+                    cell = selectedCell;
+                    break;
+                }
+                if (cell != null)
+                {
+                    DataGridViewRow row = cell.OwningRow;
+                    txtID.Text = row.Cells["ID"].Value.ToString();
+                    txtNombre.Text = row.Cells["NOMBRE_PRODUCTO"].Value.ToString();
+                    MessageBox.Show(row.Cells["NOMBRE_PRODUCTO"].Value.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

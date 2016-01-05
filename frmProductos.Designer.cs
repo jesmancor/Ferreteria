@@ -114,6 +114,7 @@
             this.dgProductos.Location = new System.Drawing.Point(17, 136);
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
+            this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProductos.Size = new System.Drawing.Size(1048, 262);
             this.dgProductos.TabIndex = 7;
             this.dgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductos_CellContentClick);
@@ -398,7 +399,6 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(63, 20);
             this.txtID.TabIndex = 0;
-            this.txtID.Text = "123";
             // 
             // txtBuscar
             // 
