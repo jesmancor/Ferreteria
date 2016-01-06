@@ -88,9 +88,9 @@ namespace Ferreteria
                 case Keys.F3:
                     mostrarReporteVentas();
                     return true;
-                case Keys.Escape:
-                    cerrarSesion();
-                    return true;
+                //case Keys.Escape:
+                //    cerrarSesion();
+                //    return true;
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -20,7 +21,7 @@ namespace Ferreteria
         {
             // TODO: esta línea de código carga datos en la tabla 'ferreteriaDataSet.PRODUCTOS' Puede moverla o quitarla según sea necesario.
             this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
-
+            txtBuscar.Focus();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -50,49 +51,54 @@ namespace Ferreteria
 
         private void dgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           // MessageBox.Show(dgProductos.SelectedRows.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // MessageBox.Show(dgProductos.SelectedRows.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void dgProductos_SelectedIndexChanged(object sender, EventArgs e)
+        private void EditarProducto()
         {
-            if (strEditarNuevo == "E")
-            {
-                DataGridViewCell cell = null;
-                foreach (DataGridViewCell selectedCell in dgProductos.SelectedCells)
-                {
-                    cell = selectedCell;
-                    break;
-                }
-                if (cell != null)
-                {
-                    DataGridViewRow row = cell.OwningRow;
-                    txtID.Text = row.Cells["ID"].Value.ToString();
-                    txtNombre.Text = row.Cells["NOMBRE_PRODUCTO"].Value.ToString();
-                    MessageBox.Show(row.Cells["NOMBRE_PRODUCTO"].Value.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-            }
+                txtID.Enabled = false;
+                gbEditarNuevo.Text = "Editar producto";
+                gbEditarNuevo.Visible = true;
+                strEditarNuevo = "E";
+                txtID.Text = dgProductos.CurrentRow.Cells[0].Value.ToString();
+                txtNombre.Text = dgProductos.CurrentRow.Cells[1].Value.ToString();
+                txtTipo.Text = dgProductos.CurrentRow.Cells[2].Value.ToString();
+                txtDescripcion.Text = dgProductos.CurrentRow.Cells[3].Value.ToString();
+                txtMenudeo.Text = dgProductos.CurrentRow.Cells[4].Value.ToString();
+                txtMayoreo.Text = dgProductos.CurrentRow.Cells[5].Value.ToString();
+                txtExistencias.Text = dgProductos.CurrentRow.Cells[6].Value.ToString();
+                txtNombre.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            btnNuevo.Enabled = false;
-            btnEditar.Enabled = false;
-            gbEditarNuevo.Text = "Editar producto";
-            gbEditarNuevo.Visible=true;
-            strEditarNuevo = "E";
+            EditarProducto();
+        }
+
+        private void NuevoProducto()
+        {
+            //btnNuevo.Enabled = false;
+            //btnEditar.Enabled = false;
+            txtID.Enabled = true;
+            txtID.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtTipo.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtMenudeo.Text = string.Empty;
+            txtMayoreo.Text = string.Empty;
+            txtExistencias.Text = string.Empty;
+            gbEditarNuevo.Text = "Nuevo producto";
+            gbEditarNuevo.Visible = true;
+            strEditarNuevo = "N";
+            txtID.Focus();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            btnNuevo.Enabled = false;
-            btnEditar.Enabled = false;
-            gbEditarNuevo.Text = "Nuevo producto";
-            gbEditarNuevo.Visible = true;
-            strEditarNuevo = "N";
+            NuevoProducto();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void CancelarEdNu()
         {
             txtID.Text = string.Empty;
             txtNombre.Text = string.Empty;
@@ -102,21 +108,68 @@ namespace Ferreteria
             txtMayoreo.Text = string.Empty;
             txtExistencias.Text = string.Empty;
             gbEditarNuevo.Visible = false;
-            btnNuevo.Enabled = true;
-            btnEditar.Enabled = true;
+            //btnNuevo.Enabled = true;
+            //btnEditar.Enabled = true;
             strEditarNuevo = "";
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            CancelarEdNu();
+        }
+
+        private void guardar()
+        {
+            try {
+                OleDbConnection cnon = new OleDbConnection();
+                cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
+                OleDbCommand command = new OleDbCommand();
+                command.CommandText = "INSERT INTO PRODUCTOS (ID_PRODUCTO, NOMBRE_PRODUCTO, TIPO_PRODUCTO, DESCRIPCIÓN_PRODUCTO, PRECIO_MENUDEO, PRECIO_MAYOREO, EXISTENCIAS) VALUES('" + txtID.Text + "','" + txtNombre.Text.ToUpper() + "','" + txtTipo.Text.ToUpper() + "','" + txtDescripcion.Text.ToUpper() + "','" + txtMenudeo.Text + "','" + txtMayoreo.Text + "','" + txtExistencias.Text + "')";
+                cnon.Open();
+                command.Connection = cnon;
+                command.ExecuteNonQuery();
+                cnon.Close();
+                MessageBox.Show("Nuevo producto agregado", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+            }
+             catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (strEditarNuevo=="N")
-                MessageBox.Show("Nuevo producto agregado", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else if(strEditarNuevo=="E")
+            if (strEditarNuevo == "N")
+            {
+                guardar();
+            }
+            else if (strEditarNuevo == "E")
                 MessageBox.Show("El producto ha sido editado", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             gbEditarNuevo.Visible = false;
-            btnNuevo.Enabled = true;
-            btnEditar.Enabled = true;
+            //btnNuevo.Enabled = true;
+            //btnEditar.Enabled = true;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Control | Keys.B:
+                    txtBuscar.Focus();
+                    return true;
+                case Keys.Control | Keys.E:
+                    EditarProducto();
+                    return true;
+                case Keys.Control | Keys.N:
+                    NuevoProducto();
+                    return true;
+                case Keys.Escape:
+                    CancelarEdNu();
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
         }
     }
-
 }
