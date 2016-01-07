@@ -54,7 +54,7 @@ namespace Ferreteria
             // MessageBox.Show(dgProductos.SelectedRows.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void EditarProducto()
+        private void llenarEditar()
         {
                 txtID.Enabled = false;
                 gbEditarNuevo.Text = "Editar producto";
@@ -66,13 +66,13 @@ namespace Ferreteria
                 txtDescripcion.Text = dgProductos.CurrentRow.Cells[3].Value.ToString();
                 txtMenudeo.Text = dgProductos.CurrentRow.Cells[4].Value.ToString();
                 txtMayoreo.Text = dgProductos.CurrentRow.Cells[5].Value.ToString();
-                txtExistencias.Text = dgProductos.CurrentRow.Cells[6].Value.ToString();
+                txtExistencias.Text = dgProductos.CurrentRow.Cells[7].Value.ToString();
                 txtNombre.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            EditarProducto();
+            llenarEditar();
         }
 
         private void NuevoProducto()
@@ -130,7 +130,7 @@ namespace Ferreteria
                 command.ExecuteNonQuery();
                 cnon.Close();
                 MessageBox.Show("Nuevo producto agregado", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+                this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
             }
              catch (Exception exc)
             {
@@ -138,14 +138,32 @@ namespace Ferreteria
             }
           }
 
+        private void editarProducto()
+        {
+            try {
+                OleDbConnection cnon = new OleDbConnection();
+                cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
+                OleDbCommand command = new OleDbCommand();
+                command.CommandText = "UPDATE PRODUCTOS SET NOMBRE_PRODUCTO = '" + txtNombre.Text.ToUpper() + "', TIPO_PRODUCTO = '"+txtTipo.Text.ToUpper()+"', DESCRIPCIÓN_PRODUCTO = '" + txtDescripcion.Text.ToUpper() + "', PRECIO_MENUDEO = " + txtMenudeo.Text + ", PRECIO_MAYOREO = " + txtMayoreo.Text + ", EXISTENCIAS = "+txtExistencias.Text+" WHERE ID_PRODUCTO = " + txtID.Text;
+                cnon.Open();
+                command.Connection = cnon;
+                command.ExecuteNonQuery();
+                cnon.Close();
+                MessageBox.Show("El producto con ID " + txtID.Text + " ha sido editado", "Producto editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (strEditarNuevo == "N")
-            {
                 guardar();
-            }
             else if (strEditarNuevo == "E")
-                MessageBox.Show("El producto ha sido editado", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                editarProducto();
             gbEditarNuevo.Visible = false;
             //btnNuevo.Enabled = true;
             //btnEditar.Enabled = true;
@@ -159,7 +177,7 @@ namespace Ferreteria
                     txtBuscar.Focus();
                     return true;
                 case Keys.Control | Keys.E:
-                    EditarProducto();
+                    llenarEditar();
                     return true;
                 case Keys.Control | Keys.N:
                     NuevoProducto();
