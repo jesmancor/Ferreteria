@@ -108,8 +108,6 @@ namespace Ferreteria
             txtMayoreo.Text = string.Empty;
             txtExistencias.Text = string.Empty;
             gbEditarNuevo.Visible = false;
-            //btnNuevo.Enabled = true;
-            //btnEditar.Enabled = true;
             strEditarNuevo = "";
         }
 
@@ -169,6 +167,37 @@ namespace Ferreteria
             //btnEditar.Enabled = true;
         }
 
+        private void eliminarProducto()
+        {
+            DialogResult confEliminar = MessageBox.Show("¿Eliminar el producto con ID " + dgProductos.CurrentRow.Cells[0].Value.ToString() + "?", "¿Eliminar producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confEliminar == DialogResult.Yes)
+            {
+                try
+                {
+                    OleDbConnection cnon = new OleDbConnection();
+                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
+                    OleDbCommand command = new OleDbCommand();
+                    command.CommandText = "DELETE FROM PRODUCTOS WHERE ID_PRODUCTO = " + dgProductos.CurrentRow.Cells[0].Value.ToString();
+                    cnon.Open();
+                    command.Connection = cnon;
+                    command.ExecuteNonQuery();
+                    cnon.Close();
+                    MessageBox.Show("El producto con ID " + dgProductos.CurrentRow.Cells[0].Value.ToString() + " ha sido eliminado", "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Falló la conexión: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminarProducto();
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -181,6 +210,9 @@ namespace Ferreteria
                     return true;
                 case Keys.Control | Keys.N:
                     NuevoProducto();
+                    return true;
+                case Keys.Delete:
+                    eliminarProducto();
                     return true;
                 case Keys.Escape:
                     CancelarEdNu();
