@@ -73,12 +73,24 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epTipo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epMenudeo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epMayoreo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epExistencias = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSet)).BeginInit();
             this.gbEditarNuevo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epTipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epDescripcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epMenudeo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epMayoreo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epExistencias)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductos
@@ -455,11 +467,47 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // errorProvider1
+            // epID
             // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            this.epID.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epID.ContainerControl = this;
+            this.epID.Icon = ((System.Drawing.Icon)(resources.GetObject("epID.Icon")));
+            // 
+            // epNombre
+            // 
+            this.epNombre.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epNombre.ContainerControl = this;
+            this.epNombre.Icon = ((System.Drawing.Icon)(resources.GetObject("epNombre.Icon")));
+            // 
+            // epTipo
+            // 
+            this.epTipo.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epTipo.ContainerControl = this;
+            this.epTipo.Icon = ((System.Drawing.Icon)(resources.GetObject("epTipo.Icon")));
+            // 
+            // epDescripcion
+            // 
+            this.epDescripcion.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epDescripcion.ContainerControl = this;
+            this.epDescripcion.Icon = ((System.Drawing.Icon)(resources.GetObject("epDescripcion.Icon")));
+            // 
+            // epMenudeo
+            // 
+            this.epMenudeo.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epMenudeo.ContainerControl = this;
+            this.epMenudeo.Icon = ((System.Drawing.Icon)(resources.GetObject("epMenudeo.Icon")));
+            // 
+            // epMayoreo
+            // 
+            this.epMayoreo.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epMayoreo.ContainerControl = this;
+            this.epMayoreo.Icon = ((System.Drawing.Icon)(resources.GetObject("epMayoreo.Icon")));
+            // 
+            // epExistencias
+            // 
+            this.epExistencias.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epExistencias.ContainerControl = this;
+            this.epExistencias.Icon = ((System.Drawing.Icon)(resources.GetObject("epExistencias.Icon")));
             // 
             // frmProductos
             // 
@@ -490,7 +538,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSet)).EndInit();
             this.gbEditarNuevo.ResumeLayout(false);
             this.gbEditarNuevo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epTipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epDescripcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epMenudeo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epMayoreo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epExistencias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +595,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORASIGNADODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORDOSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORTRESDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider epID;
+        private System.Windows.Forms.ErrorProvider epNombre;
+        private System.Windows.Forms.ErrorProvider epTipo;
+        private System.Windows.Forms.ErrorProvider epDescripcion;
+        private System.Windows.Forms.ErrorProvider epMenudeo;
+        private System.Windows.Forms.ErrorProvider epMayoreo;
+        private System.Windows.Forms.ErrorProvider epExistencias;
     }
 }

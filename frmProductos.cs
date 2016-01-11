@@ -51,18 +51,19 @@ namespace Ferreteria
 
         private void llenarEditar()
         {
-                txtID.Enabled = false;
-                gbEditarNuevo.Text = "Editar producto";
-                gbEditarNuevo.Visible = true;
-                strEditarNuevo = "E";
-                txtID.Text = dgProductos.CurrentRow.Cells[0].Value.ToString();
-                txtNombre.Text = dgProductos.CurrentRow.Cells[1].Value.ToString();
-                txtTipo.Text = dgProductos.CurrentRow.Cells[2].Value.ToString();
-                txtDescripcion.Text = dgProductos.CurrentRow.Cells[3].Value.ToString();
-                txtMenudeo.Text = dgProductos.CurrentRow.Cells[4].Value.ToString();
-                txtMayoreo.Text = dgProductos.CurrentRow.Cells[5].Value.ToString();
-                txtExistencias.Text = dgProductos.CurrentRow.Cells[7].Value.ToString();
-                txtNombre.Focus();
+            txtID.Enabled = false;
+            gbEditarNuevo.Text = "Editar producto";
+            gbEditarNuevo.Visible = true;
+            strEditarNuevo = "E";
+            limpiarErrorProvider();
+            txtID.Text = dgProductos.CurrentRow.Cells[0].Value.ToString();
+            txtNombre.Text = dgProductos.CurrentRow.Cells[1].Value.ToString();
+            txtTipo.Text = dgProductos.CurrentRow.Cells[2].Value.ToString();
+            txtDescripcion.Text = dgProductos.CurrentRow.Cells[3].Value.ToString();
+            txtMenudeo.Text = dgProductos.CurrentRow.Cells[4].Value.ToString();
+            txtMayoreo.Text = dgProductos.CurrentRow.Cells[5].Value.ToString();
+            txtExistencias.Text = dgProductos.CurrentRow.Cells[7].Value.ToString();
+            txtNombre.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -83,6 +84,7 @@ namespace Ferreteria
             gbEditarNuevo.Text = "Nuevo producto";
             gbEditarNuevo.Visible = true;
             strEditarNuevo = "N";
+            limpiarErrorProvider();
             txtID.Focus();
         }
 
@@ -102,7 +104,7 @@ namespace Ferreteria
             txtExistencias.Text = string.Empty;
             gbEditarNuevo.Visible = false;
             strEditarNuevo = "";
-            errorProvider1.Clear();
+            limpiarErrorProvider();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -154,84 +156,84 @@ namespace Ferreteria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Boolean blnValida = false;
-            if (string.IsNullOrEmpty(txtID.Text))
-            {
-                errorProvider1.SetError(txtID, "El ID no puede ir vacío");
-                blnValida = false;
-            }
-            else
-                blnValida = true;
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                errorProvider1.SetError(txtNombre, "El nombre no puede ir vacío");
-                blnValida = false;
-            }
-            else
-            {
-                blnValida = true;
-                errorProvider1.Clear();
-            }
-            if (string.IsNullOrEmpty(txtTipo.Text))
-            {
-                errorProvider1.SetError(txtTipo, "El tipo no puede ir vacío");
-                blnValida = false;
-            }
-            else
-            {
-                blnValida = true;
-                errorProvider1.Clear();
-            }
-            if (string.IsNullOrEmpty(txtDescripcion.Text))
-            {
-                errorProvider1.SetError(txtDescripcion, "La descripción no puede ir vacía");
-                blnValida = false;
-            }
-            else
-            {
-                blnValida = true;
-                errorProvider1.Clear();
-            }
-            if (string.IsNullOrEmpty(txtMenudeo.Text))
-            {
-                errorProvider1.SetError(txtMenudeo, "El precio de menudeo no puede ir vacío");
-                blnValida = false;
-            }
-            else
-            {
-                blnValida = true;
-                errorProvider1.Clear();
-            }
-            if (string.IsNullOrEmpty(txtMayoreo.Text))
-            {
-                errorProvider1.SetError(txtMayoreo, "El precio de mayoreo no puede ir vacío");
-                blnValida = false;
-            }
-            else
-            {
-                blnValida = true;
-                errorProvider1.Clear();
-            }
-            if (string.IsNullOrEmpty(txtExistencias.Text))
-            {
-                errorProvider1.SetError(txtExistencias, "El campo de existencias no puede ir vacío");
-                blnValida = false;
-            }
-            else
-            {
-                blnValida = true;
-                errorProvider1.Clear();
-            }
-            if (strEditarNuevo == "N" && blnValida == true)
+            Boolean validaAceptar = validacion();
+            if (strEditarNuevo == "N" && validaAceptar == true)
             {
                 guardar();
                 gbEditarNuevo.Visible = false;
             }
-            else if (strEditarNuevo == "E" && blnValida == true)
+            else if (strEditarNuevo == "E" && validaAceptar == true)
             {
                 editarProducto();
                 gbEditarNuevo.Visible = false;
             }
+        }
+
+        private Boolean validacion()
+        {
+            double doble = 1.0;
+            int entero = 1;
+            bool blnMenudeo = double.TryParse(txtMenudeo.Text, out doble);
+            bool blnMayoreo = double.TryParse(txtMayoreo.Text, out doble);
+            bool blnExistencias = int.TryParse(txtExistencias.Text, out entero);
+            //Id
+            if (string.IsNullOrEmpty(txtID.Text))
+                epID.SetError(txtID, "El ID no puede ir vacío");
+            else
+                epID.Clear();
+            //Nombre
+            if (string.IsNullOrEmpty(txtNombre.Text))
+                epNombre.SetError(txtNombre, "El Nombre no puede ir vacío");
+            else
+                epNombre.Clear();
+            //Tipo
+            if (string.IsNullOrEmpty(txtTipo.Text))
+                epTipo.SetError(txtTipo, "El tipo de producto no puede ir vacío");
+            else
+                epTipo.Clear();
+            //Descripción
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+                epDescripcion.SetError(txtDescripcion, "La descripción no puede ir vacía");
+            else
+                epDescripcion.Clear();
+            //Menudeo
+            if (string.IsNullOrEmpty(txtMenudeo.Text))
+                epMenudeo.SetError(txtMenudeo, "El precio de menudeo no puede ir vacío");
+            else if(blnMenudeo==false)
+                epMenudeo.SetError(txtMenudeo, "El precio de menudeo debe ser un número");
+            else
+                epMenudeo.Clear();
+            //Mayoreo
+            if (string.IsNullOrEmpty(txtMayoreo.Text))
+                epMayoreo.SetError(txtMayoreo, "El precio de mayoreo no puede ir vacío");
+            else if(blnMayoreo==false)
+                epMayoreo.SetError(txtMayoreo, "El precio de mayoreo debe ser un número entero");
+            else
+                epMayoreo.Clear();
+            //Existencias
+            if (string.IsNullOrEmpty(txtExistencias.Text))
+                epExistencias.SetError(txtExistencias, "El campo de existencias no puede ir vacío");
+            else if(blnExistencias==false)
+                epExistencias.SetError(txtExistencias, "El campo de existencias debe ser un número");
+            else
+                epExistencias.Clear();
+            if (string.IsNullOrEmpty(txtID.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtTipo.Text) && string.IsNullOrEmpty(txtMenudeo.Text) || string.IsNullOrEmpty(txtMayoreo.Text) || string.IsNullOrEmpty(txtExistencias.Text)||blnMenudeo==false||blnMayoreo==false||blnExistencias==false)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void limpiarErrorProvider()
+        {
+            epID.Clear();
+            epNombre.Clear();
+            epDescripcion.Clear();
+            epTipo.Clear();
+            epMenudeo.Clear();
+            epMayoreo.Clear();
+            epExistencias.Clear();
         }
 
         private void eliminarProducto()
@@ -266,18 +268,18 @@ namespace Ferreteria
             eliminarProducto();
         }
 
-        private void textBox_Validating(object sender, CancelEventArgs e)
-        {
-            TextBox currenttb = (TextBox)sender;
-                if (currenttb.Text == "") { 
-                    MessageBox.Show(string.Format("El campo {0} está vacío", currenttb.Name.Substring(3)));
-                    e.Cancel = true;
-            }
-            else
-            {
-                e.Cancel = false;
-            }
-        }
+        //private void textBox_Validating(object sender, CancelEventArgs e)
+        //{
+        //    TextBox currenttb = (TextBox)sender;
+        //        if (currenttb.Text == "") { 
+        //            MessageBox.Show(string.Format("El campo {0} está vacío", currenttb.Name.Substring(3)));
+        //            e.Cancel = true;
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = false;
+        //    }
+        //}
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
