@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Ferreteria
@@ -51,7 +47,6 @@ namespace Ferreteria
 
         private void dgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // MessageBox.Show(dgProductos.SelectedRows.ToString(), "Producto seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void llenarEditar()
@@ -77,8 +72,6 @@ namespace Ferreteria
 
         private void NuevoProducto()
         {
-            //btnNuevo.Enabled = false;
-            //btnEditar.Enabled = false;
             txtID.Enabled = true;
             txtID.Text = string.Empty;
             txtNombre.Text = string.Empty;
@@ -109,6 +102,7 @@ namespace Ferreteria
             txtExistencias.Text = string.Empty;
             gbEditarNuevo.Visible = false;
             strEditarNuevo = "";
+            errorProvider1.Clear();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -128,6 +122,7 @@ namespace Ferreteria
                 command.ExecuteNonQuery();
                 cnon.Close();
                 MessageBox.Show("Nuevo producto agregado", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtBuscar.Text = string.Empty;
                 this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
             }
              catch (Exception exc)
@@ -148,6 +143,7 @@ namespace Ferreteria
                 command.ExecuteNonQuery();
                 cnon.Close();
                 MessageBox.Show("El producto con ID " + txtID.Text + " ha sido editado", "Producto editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtBuscar.Text = string.Empty;
                 this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
             }
             catch (Exception exc)
@@ -158,13 +154,84 @@ namespace Ferreteria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (strEditarNuevo == "N")
+            Boolean blnValida = false;
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                errorProvider1.SetError(txtID, "El ID no puede ir vacío");
+                blnValida = false;
+            }
+            else
+                blnValida = true;
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorProvider1.SetError(txtNombre, "El nombre no puede ir vacío");
+                blnValida = false;
+            }
+            else
+            {
+                blnValida = true;
+                errorProvider1.Clear();
+            }
+            if (string.IsNullOrEmpty(txtTipo.Text))
+            {
+                errorProvider1.SetError(txtTipo, "El tipo no puede ir vacío");
+                blnValida = false;
+            }
+            else
+            {
+                blnValida = true;
+                errorProvider1.Clear();
+            }
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                errorProvider1.SetError(txtDescripcion, "La descripción no puede ir vacía");
+                blnValida = false;
+            }
+            else
+            {
+                blnValida = true;
+                errorProvider1.Clear();
+            }
+            if (string.IsNullOrEmpty(txtMenudeo.Text))
+            {
+                errorProvider1.SetError(txtMenudeo, "El precio de menudeo no puede ir vacío");
+                blnValida = false;
+            }
+            else
+            {
+                blnValida = true;
+                errorProvider1.Clear();
+            }
+            if (string.IsNullOrEmpty(txtMayoreo.Text))
+            {
+                errorProvider1.SetError(txtMayoreo, "El precio de mayoreo no puede ir vacío");
+                blnValida = false;
+            }
+            else
+            {
+                blnValida = true;
+                errorProvider1.Clear();
+            }
+            if (string.IsNullOrEmpty(txtExistencias.Text))
+            {
+                errorProvider1.SetError(txtExistencias, "El campo de existencias no puede ir vacío");
+                blnValida = false;
+            }
+            else
+            {
+                blnValida = true;
+                errorProvider1.Clear();
+            }
+            if (strEditarNuevo == "N" && blnValida == true)
+            {
                 guardar();
-            else if (strEditarNuevo == "E")
+                gbEditarNuevo.Visible = false;
+            }
+            else if (strEditarNuevo == "E" && blnValida == true)
+            {
                 editarProducto();
-            gbEditarNuevo.Visible = false;
-            //btnNuevo.Enabled = true;
-            //btnEditar.Enabled = true;
+                gbEditarNuevo.Visible = false;
+            }
         }
 
         private void eliminarProducto()
@@ -183,6 +250,7 @@ namespace Ferreteria
                     command.ExecuteNonQuery();
                     cnon.Close();
                     MessageBox.Show("El producto con ID " + dgProductos.CurrentRow.Cells[0].Value.ToString() + " ha sido eliminado", "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtBuscar.Text = string.Empty;
                     this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
 
                 }
@@ -196,6 +264,19 @@ namespace Ferreteria
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             eliminarProducto();
+        }
+
+        private void textBox_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox currenttb = (TextBox)sender;
+                if (currenttb.Text == "") { 
+                    MessageBox.Show(string.Format("El campo {0} está vacío", currenttb.Name.Substring(3)));
+                    e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

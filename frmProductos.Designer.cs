@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.lblProductos = new System.Windows.Forms.Label();
             this.dgProductos = new System.Windows.Forms.DataGridView();
             this.iDPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,10 +73,12 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSet)).BeginInit();
             this.gbEditarNuevo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductos
@@ -262,14 +265,14 @@
             this.gbEditarNuevo.Controls.Add(this.txtID);
             this.gbEditarNuevo.Location = new System.Drawing.Point(15, 450);
             this.gbEditarNuevo.Name = "gbEditarNuevo";
-            this.gbEditarNuevo.Size = new System.Drawing.Size(547, 172);
+            this.gbEditarNuevo.Size = new System.Drawing.Size(589, 172);
             this.gbEditarNuevo.TabIndex = 5;
             this.gbEditarNuevo.TabStop = false;
             this.gbEditarNuevo.Visible = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(456, 131);
+            this.btnCancelar.Location = new System.Drawing.Point(478, 131);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 15;
@@ -279,7 +282,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(375, 131);
+            this.btnAceptar.Location = new System.Drawing.Point(397, 131);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 14;
@@ -290,7 +293,7 @@
             // lblExistencias
             // 
             this.lblExistencias.AutoSize = true;
-            this.lblExistencias.Location = new System.Drawing.Point(390, 69);
+            this.lblExistencias.Location = new System.Drawing.Point(412, 69);
             this.lblExistencias.Name = "lblExistencias";
             this.lblExistencias.Size = new System.Drawing.Size(60, 13);
             this.lblExistencias.TabIndex = 13;
@@ -299,7 +302,7 @@
             // lblMayoreo
             // 
             this.lblMayoreo.AutoSize = true;
-            this.lblMayoreo.Location = new System.Drawing.Point(370, 43);
+            this.lblMayoreo.Location = new System.Drawing.Point(392, 43);
             this.lblMayoreo.Name = "lblMayoreo";
             this.lblMayoreo.Size = new System.Drawing.Size(80, 13);
             this.lblMayoreo.TabIndex = 12;
@@ -308,7 +311,7 @@
             // lblMenudeo
             // 
             this.lblMenudeo.AutoSize = true;
-            this.lblMenudeo.Location = new System.Drawing.Point(371, 17);
+            this.lblMenudeo.Location = new System.Drawing.Point(393, 17);
             this.lblMenudeo.Name = "lblMenudeo";
             this.lblMenudeo.Size = new System.Drawing.Size(84, 13);
             this.lblMenudeo.TabIndex = 11;
@@ -352,21 +355,21 @@
             // 
             // txtExistencias
             // 
-            this.txtExistencias.Location = new System.Drawing.Point(456, 66);
+            this.txtExistencias.Location = new System.Drawing.Point(478, 66);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(63, 20);
             this.txtExistencias.TabIndex = 6;
             // 
             // txtMayoreo
             // 
-            this.txtMayoreo.Location = new System.Drawing.Point(456, 40);
+            this.txtMayoreo.Location = new System.Drawing.Point(478, 40);
             this.txtMayoreo.Name = "txtMayoreo";
             this.txtMayoreo.Size = new System.Drawing.Size(63, 20);
             this.txtMayoreo.TabIndex = 5;
             // 
             // txtMenudeo
             // 
-            this.txtMenudeo.Location = new System.Drawing.Point(456, 14);
+            this.txtMenudeo.Location = new System.Drawing.Point(478, 14);
             this.txtMenudeo.Name = "txtMenudeo";
             this.txtMenudeo.Size = new System.Drawing.Size(63, 20);
             this.txtMenudeo.TabIndex = 4;
@@ -452,6 +455,12 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            // 
             // frmProductos
             // 
             this.AcceptButton = this.btnAceptar;
@@ -481,6 +490,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSet)).EndInit();
             this.gbEditarNuevo.ResumeLayout(false);
             this.gbEditarNuevo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,5 +541,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORASIGNADODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORDOSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORTRESDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
