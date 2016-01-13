@@ -44,9 +44,8 @@ namespace Ferreteria
                     }
                     else
                         MessageBox.Show("Nombre de usuario o contraseña incorrectos", "Inicio de sesión fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    con.Close();
                 }
-
-                
             }
             catch (Exception exc)
             {

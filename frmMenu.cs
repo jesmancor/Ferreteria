@@ -44,6 +44,13 @@ namespace Ferreteria
             this.Hide();
         }
 
+        private void mostrarUsuarios()
+        {
+            frmUsuarios frm = new frmUsuarios();
+            frm.Show();
+            this.Hide();
+        }
+
         private void hacerVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarVentas();
@@ -62,6 +69,11 @@ namespace Ferreteria
         private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarReporteVentas();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarUsuarios();
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
@@ -88,6 +100,9 @@ namespace Ferreteria
                 case Keys.F3:
                     mostrarReporteVentas();
                     return true;
+                case Keys.F4:
+                    mostrarUsuarios();
+                    return true;                
                 //case Keys.Escape:
                 //    cerrarSesion();
                 //    return true;

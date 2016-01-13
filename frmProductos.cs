@@ -139,7 +139,7 @@ namespace Ferreteria
                 OleDbConnection cnon = new OleDbConnection();
                 cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
                 OleDbCommand command = new OleDbCommand();
-                command.CommandText = "UPDATE PRODUCTOS SET NOMBRE_PRODUCTO = '" + txtNombre.Text.ToUpper() + "', TIPO_PRODUCTO = '"+txtTipo.Text.ToUpper()+"', DESCRIPCIÓN_PRODUCTO = '" + txtDescripcion.Text.ToUpper() + "', PRECIO_MENUDEO = " + txtMenudeo.Text + ", PRECIO_MAYOREO = " + txtMayoreo.Text + ", EXISTENCIAS = "+txtExistencias.Text+" WHERE ID_PRODUCTO = " + txtID.Text;
+                command.CommandText = "UPDATE PRODUCTOS SET NOMBRE_PRODUCTO = '" + txtNombre.Text.ToUpper() + "', TIPO_PRODUCTO = '"+txtTipo.Text.ToUpper()+"', DESCRIPCIÓN_PRODUCTO = '" + txtDescripcion.Text.ToUpper() + "', PRECIO_MENUDEO = " + txtMenudeo.Text + ", PRECIO_MAYOREO = " + txtMayoreo.Text + ", EXISTENCIAS = "+txtExistencias.Text+" WHERE ID_PRODUCTO = '" + txtID.Text+"'";
                 cnon.Open();
                 command.Connection = cnon;
                 command.ExecuteNonQuery();
@@ -218,9 +218,7 @@ namespace Ferreteria
             else
                 epExistencias.Clear();
             if (string.IsNullOrEmpty(txtID.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtTipo.Text) && string.IsNullOrEmpty(txtMenudeo.Text) || string.IsNullOrEmpty(txtMayoreo.Text) || string.IsNullOrEmpty(txtExistencias.Text)||blnMenudeo==false||blnMayoreo==false||blnExistencias==false)
-            {
                 return false;
-            }
             else
                 return true;
         }

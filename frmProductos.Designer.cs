@@ -275,6 +275,7 @@
             this.gbEditarNuevo.Controls.Add(this.txtTipo);
             this.gbEditarNuevo.Controls.Add(this.txtNombre);
             this.gbEditarNuevo.Controls.Add(this.txtID);
+            this.gbEditarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEditarNuevo.Location = new System.Drawing.Point(15, 450);
             this.gbEditarNuevo.Name = "gbEditarNuevo";
             this.gbEditarNuevo.Size = new System.Drawing.Size(589, 172);
@@ -388,6 +389,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcion.Location = new System.Drawing.Point(102, 97);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -396,6 +398,7 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTipo.Location = new System.Drawing.Point(102, 70);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(252, 20);
@@ -403,6 +406,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(102, 44);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(252, 20);

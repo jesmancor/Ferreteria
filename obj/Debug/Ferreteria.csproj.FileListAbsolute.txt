@@ -28,3 +28,4 @@ C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmVent
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.Properties.Resources.resources
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csproj.GenerateResource.Cache
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\ferreteria.accdb
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmUsuarios.resources
