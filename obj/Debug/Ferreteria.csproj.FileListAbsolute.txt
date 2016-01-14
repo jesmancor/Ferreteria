@@ -1,17 +1,3 @@
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.exe.config
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.exe
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.pdb
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csprojResolveAssemblyReference.cache
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmLogin.resources
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.Properties.Resources.resources
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csproj.GenerateResource.Cache
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.exe
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.pdb
-c:\users\chuy\documents\visual studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmMenu.resources
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmVentas.resources
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmProductos.resources
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmReporteVentas.resources
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmAyuda.resources
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\bin\Debug\Ferreteria.exe.config
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.exe
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.pdb
@@ -28,4 +14,17 @@ C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmVent
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.Properties.Resources.resources
 C:\Users\Eduardo\Google Drive\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csproj.GenerateResource.Cache
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\ferreteria.accdb
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.exe.config
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.exe
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.pdb
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmLogin.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmAyuda.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmMenu.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmProductos.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmReporteVentas.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmUsuarios.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmVentas.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.Properties.Resources.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csproj.GenerateResource.Cache
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.exe
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.pdb

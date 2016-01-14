@@ -30,24 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblProductos = new System.Windows.Forms.Label();
             this.dgProductos = new System.Windows.Forms.DataGridView();
-            this.iDPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMBREPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tIPOPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRECIOMENUDEODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRECIOMAYOREODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCUENTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eXISTENCIASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mINIMODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAXIMODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEORDENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pEDIDODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eSTACIONALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROVEEDORASIGNADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROVEEDORDOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROVEEDORTRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRODUCTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ferreteriaDataSet = new Ferreteria.ferreteriaDataSet();
             this.gbEditarNuevo = new System.Windows.Forms.GroupBox();
@@ -69,7 +56,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.pRODUCTOSTableAdapter = new Ferreteria.ferreteriaDataSetTableAdapters.PRODUCTOSTableAdapter();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -80,6 +66,23 @@
             this.epMenudeo = new System.Windows.Forms.ErrorProvider(this.components);
             this.epMayoreo = new System.Windows.Forms.ErrorProvider(this.components);
             this.epExistencias = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pRODUCTOSTableAdapter = new Ferreteria.ferreteriaDataSetTableAdapters.PRODUCTOSTableAdapter();
+            this.iDPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOMBREPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tIPOPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRECIOMENUDEODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRECIOMAYOREODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCUENTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eXISTENCIASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mINIMODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAXIMODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEORDENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pEDIDODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eSTACIONALIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pROVEEDORASIGNADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pROVEEDORDOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pROVEEDORTRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSet)).BeginInit();
@@ -134,118 +137,6 @@
             this.dgProductos.Size = new System.Drawing.Size(1335, 262);
             this.dgProductos.TabIndex = 1;
             this.dgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductos_CellContentClick);
-            // 
-            // iDPRODUCTODataGridViewTextBoxColumn
-            // 
-            this.iDPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "ID_PRODUCTO";
-            this.iDPRODUCTODataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDPRODUCTODataGridViewTextBoxColumn.Name = "iDPRODUCTODataGridViewTextBoxColumn";
-            this.iDPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOMBREPRODUCTODataGridViewTextBoxColumn
-            // 
-            this.nOMBREPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "NOMBRE_PRODUCTO";
-            this.nOMBREPRODUCTODataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nOMBREPRODUCTODataGridViewTextBoxColumn.Name = "nOMBREPRODUCTODataGridViewTextBoxColumn";
-            this.nOMBREPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tIPOPRODUCTODataGridViewTextBoxColumn
-            // 
-            this.tIPOPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "TIPO_PRODUCTO";
-            this.tIPOPRODUCTODataGridViewTextBoxColumn.HeaderText = "Tipo";
-            this.tIPOPRODUCTODataGridViewTextBoxColumn.Name = "tIPOPRODUCTODataGridViewTextBoxColumn";
-            this.tIPOPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn
-            // 
-            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCIÓN_PRODUCTO";
-            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.HeaderText = "Descripción";
-            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.Name = "dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn";
-            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pRECIOMENUDEODataGridViewTextBoxColumn
-            // 
-            this.pRECIOMENUDEODataGridViewTextBoxColumn.DataPropertyName = "PRECIO_MENUDEO";
-            this.pRECIOMENUDEODataGridViewTextBoxColumn.HeaderText = "Precio de menudeo";
-            this.pRECIOMENUDEODataGridViewTextBoxColumn.Name = "pRECIOMENUDEODataGridViewTextBoxColumn";
-            this.pRECIOMENUDEODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pRECIOMAYOREODataGridViewTextBoxColumn
-            // 
-            this.pRECIOMAYOREODataGridViewTextBoxColumn.DataPropertyName = "PRECIO_MAYOREO";
-            this.pRECIOMAYOREODataGridViewTextBoxColumn.HeaderText = "Precio de mayoreo";
-            this.pRECIOMAYOREODataGridViewTextBoxColumn.Name = "pRECIOMAYOREODataGridViewTextBoxColumn";
-            this.pRECIOMAYOREODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dESCUENTODataGridViewTextBoxColumn
-            // 
-            this.dESCUENTODataGridViewTextBoxColumn.DataPropertyName = "DESCUENTO";
-            this.dESCUENTODataGridViewTextBoxColumn.HeaderText = "Descuento";
-            this.dESCUENTODataGridViewTextBoxColumn.Name = "dESCUENTODataGridViewTextBoxColumn";
-            this.dESCUENTODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eXISTENCIASDataGridViewTextBoxColumn
-            // 
-            this.eXISTENCIASDataGridViewTextBoxColumn.DataPropertyName = "EXISTENCIAS";
-            this.eXISTENCIASDataGridViewTextBoxColumn.HeaderText = "Existencias";
-            this.eXISTENCIASDataGridViewTextBoxColumn.Name = "eXISTENCIASDataGridViewTextBoxColumn";
-            this.eXISTENCIASDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mINIMODataGridViewTextBoxColumn
-            // 
-            this.mINIMODataGridViewTextBoxColumn.DataPropertyName = "MINIMO";
-            this.mINIMODataGridViewTextBoxColumn.HeaderText = "Mínimo";
-            this.mINIMODataGridViewTextBoxColumn.Name = "mINIMODataGridViewTextBoxColumn";
-            this.mINIMODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mAXIMODataGridViewTextBoxColumn
-            // 
-            this.mAXIMODataGridViewTextBoxColumn.DataPropertyName = "MAXIMO";
-            this.mAXIMODataGridViewTextBoxColumn.HeaderText = "Máximo";
-            this.mAXIMODataGridViewTextBoxColumn.Name = "mAXIMODataGridViewTextBoxColumn";
-            this.mAXIMODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rEORDENDataGridViewTextBoxColumn
-            // 
-            this.rEORDENDataGridViewTextBoxColumn.DataPropertyName = "REORDEN";
-            this.rEORDENDataGridViewTextBoxColumn.HeaderText = "Reorden";
-            this.rEORDENDataGridViewTextBoxColumn.Name = "rEORDENDataGridViewTextBoxColumn";
-            this.rEORDENDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pEDIDODataGridViewTextBoxColumn
-            // 
-            this.pEDIDODataGridViewTextBoxColumn.DataPropertyName = "PEDIDO";
-            this.pEDIDODataGridViewTextBoxColumn.HeaderText = "Pedido";
-            this.pEDIDODataGridViewTextBoxColumn.Name = "pEDIDODataGridViewTextBoxColumn";
-            this.pEDIDODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eSTACIONALIDADDataGridViewTextBoxColumn
-            // 
-            this.eSTACIONALIDADDataGridViewTextBoxColumn.DataPropertyName = "ESTACIONALIDAD";
-            this.eSTACIONALIDADDataGridViewTextBoxColumn.HeaderText = "Estacionalidad";
-            this.eSTACIONALIDADDataGridViewTextBoxColumn.Name = "eSTACIONALIDADDataGridViewTextBoxColumn";
-            this.eSTACIONALIDADDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pROVEEDORASIGNADODataGridViewTextBoxColumn
-            // 
-            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.DataPropertyName = "PROVEEDOR_ASIGNADO";
-            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.HeaderText = "Proveedor asignado";
-            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.Name = "pROVEEDORASIGNADODataGridViewTextBoxColumn";
-            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pROVEEDORDOSDataGridViewTextBoxColumn
-            // 
-            this.pROVEEDORDOSDataGridViewTextBoxColumn.DataPropertyName = "PROVEEDOR_DOS";
-            this.pROVEEDORDOSDataGridViewTextBoxColumn.HeaderText = "Proveedor 2";
-            this.pROVEEDORDOSDataGridViewTextBoxColumn.Name = "pROVEEDORDOSDataGridViewTextBoxColumn";
-            this.pROVEEDORDOSDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pROVEEDORTRESDataGridViewTextBoxColumn
-            // 
-            this.pROVEEDORTRESDataGridViewTextBoxColumn.DataPropertyName = "PROVEEDOR_TRES";
-            this.pROVEEDORTRESDataGridViewTextBoxColumn.HeaderText = "Proveedor 3";
-            this.pROVEEDORTRESDataGridViewTextBoxColumn.Name = "pROVEEDORTRESDataGridViewTextBoxColumn";
-            this.pROVEEDORTRESDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pRODUCTOSBindingSource
             // 
@@ -437,10 +328,6 @@
             this.lblBuscar.TabIndex = 10;
             this.lblBuscar.Text = "Buscar por descripción:";
             // 
-            // pRODUCTOSTableAdapter
-            // 
-            this.pRODUCTOSTableAdapter.ClearBeforeFill = true;
-            // 
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(97, 418);
@@ -513,11 +400,134 @@
             this.epExistencias.ContainerControl = this;
             this.epExistencias.Icon = ((System.Drawing.Icon)(resources.GetObject("epExistencias.Icon")));
             // 
+            // pRODUCTOSTableAdapter
+            // 
+            this.pRODUCTOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDPRODUCTODataGridViewTextBoxColumn
+            // 
+            this.iDPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "ID_PRODUCTO";
+            this.iDPRODUCTODataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDPRODUCTODataGridViewTextBoxColumn.Name = "iDPRODUCTODataGridViewTextBoxColumn";
+            this.iDPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOMBREPRODUCTODataGridViewTextBoxColumn
+            // 
+            this.nOMBREPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "NOMBRE_PRODUCTO";
+            this.nOMBREPRODUCTODataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nOMBREPRODUCTODataGridViewTextBoxColumn.Name = "nOMBREPRODUCTODataGridViewTextBoxColumn";
+            this.nOMBREPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tIPOPRODUCTODataGridViewTextBoxColumn
+            // 
+            this.tIPOPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "TIPO_PRODUCTO";
+            this.tIPOPRODUCTODataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.tIPOPRODUCTODataGridViewTextBoxColumn.Name = "tIPOPRODUCTODataGridViewTextBoxColumn";
+            this.tIPOPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn
+            // 
+            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.DataPropertyName = "DESCRIPCIÓN_PRODUCTO";
+            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.Name = "dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn";
+            this.dESCRIPCIÓNPRODUCTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRECIOMENUDEODataGridViewTextBoxColumn
+            // 
+            this.pRECIOMENUDEODataGridViewTextBoxColumn.DataPropertyName = "PRECIO_MENUDEO";
+            dataGridViewCellStyle1.Format = "$0.00";
+            dataGridViewCellStyle1.NullValue = null;
+            this.pRECIOMENUDEODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.pRECIOMENUDEODataGridViewTextBoxColumn.HeaderText = "Precio de menudeo";
+            this.pRECIOMENUDEODataGridViewTextBoxColumn.Name = "pRECIOMENUDEODataGridViewTextBoxColumn";
+            this.pRECIOMENUDEODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRECIOMAYOREODataGridViewTextBoxColumn
+            // 
+            this.pRECIOMAYOREODataGridViewTextBoxColumn.DataPropertyName = "PRECIO_MAYOREO";
+            dataGridViewCellStyle2.Format = "$0.00";
+            this.pRECIOMAYOREODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pRECIOMAYOREODataGridViewTextBoxColumn.HeaderText = "Precio de mayoreo";
+            this.pRECIOMAYOREODataGridViewTextBoxColumn.Name = "pRECIOMAYOREODataGridViewTextBoxColumn";
+            this.pRECIOMAYOREODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dESCUENTODataGridViewTextBoxColumn
+            // 
+            this.dESCUENTODataGridViewTextBoxColumn.DataPropertyName = "DESCUENTO";
+            dataGridViewCellStyle3.Format = "$0.00";
+            this.dESCUENTODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dESCUENTODataGridViewTextBoxColumn.HeaderText = "Descuento";
+            this.dESCUENTODataGridViewTextBoxColumn.Name = "dESCUENTODataGridViewTextBoxColumn";
+            this.dESCUENTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eXISTENCIASDataGridViewTextBoxColumn
+            // 
+            this.eXISTENCIASDataGridViewTextBoxColumn.DataPropertyName = "EXISTENCIAS";
+            this.eXISTENCIASDataGridViewTextBoxColumn.HeaderText = "Existencias";
+            this.eXISTENCIASDataGridViewTextBoxColumn.Name = "eXISTENCIASDataGridViewTextBoxColumn";
+            this.eXISTENCIASDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mINIMODataGridViewTextBoxColumn
+            // 
+            this.mINIMODataGridViewTextBoxColumn.DataPropertyName = "MINIMO";
+            this.mINIMODataGridViewTextBoxColumn.HeaderText = "Mínimo";
+            this.mINIMODataGridViewTextBoxColumn.Name = "mINIMODataGridViewTextBoxColumn";
+            this.mINIMODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mAXIMODataGridViewTextBoxColumn
+            // 
+            this.mAXIMODataGridViewTextBoxColumn.DataPropertyName = "MAXIMO";
+            this.mAXIMODataGridViewTextBoxColumn.HeaderText = "Máximo";
+            this.mAXIMODataGridViewTextBoxColumn.Name = "mAXIMODataGridViewTextBoxColumn";
+            this.mAXIMODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rEORDENDataGridViewTextBoxColumn
+            // 
+            this.rEORDENDataGridViewTextBoxColumn.DataPropertyName = "REORDEN";
+            this.rEORDENDataGridViewTextBoxColumn.HeaderText = "Reorden";
+            this.rEORDENDataGridViewTextBoxColumn.Name = "rEORDENDataGridViewTextBoxColumn";
+            this.rEORDENDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pEDIDODataGridViewTextBoxColumn
+            // 
+            this.pEDIDODataGridViewTextBoxColumn.DataPropertyName = "PEDIDO";
+            this.pEDIDODataGridViewTextBoxColumn.HeaderText = "Pedido";
+            this.pEDIDODataGridViewTextBoxColumn.Name = "pEDIDODataGridViewTextBoxColumn";
+            this.pEDIDODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eSTACIONALIDADDataGridViewTextBoxColumn
+            // 
+            this.eSTACIONALIDADDataGridViewTextBoxColumn.DataPropertyName = "ESTACIONALIDAD";
+            this.eSTACIONALIDADDataGridViewTextBoxColumn.HeaderText = "Estacionalidad";
+            this.eSTACIONALIDADDataGridViewTextBoxColumn.Name = "eSTACIONALIDADDataGridViewTextBoxColumn";
+            this.eSTACIONALIDADDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pROVEEDORASIGNADODataGridViewTextBoxColumn
+            // 
+            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.DataPropertyName = "PROVEEDOR_ASIGNADO";
+            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.HeaderText = "Proveedor asignado";
+            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.Name = "pROVEEDORASIGNADODataGridViewTextBoxColumn";
+            this.pROVEEDORASIGNADODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pROVEEDORDOSDataGridViewTextBoxColumn
+            // 
+            this.pROVEEDORDOSDataGridViewTextBoxColumn.DataPropertyName = "PROVEEDOR_DOS";
+            this.pROVEEDORDOSDataGridViewTextBoxColumn.HeaderText = "Segundo proveedor asignado";
+            this.pROVEEDORDOSDataGridViewTextBoxColumn.Name = "pROVEEDORDOSDataGridViewTextBoxColumn";
+            this.pROVEEDORDOSDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pROVEEDORTRESDataGridViewTextBoxColumn
+            // 
+            this.pROVEEDORTRESDataGridViewTextBoxColumn.DataPropertyName = "PROVEEDOR_TRES";
+            this.pROVEEDORTRESDataGridViewTextBoxColumn.HeaderText = "Tercer proveedor asignado";
+            this.pROVEEDORTRESDataGridViewTextBoxColumn.Name = "pROVEEDORTRESDataGridViewTextBoxColumn";
+            this.pROVEEDORTRESDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmProductos
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1362, 646);
+            this.ClientSize = new System.Drawing.Size(1354, 646);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEditar);
@@ -561,9 +571,6 @@
         private System.Windows.Forms.GroupBox gbEditarNuevo;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblBuscar;
-        private ferreteriaDataSet ferreteriaDataSet;
-        private System.Windows.Forms.BindingSource pRODUCTOSBindingSource;
-        private ferreteriaDataSetTableAdapters.PRODUCTOSTableAdapter pRODUCTOSTableAdapter;
         private System.Windows.Forms.Label lblExistencias;
         private System.Windows.Forms.Label lblMayoreo;
         private System.Windows.Forms.Label lblMenudeo;
@@ -583,6 +590,16 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.ErrorProvider epID;
+        private System.Windows.Forms.ErrorProvider epNombre;
+        private System.Windows.Forms.ErrorProvider epTipo;
+        private System.Windows.Forms.ErrorProvider epDescripcion;
+        private System.Windows.Forms.ErrorProvider epMenudeo;
+        private System.Windows.Forms.ErrorProvider epMayoreo;
+        private System.Windows.Forms.ErrorProvider epExistencias;
+        private ferreteriaDataSet ferreteriaDataSet;
+        private System.Windows.Forms.BindingSource pRODUCTOSBindingSource;
+        private ferreteriaDataSetTableAdapters.PRODUCTOSTableAdapter pRODUCTOSTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPRODUCTODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMBREPRODUCTODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tIPOPRODUCTODataGridViewTextBoxColumn;
@@ -599,12 +616,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORASIGNADODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORDOSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pROVEEDORTRESDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider epID;
-        private System.Windows.Forms.ErrorProvider epNombre;
-        private System.Windows.Forms.ErrorProvider epTipo;
-        private System.Windows.Forms.ErrorProvider epDescripcion;
-        private System.Windows.Forms.ErrorProvider epMenudeo;
-        private System.Windows.Forms.ErrorProvider epMayoreo;
-        private System.Windows.Forms.ErrorProvider epExistencias;
     }
 }

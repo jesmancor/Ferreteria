@@ -510,7 +510,7 @@ namespace Ferreteria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PRODUCTOSRow AddPRODUCTOSRow(
-                        int ID_PRODUCTO, 
+                        string ID_PRODUCTO, 
                         string NOMBRE_PRODUCTO, 
                         string TIPO_PRODUCTO, 
                         string DESCRIPCIÓN_PRODUCTO, 
@@ -551,7 +551,7 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PRODUCTOSRow FindByID_PRODUCTO(int ID_PRODUCTO) {
+            public PRODUCTOSRow FindByID_PRODUCTO(string ID_PRODUCTO) {
                 return ((PRODUCTOSRow)(this.Rows.Find(new object[] {
                             ID_PRODUCTO})));
             }
@@ -594,7 +594,7 @@ namespace Ferreteria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnID_PRODUCTO = new global::System.Data.DataColumn("ID_PRODUCTO", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnID_PRODUCTO = new global::System.Data.DataColumn("ID_PRODUCTO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_PRODUCTO);
                 this.columnNOMBRE_PRODUCTO = new global::System.Data.DataColumn("NOMBRE_PRODUCTO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNOMBRE_PRODUCTO);
@@ -630,6 +630,7 @@ namespace Ferreteria {
                                 this.columnID_PRODUCTO}, true));
                 this.columnID_PRODUCTO.AllowDBNull = false;
                 this.columnID_PRODUCTO.Unique = true;
+                this.columnID_PRODUCTO.MaxLength = 12;
                 this.columnNOMBRE_PRODUCTO.MaxLength = 255;
                 this.columnTIPO_PRODUCTO.MaxLength = 255;
                 this.columnDESCRIPCIÓN_PRODUCTO.MaxLength = 255;
@@ -778,9 +779,9 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ID_PRODUCTO {
+            public string ID_PRODUCTO {
                 get {
-                    return ((int)(this[this.tablePRODUCTOS.ID_PRODUCTOColumn]));
+                    return ((string)(this[this.tablePRODUCTOS.ID_PRODUCTOColumn]));
                 }
                 set {
                     this[this.tablePRODUCTOS.ID_PRODUCTOColumn] = value;
@@ -1388,7 +1389,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = @"DELETE FROM `PRODUCTOS` WHERE ((`ID_PRODUCTO` = ?) AND ((? = 1 AND `NOMBRE_PRODUCTO` IS NULL) OR (`NOMBRE_PRODUCTO` = ?)) AND ((? = 1 AND `TIPO_PRODUCTO` IS NULL) OR (`TIPO_PRODUCTO` = ?)) AND ((? = 1 AND `DESCRIPCIÓN_PRODUCTO` IS NULL) OR (`DESCRIPCIÓN_PRODUCTO` = ?)) AND ((? = 1 AND `PRECIO_MENUDEO` IS NULL) OR (`PRECIO_MENUDEO` = ?)) AND ((? = 1 AND `PRECIO_MAYOREO` IS NULL) OR (`PRECIO_MAYOREO` = ?)) AND ((? = 1 AND `DESCUENTO` IS NULL) OR (`DESCUENTO` = ?)) AND ((? = 1 AND `EXISTENCIAS` IS NULL) OR (`EXISTENCIAS` = ?)) AND ((? = 1 AND `MINIMO` IS NULL) OR (`MINIMO` = ?)) AND ((? = 1 AND `MAXIMO` IS NULL) OR (`MAXIMO` = ?)) AND ((? = 1 AND `REORDEN` IS NULL) OR (`REORDEN` = ?)) AND ((? = 1 AND `PEDIDO` IS NULL) OR (`PEDIDO` = ?)) AND ((? = 1 AND `ESTACIONALIDAD` IS NULL) OR (`ESTACIONALIDAD` = ?)) AND ((? = 1 AND `PROVEEDOR_ASIGNADO` IS NULL) OR (`PROVEEDOR_ASIGNADO` = ?)) AND ((? = 1 AND `PROVEEDOR_DOS` IS NULL) OR (`PROVEEDOR_DOS` = ?)) AND ((? = 1 AND `PROVEEDOR_TRES` IS NULL) OR (`PROVEEDOR_TRES` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NOMBRE_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOMBRE_PRODUCTO", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NOMBRE_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOMBRE_PRODUCTO", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TIPO_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIPO_PRODUCTO", global::System.Data.DataRowVersion.Original, true, null));
@@ -1423,7 +1424,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO `PRODUCTOS` (`ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `TIPO_PRODUCTO`, `DESCRIPCIÓN_PRODUCTO`, `PRECIO_MENUDEO`, `PRECIO_MAYOREO`, `DESCUENTO`, `EXISTENCIAS`, `MINIMO`, `MAXIMO`, `REORDEN`, `PEDIDO`, `ESTACIONALIDAD`, `PROVEEDOR_ASIGNADO`, `PROVEEDOR_DOS`, `PROVEEDOR_TRES`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NOMBRE_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOMBRE_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIPO_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIPO_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DESCRIPCIÓN_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DESCRIPCIÓN_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
@@ -1443,7 +1444,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE `PRODUCTOS` SET `ID_PRODUCTO` = ?, `NOMBRE_PRODUCTO` = ?, `TIPO_PRODUCTO` = ?, `DESCRIPCIÓN_PRODUCTO` = ?, `PRECIO_MENUDEO` = ?, `PRECIO_MAYOREO` = ?, `DESCUENTO` = ?, `EXISTENCIAS` = ?, `MINIMO` = ?, `MAXIMO` = ?, `REORDEN` = ?, `PEDIDO` = ?, `ESTACIONALIDAD` = ?, `PROVEEDOR_ASIGNADO` = ?, `PROVEEDOR_DOS` = ?, `PROVEEDOR_TRES` = ? WHERE ((`ID_PRODUCTO` = ?) AND ((? = 1 AND `NOMBRE_PRODUCTO` IS NULL) OR (`NOMBRE_PRODUCTO` = ?)) AND ((? = 1 AND `TIPO_PRODUCTO` IS NULL) OR (`TIPO_PRODUCTO` = ?)) AND ((? = 1 AND `DESCRIPCIÓN_PRODUCTO` IS NULL) OR (`DESCRIPCIÓN_PRODUCTO` = ?)) AND ((? = 1 AND `PRECIO_MENUDEO` IS NULL) OR (`PRECIO_MENUDEO` = ?)) AND ((? = 1 AND `PRECIO_MAYOREO` IS NULL) OR (`PRECIO_MAYOREO` = ?)) AND ((? = 1 AND `DESCUENTO` IS NULL) OR (`DESCUENTO` = ?)) AND ((? = 1 AND `EXISTENCIAS` IS NULL) OR (`EXISTENCIAS` = ?)) AND ((? = 1 AND `MINIMO` IS NULL) OR (`MINIMO` = ?)) AND ((? = 1 AND `MAXIMO` IS NULL) OR (`MAXIMO` = ?)) AND ((? = 1 AND `REORDEN` IS NULL) OR (`REORDEN` = ?)) AND ((? = 1 AND `PEDIDO` IS NULL) OR (`PEDIDO` = ?)) AND ((? = 1 AND `ESTACIONALIDAD` IS NULL) OR (`ESTACIONALIDAD` = ?)) AND ((? = 1 AND `PROVEEDOR_ASIGNADO` IS NULL) OR (`PROVEEDOR_ASIGNADO` = ?)) AND ((? = 1 AND `PROVEEDOR_DOS` IS NULL) OR (`PROVEEDOR_DOS` = ?)) AND ((? = 1 AND `PROVEEDOR_TRES` IS NULL) OR (`PROVEEDOR_TRES` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NOMBRE_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOMBRE_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIPO_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIPO_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DESCRIPCIÓN_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DESCRIPCIÓN_PRODUCTO", global::System.Data.DataRowVersion.Current, false, null));
@@ -1459,7 +1460,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("PROVEEDOR_ASIGNADO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PROVEEDOR_ASIGNADO", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("PROVEEDOR_DOS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PROVEEDOR_DOS", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("PROVEEDOR_TRES", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PROVEEDOR_TRES", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_PRODUCTO", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NOMBRE_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOMBRE_PRODUCTO", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NOMBRE_PRODUCTO", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOMBRE_PRODUCTO", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TIPO_PRODUCTO", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIPO_PRODUCTO", global::System.Data.DataRowVersion.Original, true, null));
@@ -1570,7 +1571,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
-                    int Original_ID_PRODUCTO, 
+                    string Original_ID_PRODUCTO, 
                     string Original_NOMBRE_PRODUCTO, 
                     string Original_TIPO_PRODUCTO, 
                     string Original_DESCRIPCIÓN_PRODUCTO, 
@@ -1586,7 +1587,12 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     string Original_PROVEEDOR_ASIGNADO, 
                     string Original_PROVEEDOR_DOS, 
                     string Original_PROVEEDOR_TRES) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_PRODUCTO));
+            if ((Original_ID_PRODUCTO == null)) {
+                throw new global::System.ArgumentNullException("Original_ID_PRODUCTO");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ID_PRODUCTO));
+            }
             if ((Original_NOMBRE_PRODUCTO == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1728,7 +1734,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int ID_PRODUCTO, 
+                    string ID_PRODUCTO, 
                     string NOMBRE_PRODUCTO, 
                     string TIPO_PRODUCTO, 
                     string DESCRIPCIÓN_PRODUCTO, 
@@ -1744,7 +1750,12 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     string PROVEEDOR_ASIGNADO, 
                     string PROVEEDOR_DOS, 
                     string PROVEEDOR_TRES) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_PRODUCTO));
+            if ((ID_PRODUCTO == null)) {
+                throw new global::System.ArgumentNullException("ID_PRODUCTO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ID_PRODUCTO));
+            }
             if ((NOMBRE_PRODUCTO == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -1856,7 +1867,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int ID_PRODUCTO, 
+                    string ID_PRODUCTO, 
                     string NOMBRE_PRODUCTO, 
                     string TIPO_PRODUCTO, 
                     string DESCRIPCIÓN_PRODUCTO, 
@@ -1872,7 +1883,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     string PROVEEDOR_ASIGNADO, 
                     string PROVEEDOR_DOS, 
                     string PROVEEDOR_TRES, 
-                    int Original_ID_PRODUCTO, 
+                    string Original_ID_PRODUCTO, 
                     string Original_NOMBRE_PRODUCTO, 
                     string Original_TIPO_PRODUCTO, 
                     string Original_DESCRIPCIÓN_PRODUCTO, 
@@ -1888,7 +1899,12 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     string Original_PROVEEDOR_ASIGNADO, 
                     string Original_PROVEEDOR_DOS, 
                     string Original_PROVEEDOR_TRES) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_PRODUCTO));
+            if ((ID_PRODUCTO == null)) {
+                throw new global::System.ArgumentNullException("ID_PRODUCTO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ID_PRODUCTO));
+            }
             if ((NOMBRE_PRODUCTO == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -1979,7 +1995,12 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(PROVEEDOR_TRES));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_ID_PRODUCTO));
+            if ((Original_ID_PRODUCTO == null)) {
+                throw new global::System.ArgumentNullException("Original_ID_PRODUCTO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ID_PRODUCTO));
+            }
             if ((Original_NOMBRE_PRODUCTO == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
@@ -2136,7 +2157,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     string PROVEEDOR_ASIGNADO, 
                     string PROVEEDOR_DOS, 
                     string PROVEEDOR_TRES, 
-                    int Original_ID_PRODUCTO, 
+                    string Original_ID_PRODUCTO, 
                     string Original_NOMBRE_PRODUCTO, 
                     string Original_TIPO_PRODUCTO, 
                     string Original_DESCRIPCIÓN_PRODUCTO, 
