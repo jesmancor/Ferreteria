@@ -302,5 +302,37 @@ namespace Ferreteria
                     return base.ProcessCmdKey(ref msg, keyData);
             }
         }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, "[^0-9]"))
+            {
+                txtID.Text = txtID.Text.Remove(txtID.Text.Length - 1);
+            }
+        }
+
+        private void txtMenudeo_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtMenudeo.Text, "[^0-9]"))
+            {
+                txtMenudeo.Text = txtMenudeo.Text.Remove(txtMenudeo.Text.Length - 1);
+            }
+        }
+
+        private void txtMayoreo_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtMayoreo.Text, "[^0-9]"))
+            {
+                txtMayoreo.Text = txtMayoreo.Text.Remove(txtMayoreo.Text.Length - 1);
+            }
+        }
+
+        private void txtExistencias_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtExistencias.Text, "[^0-9]"))
+            {
+                txtExistencias.Text = txtExistencias.Text.Remove(txtExistencias.Text.Length - 1);
+            }
+        }
     }
 }

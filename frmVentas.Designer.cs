@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbVenta = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
             this.lblVenta = new System.Windows.Forms.Label();
             this.txtIDVenta = new System.Windows.Forms.TextBox();
             this.lblIDVenta = new System.Windows.Forms.Label();
+            this.dgVenta = new System.Windows.Forms.DataGridView();
+            this.NOMBRE_PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbVenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // gbVenta
@@ -43,7 +49,7 @@
             this.gbVenta.Controls.Add(this.lblTotal);
             this.gbVenta.Controls.Add(this.btnVenta);
             this.gbVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVenta.Location = new System.Drawing.Point(327, 67);
+            this.gbVenta.Location = new System.Drawing.Point(15, 211);
             this.gbVenta.Name = "gbVenta";
             this.gbVenta.Size = new System.Drawing.Size(217, 137);
             this.gbVenta.TabIndex = 6;
@@ -71,6 +77,7 @@
             this.btnVenta.TabIndex = 0;
             this.btnVenta.Text = "Realizar venta";
             this.btnVenta.UseVisualStyleBackColor = true;
+            this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click);
             // 
             // lblVenta
             // 
@@ -100,10 +107,41 @@
             this.lblIDVenta.TabIndex = 9;
             this.lblIDVenta.Text = "ID";
             // 
+            // dgVenta
+            // 
+            this.dgVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NOMBRE_PRODUCTO,
+            this.PRECIO,
+            this.CANTIDAD});
+            this.dgVenta.Location = new System.Drawing.Point(291, 67);
+            this.dgVenta.Name = "dgVenta";
+            this.dgVenta.Size = new System.Drawing.Size(386, 298);
+            this.dgVenta.TabIndex = 10;
+            // 
+            // NOMBRE_PRODUCTO
+            // 
+            this.NOMBRE_PRODUCTO.HeaderText = "Nombre del producto";
+            this.NOMBRE_PRODUCTO.Name = "NOMBRE_PRODUCTO";
+            // 
+            // PRECIO
+            // 
+            dataGridViewCellStyle1.Format = "$0.00";
+            dataGridViewCellStyle1.NullValue = null;
+            this.PRECIO.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PRECIO.HeaderText = "Precio";
+            this.PRECIO.Name = "PRECIO";
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.HeaderText = "Cantidad";
+            this.CANTIDAD.Name = "CANTIDAD";
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(852, 420);
+            this.Controls.Add(this.dgVenta);
             this.Controls.Add(this.lblIDVenta);
             this.Controls.Add(this.txtIDVenta);
             this.Controls.Add(this.lblVenta);
@@ -114,8 +152,10 @@
             this.Controls.SetChildIndex(this.lblVenta, 0);
             this.Controls.SetChildIndex(this.txtIDVenta, 0);
             this.Controls.SetChildIndex(this.lblIDVenta, 0);
+            this.Controls.SetChildIndex(this.dgVenta, 0);
             this.gbVenta.ResumeLayout(false);
             this.gbVenta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +169,9 @@
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.TextBox txtIDVenta;
         private System.Windows.Forms.Label lblIDVenta;
+        private System.Windows.Forms.DataGridView dgVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE_PRODUCTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
     }
 }
