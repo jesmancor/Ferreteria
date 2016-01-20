@@ -24,23 +24,39 @@ namespace Ferreteria
             }
             if (txtIDVenta.Text.Length>=12)
             {
+                string strIDVenta = txtIDVenta.Text;
                 try {
                     OleDbConnection cnon = new OleDbConnection();
                     cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand command = new OleDbCommand();
-                    command.CommandText = "SELECT PRECIO_MENUDEO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + txtIDVenta.Text + "'";
+                    OleDbCommand commandNombre = new OleDbCommand();
+                    OleDbCommand commandPrecio = new OleDbCommand();
+                    commandNombre.CommandText= "SELECT NOMBRE_PRODUCTO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
+                    commandPrecio.CommandText = "SELECT PRECIO_MENUDEO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
                     cnon.Open();
-                    command.Connection = cnon;
-                    object precio = command.ExecuteScalar();
+                    commandPrecio.Connection = cnon;
+                    commandNombre.Connection = cnon;
+                    object objPrecio = commandPrecio.ExecuteScalar();
+                    object objNombre = commandNombre.ExecuteScalar();
                     cnon.Close();
-                    this.dgVenta.Rows.Add("", precio,"");
-                    MessageBox.Show("El precio del producto es $"+precio, "12 dígitos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (dgVenta.Rows[0].Cells[0].Value != null)
+                    {
+                        for (int fila = 0; fila < dgVenta.Rows.Count; fila++)
+                          {
+                            string nombreFila = dgVenta.Rows[fila].Cells[0].Value.ToString();
+                            if (nombreFila == objNombre.ToString())
+                                dgVenta.Rows[fila].Cells[2].Value = int.Parse(dgVenta.Rows[fila].Cells[2].Value.ToString())+1;
+                            else
+                                this.dgVenta.Rows.Add(objNombre, objPrecio, 1);                                                              
+                          }                          
+                    }
+                    else
+                        this.dgVenta.Rows.Add(objNombre, objPrecio, 1);    
                     txtIDVenta.Text = string.Empty;
                     btnVenta.Enabled = true;
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Falló la conexión: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error inesperado: " + exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
