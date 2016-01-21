@@ -116,13 +116,16 @@
             this.CANTIDAD});
             this.dgVenta.Location = new System.Drawing.Point(291, 67);
             this.dgVenta.Name = "dgVenta";
-            this.dgVenta.Size = new System.Drawing.Size(386, 298);
+            this.dgVenta.ReadOnly = true;
+            this.dgVenta.Size = new System.Drawing.Size(444, 298);
             this.dgVenta.TabIndex = 10;
             // 
             // NOMBRE_PRODUCTO
             // 
             this.NOMBRE_PRODUCTO.HeaderText = "Nombre del producto";
             this.NOMBRE_PRODUCTO.Name = "NOMBRE_PRODUCTO";
+            this.NOMBRE_PRODUCTO.ReadOnly = true;
+            this.NOMBRE_PRODUCTO.Width = 200;
             // 
             // PRECIO
             // 
@@ -131,11 +134,13 @@
             this.PRECIO.DefaultCellStyle = dataGridViewCellStyle1;
             this.PRECIO.HeaderText = "Precio";
             this.PRECIO.Name = "PRECIO";
+            this.PRECIO.ReadOnly = true;
             // 
             // CANTIDAD
             // 
             this.CANTIDAD.HeaderText = "Cantidad";
             this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
             // 
             // frmVentas
             // 

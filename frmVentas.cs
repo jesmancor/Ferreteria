@@ -16,6 +16,23 @@ namespace Ferreteria
             InitializeComponent();
         }
 
+        private string ingresarCantidad()
+        {
+            using (var form = new frmCantidad())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string valor = form.retornoCantidad;
+                    return valor;
+                }
+                else
+                {
+                    return null;
+                }
+                }
+        }
+
         private void txtIDVenta_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(txtIDVenta.Text, "[^0-9]"))
@@ -38,19 +55,9 @@ namespace Ferreteria
                     object objPrecio = commandPrecio.ExecuteScalar();
                     object objNombre = commandNombre.ExecuteScalar();
                     cnon.Close();
-                    if (dgVenta.Rows[0].Cells[0].Value != null)
-                    {
-                        for (int fila = 0; fila < dgVenta.Rows.Count; fila++)
-                          {
-                            string nombreFila = dgVenta.Rows[fila].Cells[0].Value.ToString();
-                            if (nombreFila == objNombre.ToString())
-                                dgVenta.Rows[fila].Cells[2].Value = int.Parse(dgVenta.Rows[fila].Cells[2].Value.ToString())+1;
-                            else
-                                this.dgVenta.Rows.Add(objNombre, objPrecio, 1);                                                              
-                          }                          
-                    }
-                    else
-                        this.dgVenta.Rows.Add(objNombre, objPrecio, 1);    
+                    string strCantidad = ingresarCantidad();
+                    if (strCantidad!=null && int.Parse(strCantidad)!=0) 
+                        this.dgVenta.Rows.Add(objNombre, objPrecio,strCantidad);    
                     txtIDVenta.Text = string.Empty;
                     btnVenta.Enabled = true;
                 }

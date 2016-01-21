@@ -67,6 +67,12 @@
     <Compile Include="frmAyuda.Designer.cs">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCantidad.Designer.cs">
+      <DependentUpon>frmCantidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCantidad.resx">
+      <DependentUpon>frmCantidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
