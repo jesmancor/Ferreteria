@@ -144,6 +144,7 @@
             this.Controls.Add(this.lblHora);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
             this.Text = "Ferretería y tlapalería \"Los Jilgueros\"";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

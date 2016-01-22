@@ -37,7 +37,8 @@ namespace Ferreteria
         private void restar()
         {
             int intCantidad = int.Parse(txtCantidad.Text);
-            intCantidad--;
+            if (intCantidad>0)
+                intCantidad--;
             txtCantidad.Text = intCantidad.ToString();
         }
 

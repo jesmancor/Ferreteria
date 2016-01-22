@@ -11,6 +11,8 @@ namespace Ferreteria
 {
     public partial class frmVentas : Ferreteria.frmMenu
     {
+        private double doubTotalVenta = 0;
+
         public frmVentas()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace Ferreteria
 
         private void txtIDVenta_TextChanged(object sender, EventArgs e)
         {
+            double doubPrecio = 0;
             if (System.Text.RegularExpressions.Regex.IsMatch(txtIDVenta.Text, "[^0-9]"))
             {
                 txtIDVenta.Text = txtIDVenta.Text.Remove(txtIDVenta.Text.Length - 1);
@@ -43,24 +46,34 @@ namespace Ferreteria
             {
                 string strIDVenta = txtIDVenta.Text;
                 try {
+                    string strCantidad = ingresarCantidad();
                     OleDbConnection cnon = new OleDbConnection();
                     cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
                     OleDbCommand commandNombre = new OleDbCommand();
                     OleDbCommand commandPrecio = new OleDbCommand();
-                    commandNombre.CommandText= "SELECT NOMBRE_PRODUCTO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
+                    commandNombre.CommandText = "SELECT NOMBRE_PRODUCTO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
                     commandPrecio.CommandText = "SELECT PRECIO_MENUDEO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
                     cnon.Open();
                     commandPrecio.Connection = cnon;
                     commandNombre.Connection = cnon;
-                    object objPrecio = commandPrecio.ExecuteScalar();
+                    object objPrecioUnitario = commandPrecio.ExecuteScalar();
                     object objNombre = commandNombre.ExecuteScalar();
                     cnon.Close();
-                    string strCantidad = ingresarCantidad();
-                    if (strCantidad!=null && int.Parse(strCantidad)!=0) 
-                        this.dgVenta.Rows.Add(objNombre, objPrecio,strCantidad);    
+                    if (strCantidad != null && int.Parse(strCantidad) != 0 && objNombre != null)
+                    {
+                        lblIDNoexiste.Visible = false;
+                        doubPrecio = double.Parse(objPrecioUnitario.ToString()) * int.Parse(strCantidad);
+                        this.dgVenta.Rows.Add(objNombre, strCantidad,objPrecioUnitario ,doubPrecio);
+                        btnVenta.Enabled = true;
+                    }
+                    else if (objNombre == null)
+                    {
+                        lblIDNoexiste.Visible = true;
+                    }
                     txtIDVenta.Text = string.Empty;
-                    btnVenta.Enabled = true;
-                }
+                    doubTotalVenta = doubTotalVenta + doubPrecio;
+                    lblTotal.Text = "$"+doubTotalVenta.ToString();
+                    }
                 catch (Exception exc)
                 {
                     MessageBox.Show("Error inesperado: " + exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,6 +84,10 @@ namespace Ferreteria
         private void btnVenta_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dgVenta.Rows.Clear();
+            dgVenta.Refresh();
+            doubTotalVenta = 0;
+            lblTotal.Text = "$" + doubTotalVenta.ToString();
             btnVenta.Enabled = false;
         }
     }

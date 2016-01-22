@@ -16,7 +16,14 @@ namespace Ferreteria
         private void frmProductos_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'ferreteriaDataSet.PRODUCTOS' Puede moverla o quitarla según sea necesario.
-            this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+            try
+            {
+                this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             txtBuscar.Focus();
         }
 
@@ -129,7 +136,7 @@ namespace Ferreteria
             }
              catch (Exception exc)
             {
-                MessageBox.Show("Falló la conexión: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Falló la conexión con la base de datos: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
           }
 
@@ -313,7 +320,7 @@ namespace Ferreteria
 
         private void txtMenudeo_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtMenudeo.Text, "[^0-9]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtMenudeo.Text, "[^0-9,^0-9]"))
             {
                 txtMenudeo.Text = txtMenudeo.Text.Remove(txtMenudeo.Text.Length - 1);
             }
@@ -321,7 +328,7 @@ namespace Ferreteria
 
         private void txtMayoreo_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtMayoreo.Text, "[^0-9]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtMayoreo.Text, "[^0-9,^0-9]"))
             {
                 txtMayoreo.Text = txtMayoreo.Text.Remove(txtMayoreo.Text.Length - 1);
             }
