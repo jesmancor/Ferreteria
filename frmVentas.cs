@@ -35,6 +35,20 @@ namespace Ferreteria
                 }
         }
 
+        private void nombreRepetido(object objeto)
+        {
+            foreach (DataGridViewRow filas in dgVenta.Rows)
+            {
+                string strNombre = filas.Cells[0].Value.ToString();
+                double doubRestarPrecio = double.Parse(filas.Cells[3].Value.ToString());
+                if (objeto.ToString() == strNombre)
+                {
+                    doubTotalVenta = doubTotalVenta - doubRestarPrecio;
+                    dgVenta.Rows.Remove(filas);
+                }
+            }
+        }
+
         private void txtIDVenta_TextChanged(object sender, EventArgs e)
         {
             double doubPrecio = 0;
@@ -42,7 +56,7 @@ namespace Ferreteria
             {
                 txtIDVenta.Text = txtIDVenta.Text.Remove(txtIDVenta.Text.Length - 1);
             }
-            if (txtIDVenta.Text.Length>=12)
+            if (txtIDVenta.Text.Length>=13)
             {
                 string strIDVenta = txtIDVenta.Text;
                 try {
@@ -59,6 +73,7 @@ namespace Ferreteria
                     object objPrecioUnitario = commandPrecio.ExecuteScalar();
                     object objNombre = commandNombre.ExecuteScalar();
                     cnon.Close();
+                    nombreRepetido(objNombre);
                     if (strCantidad != null && int.Parse(strCantidad) != 0 && objNombre != null)
                     {
                         lblIDNoexiste.Visible = false;

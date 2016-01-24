@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbVenta = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
@@ -94,7 +94,7 @@
             // txtIDVenta
             // 
             this.txtIDVenta.Location = new System.Drawing.Point(34, 125);
-            this.txtIDVenta.MaxLength = 12;
+            this.txtIDVenta.MaxLength = 13;
             this.txtIDVenta.Name = "txtIDVenta";
             this.txtIDVenta.Size = new System.Drawing.Size(100, 20);
             this.txtIDVenta.TabIndex = 8;
@@ -111,6 +111,7 @@
             // 
             // dgVenta
             // 
+            this.dgVenta.AllowUserToAddRows = false;
             this.dgVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NOMBRE_PRODUCTO,
@@ -139,8 +140,8 @@
             // 
             // PRECIO_UNITARIO
             // 
-            dataGridViewCellStyle2.NullValue = null;
-            this.PRECIO_UNITARIO.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.NullValue = null;
+            this.PRECIO_UNITARIO.DefaultCellStyle = dataGridViewCellStyle1;
             this.PRECIO_UNITARIO.HeaderText = "Precio unitario";
             this.PRECIO_UNITARIO.Name = "PRECIO_UNITARIO";
             this.PRECIO_UNITARIO.ReadOnly = true;
