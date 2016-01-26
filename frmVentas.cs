@@ -96,8 +96,36 @@ namespace Ferreteria
             }
         }
 
+        private bool realizaVenta()
+        {
+            try {
+                foreach (DataGridViewRow filas in dgVenta.Rows)
+                {
+                    string strNombre = filas.Cells[0].Value.ToString();
+                    string strCantidad = filas.Cells[1].Value.ToString();
+                    string strTotal = filas.Cells[3].Value.ToString();
+                    OleDbConnection cnon = new OleDbConnection();
+                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
+                    OleDbCommand command = new OleDbCommand();
+                    command.CommandText = "INSERT INTO VENTAS (PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA) VALUES ('"+ strNombre+"', '" + strCantidad+"', '"+strTotal+" ')";
+                    cnon.Open();
+                    command.Connection = cnon;
+                    command.ExecuteNonQuery();
+                    cnon.Close();
+                    MessageBox.Show(command.CommandText.ToString(), "Query",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return true;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error inesperado: " + exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         private void btnVenta_Click(object sender, EventArgs e)
         {
+            if(realizaVenta())
             MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             dgVenta.Rows.Clear();
             dgVenta.Refresh();

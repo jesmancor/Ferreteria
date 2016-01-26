@@ -38,6 +38,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(12, 12);
+            this.txtCantidad.MaxLength = 3;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(156, 20);
             this.txtCantidad.TabIndex = 0;
@@ -89,7 +90,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(176, 67);
+            this.ClientSize = new System.Drawing.Size(172, 63);
             this.ControlBox = false;
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.btnCancelar);
