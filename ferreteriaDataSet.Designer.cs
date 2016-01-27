@@ -630,7 +630,7 @@ namespace Ferreteria {
                                 this.columnID_PRODUCTO}, true));
                 this.columnID_PRODUCTO.AllowDBNull = false;
                 this.columnID_PRODUCTO.Unique = true;
-                this.columnID_PRODUCTO.MaxLength = 12;
+                this.columnID_PRODUCTO.MaxLength = 13;
                 this.columnNOMBRE_PRODUCTO.MaxLength = 255;
                 this.columnTIPO_PRODUCTO.MaxLength = 255;
                 this.columnDESCRIPCIÓN_PRODUCTO.MaxLength = 255;

@@ -106,13 +106,24 @@ namespace Ferreteria
                     string strTotal = filas.Cells[3].Value.ToString();
                     OleDbConnection cnon = new OleDbConnection();
                     cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand command = new OleDbCommand();
-                    command.CommandText = "INSERT INTO VENTAS (PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA) VALUES ('"+ strNombre+"', '" + strCantidad+"', '"+strTotal+" ')";
+                    OleDbCommand commandExistencias = new OleDbCommand();
+                    OleDbCommand commandInsertVenta = new OleDbCommand();
+                    commandInsertVenta.CommandText = "INSERT INTO VENTAS (PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA) VALUES ('"+ strNombre+"', '" + strCantidad+"', '"+strTotal+" ')";
+                    commandExistencias.CommandText = "SELECT EXISTENCIAS FROM PRODUCTOS WHERE NOMBRE_PRODUCTO = '"+strNombre+"'";
                     cnon.Open();
-                    command.Connection = cnon;
-                    command.ExecuteNonQuery();
-                    cnon.Close();
-                    MessageBox.Show(command.CommandText.ToString(), "Query",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    commandInsertVenta.Connection = cnon;
+                    commandExistencias.Connection = cnon;
+                    object objExistencias=commandExistencias.ExecuteScalar();
+                    if (int.Parse(objExistencias.ToString()) > int.Parse(strCantidad))
+                    {
+                        commandInsertVenta.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las existencias del producto "+ strNombre +" no son suficientes para realizar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    cnon.Close();     
                 }
                 return true;
             }
