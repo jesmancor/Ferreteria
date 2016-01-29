@@ -312,69 +312,69 @@
             // lblExistencias
             // 
             this.lblExistencias.AutoSize = true;
-            this.lblExistencias.Location = new System.Drawing.Point(412, 69);
+            this.lblExistencias.Location = new System.Drawing.Point(379, 73);
             this.lblExistencias.Name = "lblExistencias";
-            this.lblExistencias.Size = new System.Drawing.Size(60, 13);
+            this.lblExistencias.Size = new System.Drawing.Size(66, 13);
             this.lblExistencias.TabIndex = 13;
-            this.lblExistencias.Text = "Existencias";
+            this.lblExistencias.Text = "Existencias :";
             // 
             // lblMayoreo
             // 
             this.lblMayoreo.AutoSize = true;
-            this.lblMayoreo.Location = new System.Drawing.Point(392, 43);
+            this.lblMayoreo.Location = new System.Drawing.Point(379, 47);
             this.lblMayoreo.Name = "lblMayoreo";
-            this.lblMayoreo.Size = new System.Drawing.Size(80, 13);
+            this.lblMayoreo.Size = new System.Drawing.Size(98, 13);
             this.lblMayoreo.TabIndex = 12;
-            this.lblMayoreo.Text = "Precio mayoreo";
+            this.lblMayoreo.Text = "Precio mayoreo :  $";
             // 
             // lblMenudeo
             // 
             this.lblMenudeo.AutoSize = true;
-            this.lblMenudeo.Location = new System.Drawing.Point(393, 17);
+            this.lblMenudeo.Location = new System.Drawing.Point(379, 21);
             this.lblMenudeo.Name = "lblMenudeo";
-            this.lblMenudeo.Size = new System.Drawing.Size(84, 13);
+            this.lblMenudeo.Size = new System.Drawing.Size(99, 13);
             this.lblMenudeo.TabIndex = 11;
-            this.lblMenudeo.Text = "Precio menudeo";
+            this.lblMenudeo.Text = "Precio menudeo : $";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(33, 100);
+            this.lblDescripcion.Location = new System.Drawing.Point(8, 100);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(69, 13);
             this.lblDescripcion.TabIndex = 10;
-            this.lblDescripcion.Text = "Descripción";
+            this.lblDescripcion.Text = "Descripción :";
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Location = new System.Drawing.Point(8, 73);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(88, 13);
+            this.lblTipo.Size = new System.Drawing.Size(94, 13);
             this.lblTipo.TabIndex = 9;
-            this.lblTipo.Text = "Tipo de producto";
+            this.lblTipo.Text = "Tipo de producto :";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(52, 47);
+            this.lblNombre.Location = new System.Drawing.Point(8, 47);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(50, 13);
             this.lblNombre.TabIndex = 8;
-            this.lblNombre.Text = "Nombre";
+            this.lblNombre.Text = "Nombre :";
             // 
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(78, 21);
+            this.lblID.Location = new System.Drawing.Point(8, 21);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.Size = new System.Drawing.Size(24, 13);
             this.lblID.TabIndex = 7;
-            this.lblID.Text = "ID";
+            this.lblID.Text = "ID :";
             // 
             // txtExistencias
             // 
-            this.txtExistencias.Location = new System.Drawing.Point(478, 66);
+            this.txtExistencias.Location = new System.Drawing.Point(478, 70);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(63, 20);
             this.txtExistencias.TabIndex = 6;
@@ -382,7 +382,7 @@
             // 
             // txtMayoreo
             // 
-            this.txtMayoreo.Location = new System.Drawing.Point(478, 40);
+            this.txtMayoreo.Location = new System.Drawing.Point(478, 44);
             this.txtMayoreo.Name = "txtMayoreo";
             this.txtMayoreo.Size = new System.Drawing.Size(63, 20);
             this.txtMayoreo.TabIndex = 5;
@@ -390,7 +390,7 @@
             // 
             // txtMenudeo
             // 
-            this.txtMenudeo.Location = new System.Drawing.Point(478, 14);
+            this.txtMenudeo.Location = new System.Drawing.Point(478, 18);
             this.txtMenudeo.Name = "txtMenudeo";
             this.txtMenudeo.Size = new System.Drawing.Size(63, 20);
             this.txtMenudeo.TabIndex = 4;
@@ -444,9 +444,9 @@
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Location = new System.Drawing.Point(13, 113);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(118, 13);
+            this.lblBuscar.Size = new System.Drawing.Size(121, 13);
             this.lblBuscar.TabIndex = 10;
-            this.lblBuscar.Text = "Buscar por descripción:";
+            this.lblBuscar.Text = "Buscar por descripción :";
             // 
             // btnEditar
             // 

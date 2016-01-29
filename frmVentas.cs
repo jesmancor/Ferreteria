@@ -96,7 +96,7 @@ namespace Ferreteria
             }
         }
 
-        private bool realizaVenta()
+        private void realizaVenta()
         {
             try {
                 foreach (DataGridViewRow filas in dgVenta.Rows)
@@ -106,21 +106,47 @@ namespace Ferreteria
                     string strTotal = filas.Cells[3].Value.ToString();
                     OleDbConnection cnon = new OleDbConnection();
                     cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand commandExistencias = new OleDbCommand();
                     OleDbCommand commandInsertVenta = new OleDbCommand();
-                    commandInsertVenta.CommandText = "INSERT INTO VENTAS (PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA) VALUES ('"+ strNombre+"', '" + strCantidad+"', '"+strTotal+" ')";
+                    OleDbCommand commandConsultaExistencias = new OleDbCommand();
+                    OleDbCommand commandRestaExistencia = new OleDbCommand();
+                    commandInsertVenta.CommandText = "INSERT INTO VENTAS (PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA) VALUES ('" + strNombre + "', '" + strCantidad + "', '" + strTotal + " ')";
+                    commandConsultaExistencias.CommandText = "SELECT EXISTENCIAS FROM PRODUCTOS WHERE NOMBRE_PRODUCTO = '" + strNombre + "'";
+                    cnon.Open();
+                    commandConsultaExistencias.Connection = cnon;
+                    int intExistencias = int.Parse(commandConsultaExistencias.ExecuteScalar().ToString());
+                    int intResta = intExistencias - int.Parse(strCantidad);
+                    commandRestaExistencia.CommandText="UPDATE PRODUCTOS SET EXISTENCIAS = "+ intResta + " WHERE NOMBRE_PRODUCTO = '" + strNombre + "'";
+                    commandRestaExistencia.Connection = cnon;
+                    commandInsertVenta.Connection = cnon;
+                    commandInsertVenta.ExecuteNonQuery();
+                    commandRestaExistencia.ExecuteNonQuery();
+                    cnon.Close();
+                }
+                MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error inesperado al realizar la venta: " + exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool validaExistencia()
+        {
+            try {
+                foreach (DataGridViewRow filas in dgVenta.Rows)
+                {
+                    string strNombre = filas.Cells[0].Value.ToString();
+                    string strCantidad = filas.Cells[1].Value.ToString();
+                    OleDbConnection cnon = new OleDbConnection();
+                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
+                    OleDbCommand commandExistencias = new OleDbCommand();
                     commandExistencias.CommandText = "SELECT EXISTENCIAS FROM PRODUCTOS WHERE NOMBRE_PRODUCTO = '"+strNombre+"'";
                     cnon.Open();
-                    commandInsertVenta.Connection = cnon;
                     commandExistencias.Connection = cnon;
                     object objExistencias=commandExistencias.ExecuteScalar();
-                    if (int.Parse(objExistencias.ToString()) > int.Parse(strCantidad))
+                    if (int.Parse(objExistencias.ToString()) < int.Parse(strCantidad))
                     {
-                        commandInsertVenta.ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Las existencias del producto "+ strNombre +" no son suficientes para realizar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Las existencias del producto " + strNombre + " no son suficientes para realizar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                     cnon.Close();     
@@ -136,8 +162,8 @@ namespace Ferreteria
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            if(realizaVenta())
-            MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (validaExistencia())
+                realizaVenta();
             dgVenta.Rows.Clear();
             dgVenta.Refresh();
             doubTotalVenta = 0;
