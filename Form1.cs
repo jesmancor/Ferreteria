@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,15 +27,15 @@ namespace Ferreteria
         {
             try
             {
-                string constring = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                string cmdText = "select Count(*) from LOGIN where USERNAME=? and [PASSWORD]=?";
-                using (OleDbConnection con = new OleDbConnection(constring))
-                using (OleDbCommand cmd = new OleDbCommand(cmdText, con))
+                string constring = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                string cmdText = "select Count(*) from LOGIN where username=? and password=?";
+                using (MySqlConnection con = new MySqlConnection(constring))
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, con))
                 {
                     con.Open();
                     cmd.Parameters.AddWithValue("@p1", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@p2", txtPassword.Text); 
-                    int result = (int)cmd.ExecuteScalar();
+                    int result = int.Parse(cmd.ExecuteScalar().ToString());
                     if (result > 0)
                     {
                         frmVentas frm = new frmVentas();

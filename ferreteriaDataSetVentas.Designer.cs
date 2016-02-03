@@ -20,17 +20,17 @@ namespace Ferreteria {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ferreteriaDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ferreteriaDataSetVentas")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ferreteriaDataSet1 : global::System.Data.DataSet {
+    public partial class ferreteriaDataSetVentas : global::System.Data.DataSet {
         
-        private VENTASDataTable tableVENTAS;
+        private ventasDataTable tableventas;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ferreteriaDataSet1() {
+        public ferreteriaDataSetVentas() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Ferreteria {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ferreteriaDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ferreteriaDataSetVentas(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Ferreteria {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["VENTAS"] != null)) {
-                    base.Tables.Add(new VENTASDataTable(ds.Tables["VENTAS"]));
+                if ((ds.Tables["ventas"] != null)) {
+                    base.Tables.Add(new ventasDataTable(ds.Tables["ventas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Ferreteria {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VENTASDataTable VENTAS {
+        public ventasDataTable ventas {
             get {
-                return this.tableVENTAS;
+                return this.tableventas;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Ferreteria {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ferreteriaDataSet1 cln = ((ferreteriaDataSet1)(base.Clone()));
+            ferreteriaDataSetVentas cln = ((ferreteriaDataSetVentas)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Ferreteria {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["VENTAS"] != null)) {
-                    base.Tables.Add(new VENTASDataTable(ds.Tables["VENTAS"]));
+                if ((ds.Tables["ventas"] != null)) {
+                    base.Tables.Add(new ventasDataTable(ds.Tables["ventas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Ferreteria {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableVENTAS = ((VENTASDataTable)(base.Tables["VENTAS"]));
+            this.tableventas = ((ventasDataTable)(base.Tables["ventas"]));
             if ((initTable == true)) {
-                if ((this.tableVENTAS != null)) {
-                    this.tableVENTAS.InitVars();
+                if ((this.tableventas != null)) {
+                    this.tableventas.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Ferreteria {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ferreteriaDataSet1";
+            this.DataSetName = "ferreteriaDataSetVentas";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ferreteriaDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/ferreteriaDataSetVentas.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableVENTAS = new VENTASDataTable();
-            base.Tables.Add(this.tableVENTAS);
+            this.tableventas = new ventasDataTable();
+            base.Tables.Add(this.tableventas);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeVENTAS() {
+        private bool ShouldSerializeventas() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Ferreteria {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ferreteriaDataSet1 ds = new ferreteriaDataSet1();
+            ferreteriaDataSetVentas ds = new ferreteriaDataSetVentas();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace Ferreteria {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void VENTASRowChangeEventHandler(object sender, VENTASRowChangeEvent e);
+        public delegate void ventasRowChangeEventHandler(object sender, ventasRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VENTASDataTable : global::System.Data.TypedTableBase<VENTASRow> {
+        public partial class ventasDataTable : global::System.Data.TypedTableBase<ventasRow> {
             
             private global::System.Data.DataColumn columnID_VENTA;
             
@@ -291,8 +291,8 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASDataTable() {
-                this.TableName = "VENTAS";
+            public ventasDataTable() {
+                this.TableName = "ventas";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +300,7 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal VENTASDataTable(global::System.Data.DataTable table) {
+            internal ventasDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +317,7 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected VENTASDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ventasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -373,56 +373,56 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASRow this[int index] {
+            public ventasRow this[int index] {
                 get {
-                    return ((VENTASRow)(this.Rows[index]));
+                    return ((ventasRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event VENTASRowChangeEventHandler VENTASRowChanging;
+            public event ventasRowChangeEventHandler ventasRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event VENTASRowChangeEventHandler VENTASRowChanged;
+            public event ventasRowChangeEventHandler ventasRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event VENTASRowChangeEventHandler VENTASRowDeleting;
+            public event ventasRowChangeEventHandler ventasRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event VENTASRowChangeEventHandler VENTASRowDeleted;
+            public event ventasRowChangeEventHandler ventasRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddVENTASRow(VENTASRow row) {
+            public void AddventasRow(ventasRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASRow AddVENTASRow(string PRODUCTO_VENTA, int CANTIDAD_VENTA, decimal TOTAL_VENTA, System.DateTime FECHA_VENTA) {
-                VENTASRow rowVENTASRow = ((VENTASRow)(this.NewRow()));
+            public ventasRow AddventasRow(int ID_VENTA, string PRODUCTO_VENTA, int CANTIDAD_VENTA, decimal TOTAL_VENTA, System.DateTime FECHA_VENTA) {
+                ventasRow rowventasRow = ((ventasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        ID_VENTA,
                         PRODUCTO_VENTA,
                         CANTIDAD_VENTA,
                         TOTAL_VENTA,
                         FECHA_VENTA};
-                rowVENTASRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVENTASRow);
-                return rowVENTASRow;
+                rowventasRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowventasRow);
+                return rowventasRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASRow FindByID_VENTA(int ID_VENTA) {
-                return ((VENTASRow)(this.Rows.Find(new object[] {
+            public ventasRow FindByID_VENTA(int ID_VENTA) {
+                return ((ventasRow)(this.Rows.Find(new object[] {
                             ID_VENTA})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                VENTASDataTable cln = ((VENTASDataTable)(base.Clone()));
+                ventasDataTable cln = ((ventasDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -430,7 +430,7 @@ namespace Ferreteria {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new VENTASDataTable();
+                return new ventasDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -458,9 +458,6 @@ namespace Ferreteria {
                 base.Columns.Add(this.columnFECHA_VENTA);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_VENTA}, true));
-                this.columnID_VENTA.AutoIncrement = true;
-                this.columnID_VENTA.AutoIncrementSeed = -1;
-                this.columnID_VENTA.AutoIncrementStep = -1;
                 this.columnID_VENTA.AllowDBNull = false;
                 this.columnID_VENTA.Unique = true;
                 this.columnPRODUCTO_VENTA.MaxLength = 255;
@@ -468,28 +465,28 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASRow NewVENTASRow() {
-                return ((VENTASRow)(this.NewRow()));
+            public ventasRow NewventasRow() {
+                return ((ventasRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VENTASRow(builder);
+                return new ventasRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(VENTASRow);
+                return typeof(ventasRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.VENTASRowChanged != null)) {
-                    this.VENTASRowChanged(this, new VENTASRowChangeEvent(((VENTASRow)(e.Row)), e.Action));
+                if ((this.ventasRowChanged != null)) {
+                    this.ventasRowChanged(this, new ventasRowChangeEvent(((ventasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -497,8 +494,8 @@ namespace Ferreteria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.VENTASRowChanging != null)) {
-                    this.VENTASRowChanging(this, new VENTASRowChangeEvent(((VENTASRow)(e.Row)), e.Action));
+                if ((this.ventasRowChanging != null)) {
+                    this.ventasRowChanging(this, new ventasRowChangeEvent(((ventasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -506,8 +503,8 @@ namespace Ferreteria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.VENTASRowDeleted != null)) {
-                    this.VENTASRowDeleted(this, new VENTASRowChangeEvent(((VENTASRow)(e.Row)), e.Action));
+                if ((this.ventasRowDeleted != null)) {
+                    this.ventasRowDeleted(this, new ventasRowChangeEvent(((ventasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -515,14 +512,14 @@ namespace Ferreteria {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.VENTASRowDeleting != null)) {
-                    this.VENTASRowDeleting(this, new VENTASRowChangeEvent(((VENTASRow)(e.Row)), e.Action));
+                if ((this.ventasRowDeleting != null)) {
+                    this.ventasRowDeleting(this, new ventasRowChangeEvent(((ventasRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveVENTASRow(VENTASRow row) {
+            public void RemoveventasRow(ventasRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -531,7 +528,7 @@ namespace Ferreteria {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ferreteriaDataSet1 ds = new ferreteriaDataSet1();
+                ferreteriaDataSetVentas ds = new ferreteriaDataSetVentas();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -549,7 +546,7 @@ namespace Ferreteria {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VENTASDataTable";
+                attribute2.FixedValue = "ventasDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -593,25 +590,25 @@ namespace Ferreteria {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VENTASRow : global::System.Data.DataRow {
+        public partial class ventasRow : global::System.Data.DataRow {
             
-            private VENTASDataTable tableVENTAS;
+            private ventasDataTable tableventas;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal VENTASRow(global::System.Data.DataRowBuilder rb) : 
+            internal ventasRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableVENTAS = ((VENTASDataTable)(this.Table));
+                this.tableventas = ((ventasDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID_VENTA {
                 get {
-                    return ((int)(this[this.tableVENTAS.ID_VENTAColumn]));
+                    return ((int)(this[this.tableventas.ID_VENTAColumn]));
                 }
                 set {
-                    this[this.tableVENTAS.ID_VENTAColumn] = value;
+                    this[this.tableventas.ID_VENTAColumn] = value;
                 }
             }
             
@@ -620,14 +617,14 @@ namespace Ferreteria {
             public string PRODUCTO_VENTA {
                 get {
                     try {
-                        return ((string)(this[this.tableVENTAS.PRODUCTO_VENTAColumn]));
+                        return ((string)(this[this.tableventas.PRODUCTO_VENTAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PRODUCTO_VENTA\' de la tabla \'VENTAS\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PRODUCTO_VENTA\' de la tabla \'ventas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVENTAS.PRODUCTO_VENTAColumn] = value;
+                    this[this.tableventas.PRODUCTO_VENTAColumn] = value;
                 }
             }
             
@@ -636,14 +633,14 @@ namespace Ferreteria {
             public int CANTIDAD_VENTA {
                 get {
                     try {
-                        return ((int)(this[this.tableVENTAS.CANTIDAD_VENTAColumn]));
+                        return ((int)(this[this.tableventas.CANTIDAD_VENTAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_VENTA\' de la tabla \'VENTAS\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_VENTA\' de la tabla \'ventas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVENTAS.CANTIDAD_VENTAColumn] = value;
+                    this[this.tableventas.CANTIDAD_VENTAColumn] = value;
                 }
             }
             
@@ -652,14 +649,14 @@ namespace Ferreteria {
             public decimal TOTAL_VENTA {
                 get {
                     try {
-                        return ((decimal)(this[this.tableVENTAS.TOTAL_VENTAColumn]));
+                        return ((decimal)(this[this.tableventas.TOTAL_VENTAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL_VENTA\' de la tabla \'VENTAS\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL_VENTA\' de la tabla \'ventas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVENTAS.TOTAL_VENTAColumn] = value;
+                    this[this.tableventas.TOTAL_VENTAColumn] = value;
                 }
             }
             
@@ -668,63 +665,63 @@ namespace Ferreteria {
             public System.DateTime FECHA_VENTA {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableVENTAS.FECHA_VENTAColumn]));
+                        return ((global::System.DateTime)(this[this.tableventas.FECHA_VENTAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_VENTA\' de la tabla \'VENTAS\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_VENTA\' de la tabla \'ventas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVENTAS.FECHA_VENTAColumn] = value;
+                    this[this.tableventas.FECHA_VENTAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPRODUCTO_VENTANull() {
-                return this.IsNull(this.tableVENTAS.PRODUCTO_VENTAColumn);
+                return this.IsNull(this.tableventas.PRODUCTO_VENTAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPRODUCTO_VENTANull() {
-                this[this.tableVENTAS.PRODUCTO_VENTAColumn] = global::System.Convert.DBNull;
+                this[this.tableventas.PRODUCTO_VENTAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCANTIDAD_VENTANull() {
-                return this.IsNull(this.tableVENTAS.CANTIDAD_VENTAColumn);
+                return this.IsNull(this.tableventas.CANTIDAD_VENTAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCANTIDAD_VENTANull() {
-                this[this.tableVENTAS.CANTIDAD_VENTAColumn] = global::System.Convert.DBNull;
+                this[this.tableventas.CANTIDAD_VENTAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTOTAL_VENTANull() {
-                return this.IsNull(this.tableVENTAS.TOTAL_VENTAColumn);
+                return this.IsNull(this.tableventas.TOTAL_VENTAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTOTAL_VENTANull() {
-                this[this.tableVENTAS.TOTAL_VENTAColumn] = global::System.Convert.DBNull;
+                this[this.tableventas.TOTAL_VENTAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFECHA_VENTANull() {
-                return this.IsNull(this.tableVENTAS.FECHA_VENTAColumn);
+                return this.IsNull(this.tableventas.FECHA_VENTAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFECHA_VENTANull() {
-                this[this.tableVENTAS.FECHA_VENTAColumn] = global::System.Convert.DBNull;
+                this[this.tableventas.FECHA_VENTAColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -732,22 +729,22 @@ namespace Ferreteria {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class VENTASRowChangeEvent : global::System.EventArgs {
+        public class ventasRowChangeEvent : global::System.EventArgs {
             
-            private VENTASRow eventRow;
+            private ventasRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASRowChangeEvent(VENTASRow row, global::System.Data.DataRowAction action) {
+            public ventasRowChangeEvent(ventasRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VENTASRow Row {
+            public ventasRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -763,7 +760,7 @@ namespace Ferreteria {
         }
     }
 }
-namespace Ferreteria.ferreteriaDataSet1TableAdapters {
+namespace Ferreteria.ferreteriaDataSetVentasTableAdapters {
     
     
     /// <summary>
@@ -775,27 +772,27 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VENTASTableAdapter : global::System.ComponentModel.Component {
+    public partial class ventasTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
-        private global::System.Data.OleDb.OleDbConnection _connection;
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
         
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
         
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public VENTASTableAdapter() {
+        public ventasTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -806,7 +803,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -826,7 +823,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -834,7 +831,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -860,7 +857,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -883,72 +880,268 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VENTAS";
+            tableMapping.DataSetTable = "ventas";
             tableMapping.ColumnMappings.Add("ID_VENTA", "ID_VENTA");
             tableMapping.ColumnMappings.Add("PRODUCTO_VENTA", "PRODUCTO_VENTA");
             tableMapping.ColumnMappings.Add("CANTIDAD_VENTA", "CANTIDAD_VENTA");
             tableMapping.ColumnMappings.Add("TOTAL_VENTA", "TOTAL_VENTA");
             tableMapping.ColumnMappings.Add("FECHA_VENTA", "FECHA_VENTA");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `VENTAS` WHERE ((`ID_VENTA` = ?) AND ((? = 1 AND `PRODUCTO_VENTA` IS NULL) OR (`PRODUCTO_VENTA` = ?)) AND ((? = 1 AND `CANTIDAD_VENTA` IS NULL) OR (`CANTIDAD_VENTA` = ?)) AND ((? = 1 AND `TOTAL_VENTA` IS NULL) OR (`TOTAL_VENTA` = ?)) AND ((? = 1 AND `FECHA_VENTA` IS NULL) OR (`FECHA_VENTA` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `ventas` WHERE ((`ID_VENTA` = @p1) AND ((@p2 = 1 AND `PRODUCTO_VENTA` IS NULL) OR (`PRODUCTO_VENTA` = @p3)) AND ((@p4 = 1 AND `CANTIDAD_VENTA` IS NULL) OR (`CANTIDAD_VENTA` = @p5)) AND ((@p6 = 1 AND `TOTAL_VENTA` IS NULL) OR (`TOTAL_VENTA` = @p7)) AND ((@p8 = 1 AND `FECHA_VENTA` IS NULL) OR (`FECHA_VENTA` = @p9)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_PRODUCTO_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PRODUCTO_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_PRODUCTO_VENTA", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PRODUCTO_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CANTIDAD_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CANTIDAD_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CANTIDAD_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CANTIDAD_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TOTAL_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TOTAL_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TOTAL_VENTA", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TOTAL_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_FECHA_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FECHA_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FECHA_VENTA", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FECHA_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "PRODUCTO_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PRODUCTO_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CANTIDAD_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CANTIDAD_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TOTAL_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "TOTAL_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "FECHA_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "FECHA_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `VENTAS` (`PRODUCTO_VENTA`, `CANTIDAD_VENTA`, `TOTAL_VENTA`, `FECHA_V" +
-                "ENTA`) VALUES (?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `ventas` (`ID_VENTA`, `PRODUCTO_VENTA`, `CANTIDAD_VENTA`, `TOTAL_VENT" +
+                "A`, `FECHA_VENTA`) VALUES (@p1, @p2, @p3, @p4, @p5)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("PRODUCTO_VENTA", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PRODUCTO_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CANTIDAD_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CANTIDAD_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TOTAL_VENTA", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TOTAL_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FECHA_VENTA", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FECHA_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_VENTA";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PRODUCTO_VENTA";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CANTIDAD_VENTA";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "TOTAL_VENTA";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "FECHA_VENTA";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `VENTAS` SET `PRODUCTO_VENTA` = ?, `CANTIDAD_VENTA` = ?, `TOTAL_VENTA` = ?, `FECHA_VENTA` = ? WHERE ((`ID_VENTA` = ?) AND ((? = 1 AND `PRODUCTO_VENTA` IS NULL) OR (`PRODUCTO_VENTA` = ?)) AND ((? = 1 AND `CANTIDAD_VENTA` IS NULL) OR (`CANTIDAD_VENTA` = ?)) AND ((? = 1 AND `TOTAL_VENTA` IS NULL) OR (`TOTAL_VENTA` = ?)) AND ((? = 1 AND `FECHA_VENTA` IS NULL) OR (`FECHA_VENTA` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `ventas` SET `ID_VENTA` = @p1, `PRODUCTO_VENTA` = @p2, `CANTIDAD_VENTA` = @p3, `TOTAL_VENTA` = @p4, `FECHA_VENTA` = @p5 WHERE ((`ID_VENTA` = @p6) AND ((@p7 = 1 AND `PRODUCTO_VENTA` IS NULL) OR (`PRODUCTO_VENTA` = @p8)) AND ((@p9 = 1 AND `CANTIDAD_VENTA` IS NULL) OR (`CANTIDAD_VENTA` = @p10)) AND ((@p11 = 1 AND `TOTAL_VENTA` IS NULL) OR (`TOTAL_VENTA` = @p12)) AND ((@p13 = 1 AND `FECHA_VENTA` IS NULL) OR (`FECHA_VENTA` = @p14)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("PRODUCTO_VENTA", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PRODUCTO_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CANTIDAD_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CANTIDAD_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TOTAL_VENTA", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TOTAL_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FECHA_VENTA", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FECHA_VENTA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_PRODUCTO_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PRODUCTO_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_PRODUCTO_VENTA", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PRODUCTO_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CANTIDAD_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CANTIDAD_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CANTIDAD_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CANTIDAD_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TOTAL_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TOTAL_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TOTAL_VENTA", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TOTAL_VENTA", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_FECHA_VENTA", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FECHA_VENTA", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FECHA_VENTA", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FECHA_VENTA", global::System.Data.DataRowVersion.Original, false, null));
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_VENTA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PRODUCTO_VENTA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CANTIDAD_VENTA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "TOTAL_VENTA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "FECHA_VENTA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "PRODUCTO_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PRODUCTO_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CANTIDAD_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CANTIDAD_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TOTAL_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "TOTAL_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "FECHA_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "FECHA_VENTA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Ferreteria.Properties.Settings.Default.ferreteriaConnectionString;
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Ferreteria.Properties.Settings.Default.ferreteriaConnectionStringMySQL;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_VENTA, PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA, FECHA_VENTA FROM VE" +
-                "NTAS";
+            this._commandCollection[0].CommandText = "SELECT `ID_VENTA`, `PRODUCTO_VENTA`, `CANTIDAD_VENTA`, `TOTAL_VENTA`, `FECHA_VENT" +
+                "A` FROM `ventas`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -956,7 +1149,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ferreteriaDataSet1.VENTASDataTable dataTable) {
+        public virtual int Fill(ferreteriaDataSetVentas.ventasDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -969,9 +1162,9 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ferreteriaDataSet1.VENTASDataTable GetData() {
+        public virtual ferreteriaDataSetVentas.ventasDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ferreteriaDataSet1.VENTASDataTable dataTable = new ferreteriaDataSet1.VENTASDataTable();
+            ferreteriaDataSetVentas.ventasDataTable dataTable = new ferreteriaDataSetVentas.ventasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -979,15 +1172,15 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ferreteriaDataSet1.VENTASDataTable dataTable) {
+        public virtual int Update(ferreteriaDataSetVentas.ventasDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ferreteriaDataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "VENTAS");
+        public virtual int Update(ferreteriaDataSetVentas dataSet) {
+            return this.Adapter.Update(dataSet, "ventas");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1009,35 +1202,35 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_VENTA, string Original_PRODUCTO_VENTA, global::System.Nullable<int> Original_CANTIDAD_VENTA, global::System.Nullable<decimal> Original_TOTAL_VENTA, global::System.Nullable<global::System.DateTime> Original_FECHA_VENTA) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_VENTA));
-            if ((Original_PRODUCTO_VENTA == null)) {
+        public virtual int Delete(int p1, string p3, global::System.Nullable<int> p5, global::System.Nullable<decimal> p7, global::System.Nullable<global::System.DateTime> p9) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
+            if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_PRODUCTO_VENTA));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
             }
-            if ((Original_CANTIDAD_VENTA.HasValue == true)) {
+            if ((p5.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_CANTIDAD_VENTA.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(p5.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_TOTAL_VENTA.HasValue == true)) {
+            if ((p7.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_TOTAL_VENTA.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(p7.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_FECHA_VENTA.HasValue == true)) {
+            if ((p9.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_FECHA_VENTA.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -1063,30 +1256,31 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string PRODUCTO_VENTA, global::System.Nullable<int> CANTIDAD_VENTA, global::System.Nullable<decimal> TOTAL_VENTA, global::System.Nullable<global::System.DateTime> FECHA_VENTA) {
-            if ((PRODUCTO_VENTA == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(PRODUCTO_VENTA));
-            }
-            if ((CANTIDAD_VENTA.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CANTIDAD_VENTA.Value));
-            }
-            else {
+        public virtual int Insert(int p1, string p2, global::System.Nullable<int> p3, global::System.Nullable<decimal> p4, global::System.Nullable<global::System.DateTime> p5) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
+            if ((p2 == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((TOTAL_VENTA.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(TOTAL_VENTA.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
+            }
+            if ((p3.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((FECHA_VENTA.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(FECHA_VENTA.Value));
+            if ((p4.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(p4.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((p5.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1108,63 +1302,64 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string PRODUCTO_VENTA, global::System.Nullable<int> CANTIDAD_VENTA, global::System.Nullable<decimal> TOTAL_VENTA, global::System.Nullable<global::System.DateTime> FECHA_VENTA, int Original_ID_VENTA, string Original_PRODUCTO_VENTA, global::System.Nullable<int> Original_CANTIDAD_VENTA, global::System.Nullable<decimal> Original_TOTAL_VENTA, global::System.Nullable<global::System.DateTime> Original_FECHA_VENTA) {
-            if ((PRODUCTO_VENTA == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(PRODUCTO_VENTA));
-            }
-            if ((CANTIDAD_VENTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CANTIDAD_VENTA.Value));
-            }
-            else {
+        public virtual int Update(int p1, string p2, global::System.Nullable<int> p3, global::System.Nullable<decimal> p4, global::System.Nullable<global::System.DateTime> p5, int p6, string p8, global::System.Nullable<int> p10, global::System.Nullable<decimal> p12, global::System.Nullable<global::System.DateTime> p14) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
+            if ((p2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((TOTAL_VENTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(TOTAL_VENTA.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
+            }
+            if ((p3.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((FECHA_VENTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(FECHA_VENTA.Value));
+            if ((p4.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(p4.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_VENTA));
-            if ((Original_PRODUCTO_VENTA == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((p5.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_PRODUCTO_VENTA));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_CANTIDAD_VENTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_CANTIDAD_VENTA.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TOTAL_VENTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_TOTAL_VENTA.Value));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
+            if ((p8 == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
             }
-            if ((Original_FECHA_VENTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_FECHA_VENTA.Value));
+            if ((p10.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((p12.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(p12.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((p14.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(p14.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1181,6 +1376,14 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string p2, global::System.Nullable<int> p3, global::System.Nullable<decimal> p4, global::System.Nullable<global::System.DateTime> p5, int p6, string p8, global::System.Nullable<int> p10, global::System.Nullable<decimal> p12, global::System.Nullable<global::System.DateTime> p14) {
+            return this.Update(p6, p2, p3, p4, p5, p6, p8, p10, p12, p14);
+        }
     }
     
     /// <summary>
@@ -1195,7 +1398,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private VENTASTableAdapter _vENTASTableAdapter;
+        private ventasTableAdapter _ventasTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1217,12 +1420,12 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public VENTASTableAdapter VENTASTableAdapter {
+        public ventasTableAdapter ventasTableAdapter {
             get {
-                return this._vENTASTableAdapter;
+                return this._ventasTableAdapter;
             }
             set {
-                this._vENTASTableAdapter = value;
+                this._ventasTableAdapter = value;
             }
         }
         
@@ -1245,9 +1448,9 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._vENTASTableAdapter != null) 
-                            && (this._vENTASTableAdapter.Connection != null))) {
-                    return this._vENTASTableAdapter.Connection;
+                if (((this._ventasTableAdapter != null) 
+                            && (this._ventasTableAdapter.Connection != null))) {
+                    return this._ventasTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1262,7 +1465,7 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._vENTASTableAdapter != null)) {
+                if ((this._ventasTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1274,14 +1477,14 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(ferreteriaDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ferreteriaDataSetVentas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._vENTASTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.VENTAS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._ventasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ventas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._vENTASTableAdapter.Update(updatedRows));
+                    result = (result + this._ventasTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1293,13 +1496,13 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(ferreteriaDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ferreteriaDataSetVentas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._vENTASTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.VENTAS.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._ventasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ventas.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._vENTASTableAdapter.Update(addedRows));
+                    result = (result + this._ventasTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1311,13 +1514,13 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(ferreteriaDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ferreteriaDataSetVentas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._vENTASTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.VENTAS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._ventasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ventas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._vENTASTableAdapter.Update(deletedRows));
+                    result = (result + this._ventasTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1353,15 +1556,15 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(ferreteriaDataSet1 dataSet) {
+        public virtual int UpdateAll(ferreteriaDataSetVentas dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._vENTASTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._vENTASTableAdapter.Connection) == false))) {
+            if (((this._ventasTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._ventasTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
@@ -1397,13 +1600,13 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._vENTASTableAdapter != null)) {
-                    revertConnections.Add(this._vENTASTableAdapter, this._vENTASTableAdapter.Connection);
-                    this._vENTASTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._vENTASTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._vENTASTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._vENTASTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._vENTASTableAdapter.Adapter);
+                if ((this._ventasTableAdapter != null)) {
+                    revertConnections.Add(this._ventasTableAdapter, this._ventasTableAdapter.Connection);
+                    this._ventasTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._ventasTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._ventasTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._ventasTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._ventasTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1464,9 +1667,9 @@ namespace Ferreteria.ferreteriaDataSet1TableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._vENTASTableAdapter != null)) {
-                    this._vENTASTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._vENTASTableAdapter]));
-                    this._vENTASTableAdapter.Transaction = null;
+                if ((this._ventasTableAdapter != null)) {
+                    this._ventasTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._ventasTableAdapter]));
+                    this._ventasTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -15,10 +15,11 @@ namespace Ferreteria
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
+
             // TODO: esta línea de código carga datos en la tabla 'ferreteriaDataSet.PRODUCTOS' Puede moverla o quitarla según sea necesario.
             try
             {
-                this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+                this.productosTableAdapter.Fill(this.ferreteriaDataSet.productos);
             }
             catch (Exception exc)
             {
@@ -30,7 +31,7 @@ namespace Ferreteria
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             BindingSource source1 = new BindingSource();
-            source1.DataSource = pRODUCTOSBindingSource;
+            source1.DataSource = productosBindingSource;
             if (txtBuscar.Text.Length > 0)
             {
                 try
@@ -132,7 +133,7 @@ namespace Ferreteria
                 cnon.Close();
                 MessageBox.Show("Nuevo producto agregado", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtBuscar.Text = string.Empty;
-                this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+                this.productosTableAdapter.Fill(this.ferreteriaDataSet.productos);
             }
              catch (Exception exc)
             {
@@ -153,7 +154,7 @@ namespace Ferreteria
                 cnon.Close();
                 MessageBox.Show("El producto con ID " + txtID.Text + " ha sido editado", "Producto editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtBuscar.Text = string.Empty;
-                this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+                this.productosTableAdapter.Fill(this.ferreteriaDataSet.productos);
             }
             catch (Exception exc)
             {
@@ -258,7 +259,7 @@ namespace Ferreteria
                     cnon.Close();
                     MessageBox.Show("El producto con ID " + dgProductos.CurrentRow.Cells[0].Value.ToString() + " ha sido eliminado", "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtBuscar.Text = string.Empty;
-                    this.pRODUCTOSTableAdapter.Fill(this.ferreteriaDataSet.PRODUCTOS);
+                    this.productosTableAdapter.Fill(this.ferreteriaDataSet.productos);
 
                 }
                 catch (Exception exc)

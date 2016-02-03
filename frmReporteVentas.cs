@@ -17,8 +17,8 @@ namespace Ferreteria
 
         private void frmReporteVentas_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'ferreteriaDataSet1.VENTAS' Puede moverla o quitarla según sea necesario.
-            this.vENTASTableAdapter.Fill(this.ferreteriaDataSet1.VENTAS);
+            // TODO: esta línea de código carga datos en la tabla 'ferreteriaDataSetVentas.ventas' Puede moverla o quitarla según sea necesario.
+            this.ventasTableAdapter.Fill(this.ferreteriaDataSetVentas.ventas);
 
         }
     }

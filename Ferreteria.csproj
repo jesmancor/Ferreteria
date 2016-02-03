@@ -36,8 +36,13 @@
     <StartupObject>Ferreteria.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,10 +59,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ferreteriaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ferreteriaDataSet1.Designer.cs">
+    <Compile Include="ferreteriaDataSetVentas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ferreteriaDataSet1.xsd</DependentUpon>
+      <DependentUpon>ferreteriaDataSetVentas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -153,16 +158,16 @@
     <None Include="ferreteriaDataSet.xss">
       <DependentUpon>ferreteriaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ferreteriaDataSet1.xsc">
-      <DependentUpon>ferreteriaDataSet1.xsd</DependentUpon>
+    <None Include="ferreteriaDataSetVentas.xsc">
+      <DependentUpon>ferreteriaDataSetVentas.xsd</DependentUpon>
     </None>
-    <None Include="ferreteriaDataSet1.xsd">
+    <None Include="ferreteriaDataSetVentas.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ferreteriaDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ferreteriaDataSetVentas.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ferreteriaDataSet1.xss">
-      <DependentUpon>ferreteriaDataSet1.xsd</DependentUpon>
+    <None Include="ferreteriaDataSetVentas.xss">
+      <DependentUpon>ferreteriaDataSetVentas.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -176,11 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ferreteria.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
