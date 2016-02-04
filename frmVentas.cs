@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -61,12 +61,12 @@ namespace Ferreteria
                 string strIDVenta = txtIDVenta.Text;
                 try {
                     string strCantidad = ingresarCantidad();
-                    OleDbConnection cnon = new OleDbConnection();
-                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand commandNombre = new OleDbCommand();
-                    OleDbCommand commandPrecio = new OleDbCommand();
-                    commandNombre.CommandText = "SELECT NOMBRE_PRODUCTO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
-                    commandPrecio.CommandText = "SELECT PRECIO_MENUDEO FROM PRODUCTOS WHERE ID_PRODUCTO = '" + strIDVenta + "'";
+                    MySqlConnection cnon = new MySqlConnection();
+                    cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                    MySqlCommand commandNombre = new MySqlCommand();
+                    MySqlCommand commandPrecio = new MySqlCommand();
+                    commandNombre.CommandText = "SELECT NOMBRE_PRODUCTO FROM productos WHERE ID_PRODUCTO = '" + strIDVenta + "'";
+                    commandPrecio.CommandText = "SELECT PRECIO_MENUDEO FROM productos WHERE ID_PRODUCTO = '" + strIDVenta + "'";
                     cnon.Open();
                     commandPrecio.Connection = cnon;
                     commandNombre.Connection = cnon;
@@ -104,18 +104,18 @@ namespace Ferreteria
                     string strNombre = filas.Cells[0].Value.ToString();
                     string strCantidad = filas.Cells[1].Value.ToString();
                     string strTotal = filas.Cells[3].Value.ToString();
-                    OleDbConnection cnon = new OleDbConnection();
-                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand commandInsertVenta = new OleDbCommand();
-                    OleDbCommand commandConsultaExistencias = new OleDbCommand();
-                    OleDbCommand commandRestaExistencia = new OleDbCommand();
+                    MySqlConnection cnon = new MySqlConnection();
+                    cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                    MySqlCommand commandInsertVenta = new MySqlCommand();
+                    MySqlCommand commandConsultaExistencias = new MySqlCommand();
+                    MySqlCommand commandRestaExistencia = new MySqlCommand();
                     commandInsertVenta.CommandText = "INSERT INTO VENTAS (PRODUCTO_VENTA, CANTIDAD_VENTA, TOTAL_VENTA) VALUES ('" + strNombre + "', '" + strCantidad + "', '" + strTotal + " ')";
-                    commandConsultaExistencias.CommandText = "SELECT EXISTENCIAS FROM PRODUCTOS WHERE NOMBRE_PRODUCTO = '" + strNombre + "'";
+                    commandConsultaExistencias.CommandText = "SELECT EXISTENCIAS FROM productos WHERE NOMBRE_PRODUCTO = '" + strNombre + "'";
                     cnon.Open();
                     commandConsultaExistencias.Connection = cnon;
                     int intExistencias = int.Parse(commandConsultaExistencias.ExecuteScalar().ToString());
                     int intResta = intExistencias - int.Parse(strCantidad);
-                    commandRestaExistencia.CommandText="UPDATE PRODUCTOS SET EXISTENCIAS = "+ intResta + " WHERE NOMBRE_PRODUCTO = '" + strNombre + "'";
+                    commandRestaExistencia.CommandText="UPDATE productos SET EXISTENCIAS = "+ intResta + " WHERE NOMBRE_PRODUCTO = '" + strNombre + "'";
                     commandRestaExistencia.Connection = cnon;
                     commandInsertVenta.Connection = cnon;
                     commandInsertVenta.ExecuteNonQuery();
@@ -137,10 +137,10 @@ namespace Ferreteria
                 {
                     string strNombre = filas.Cells[0].Value.ToString();
                     string strCantidad = filas.Cells[1].Value.ToString();
-                    OleDbConnection cnon = new OleDbConnection();
-                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand commandExistencias = new OleDbCommand();
-                    commandExistencias.CommandText = "SELECT EXISTENCIAS FROM PRODUCTOS WHERE NOMBRE_PRODUCTO = '"+strNombre+"'";
+                    MySqlConnection cnon = new MySqlConnection();
+                    cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                    MySqlCommand commandExistencias = new MySqlCommand();
+                    commandExistencias.CommandText = "SELECT EXISTENCIAS FROM productos WHERE NOMBRE_PRODUCTO = '"+strNombre+"'";
                     cnon.Open();
                     commandExistencias.Connection = cnon;
                     object objExistencias=commandExistencias.ExecuteScalar();

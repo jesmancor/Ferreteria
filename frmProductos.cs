@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace Ferreteria
@@ -37,7 +37,7 @@ namespace Ferreteria
                 try
                 {
                     string searchValue = txtBuscar.Text;
-                    string busqueda = string.Format("{0} LIKE '%{1}%'", "DESCRIPCIÓN_PRODUCTO", searchValue);
+                    string busqueda = string.Format("{0} LIKE '%{1}%'", "DESCRIPCION_PRODUCTO", searchValue);
                     source1.Filter = busqueda;
                     dgProductos.DataSource = source1;
                 }
@@ -123,10 +123,10 @@ namespace Ferreteria
         private void guardar()
         {
             try {
-                OleDbConnection cnon = new OleDbConnection();
-                cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                OleDbCommand command = new OleDbCommand();
-                command.CommandText = "INSERT INTO PRODUCTOS (ID_PRODUCTO, NOMBRE_PRODUCTO, TIPO_PRODUCTO, DESCRIPCIÓN_PRODUCTO, PRECIO_MENUDEO, PRECIO_MAYOREO, EXISTENCIAS) VALUES('" + txtID.Text + "','" + txtNombre.Text.ToUpper() + "','" + txtTipo.Text.ToUpper() + "','" + txtDescripcion.Text.ToUpper() + "','" + txtMenudeo.Text + "','" + txtMayoreo.Text + "','" + txtExistencias.Text + "')";
+                MySqlConnection cnon = new MySqlConnection();
+                cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "INSERT INTO productos (ID_PRODUCTO, NOMBRE_PRODUCTO, TIPO_PRODUCTO, DESCRIPCION_PRODUCTO, PRECIO_MENUDEO, PRECIO_MAYOREO, EXISTENCIAS) VALUES('" + txtID.Text + "','" + txtNombre.Text.ToUpper() + "','" + txtTipo.Text.ToUpper() + "','" + txtDescripcion.Text.ToUpper() + "','" + txtMenudeo.Text + "','" + txtMayoreo.Text + "','" + txtExistencias.Text + "')";
                 cnon.Open();
                 command.Connection = cnon;
                 command.ExecuteNonQuery();
@@ -144,10 +144,10 @@ namespace Ferreteria
         private void editarProducto()
         {
             try {
-                OleDbConnection cnon = new OleDbConnection();
-                cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                OleDbCommand command = new OleDbCommand();
-                command.CommandText = "UPDATE PRODUCTOS SET NOMBRE_PRODUCTO = '" + txtNombre.Text.ToUpper() + "', TIPO_PRODUCTO = '"+txtTipo.Text.ToUpper()+"', DESCRIPCIÓN_PRODUCTO = '" + txtDescripcion.Text.ToUpper() + "', PRECIO_MENUDEO = " + txtMenudeo.Text + ", PRECIO_MAYOREO = " + txtMayoreo.Text + ", EXISTENCIAS = "+txtExistencias.Text+" WHERE ID_PRODUCTO = '" + txtID.Text+"'";
+                MySqlConnection cnon = new MySqlConnection();
+                cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "UPDATE productos SET NOMBRE_PRODUCTO = '" + txtNombre.Text.ToUpper() + "', TIPO_PRODUCTO = '"+txtTipo.Text.ToUpper()+"', DESCRIPCION_PRODUCTO = '" + txtDescripcion.Text.ToUpper() + "', PRECIO_MENUDEO = " + txtMenudeo.Text + ", PRECIO_MAYOREO = " + txtMayoreo.Text + ", EXISTENCIAS = "+txtExistencias.Text+" WHERE ID_PRODUCTO = '" + txtID.Text+"'";
                 cnon.Open();
                 command.Connection = cnon;
                 command.ExecuteNonQuery();
@@ -249,10 +249,10 @@ namespace Ferreteria
             {
                 try
                 {
-                    OleDbConnection cnon = new OleDbConnection();
+                    MySqlConnection cnon = new MySqlConnection();
                     cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
-                    OleDbCommand command = new OleDbCommand();
-                    command.CommandText = "DELETE FROM PRODUCTOS WHERE ID_PRODUCTO = " + dgProductos.CurrentRow.Cells[0].Value.ToString();
+                    MySqlCommand command = new MySqlCommand();
+                    command.CommandText = "DELETE FROM productos WHERE ID_PRODUCTO = " + dgProductos.CurrentRow.Cells[0].Value.ToString();
                     cnon.Open();
                     command.Connection = cnon;
                     command.ExecuteNonQuery();
@@ -273,19 +273,6 @@ namespace Ferreteria
         {
             eliminarProducto();
         }
-
-        //private void textBox_Validating(object sender, CancelEventArgs e)
-        //{
-        //    TextBox currenttb = (TextBox)sender;
-        //        if (currenttb.Text == "") { 
-        //            MessageBox.Show(string.Format("El campo {0} está vacío", currenttb.Name.Substring(3)));
-        //            e.Cancel = true;
-        //    }
-        //    else
-        //    {
-        //        e.Cancel = false;
-        //    }
-        //}
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

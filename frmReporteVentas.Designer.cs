@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.lblReporteVentas = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ferreteriaDataSetVentas = new Ferreteria.ferreteriaDataSetVentas();
             this.ventasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ferreteriaDataSetVentas = new Ferreteria.ferreteriaDataSetVentas();
             this.ventasTableAdapter = new Ferreteria.ferreteriaDataSetVentasTableAdapters.ventasTableAdapter();
             this.iDVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRODUCTOVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +40,8 @@
             this.tOTALVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fECHAVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSetVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSetVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // lblReporteVentas
@@ -70,15 +70,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(590, 176);
             this.dataGridView1.TabIndex = 8;
             // 
-            // ferreteriaDataSetVentas
-            // 
-            this.ferreteriaDataSetVentas.DataSetName = "ferreteriaDataSetVentas";
-            this.ferreteriaDataSetVentas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // ventasBindingSource
             // 
             this.ventasBindingSource.DataMember = "ventas";
             this.ventasBindingSource.DataSource = this.ferreteriaDataSetVentas;
+            // 
+            // ferreteriaDataSetVentas
+            // 
+            this.ferreteriaDataSetVentas.DataSetName = "ferreteriaDataSetVentas";
+            this.ferreteriaDataSetVentas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ventasTableAdapter
             // 
@@ -87,31 +87,31 @@
             // iDVENTADataGridViewTextBoxColumn
             // 
             this.iDVENTADataGridViewTextBoxColumn.DataPropertyName = "ID_VENTA";
-            this.iDVENTADataGridViewTextBoxColumn.HeaderText = "ID_VENTA";
+            this.iDVENTADataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDVENTADataGridViewTextBoxColumn.Name = "iDVENTADataGridViewTextBoxColumn";
             // 
             // pRODUCTOVENTADataGridViewTextBoxColumn
             // 
             this.pRODUCTOVENTADataGridViewTextBoxColumn.DataPropertyName = "PRODUCTO_VENTA";
-            this.pRODUCTOVENTADataGridViewTextBoxColumn.HeaderText = "PRODUCTO_VENTA";
+            this.pRODUCTOVENTADataGridViewTextBoxColumn.HeaderText = "Producto";
             this.pRODUCTOVENTADataGridViewTextBoxColumn.Name = "pRODUCTOVENTADataGridViewTextBoxColumn";
             // 
             // cANTIDADVENTADataGridViewTextBoxColumn
             // 
             this.cANTIDADVENTADataGridViewTextBoxColumn.DataPropertyName = "CANTIDAD_VENTA";
-            this.cANTIDADVENTADataGridViewTextBoxColumn.HeaderText = "CANTIDAD_VENTA";
+            this.cANTIDADVENTADataGridViewTextBoxColumn.HeaderText = "Cantidad";
             this.cANTIDADVENTADataGridViewTextBoxColumn.Name = "cANTIDADVENTADataGridViewTextBoxColumn";
             // 
             // tOTALVENTADataGridViewTextBoxColumn
             // 
             this.tOTALVENTADataGridViewTextBoxColumn.DataPropertyName = "TOTAL_VENTA";
-            this.tOTALVENTADataGridViewTextBoxColumn.HeaderText = "TOTAL_VENTA";
+            this.tOTALVENTADataGridViewTextBoxColumn.HeaderText = "Total";
             this.tOTALVENTADataGridViewTextBoxColumn.Name = "tOTALVENTADataGridViewTextBoxColumn";
             // 
             // fECHAVENTADataGridViewTextBoxColumn
             // 
             this.fECHAVENTADataGridViewTextBoxColumn.DataPropertyName = "FECHA_VENTA";
-            this.fECHAVENTADataGridViewTextBoxColumn.HeaderText = "FECHA_VENTA";
+            this.fECHAVENTADataGridViewTextBoxColumn.HeaderText = "Fecha";
             this.fECHAVENTADataGridViewTextBoxColumn.Name = "fECHAVENTADataGridViewTextBoxColumn";
             // 
             // frmReporteVentas
@@ -126,8 +126,8 @@
             this.Controls.SetChildIndex(this.lblReporteVentas, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSetVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSetVentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
