@@ -123,8 +123,7 @@ namespace Ferreteria
         private void guardar()
         {
             try {
-                MySqlConnection cnon = new MySqlConnection();
-                cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                MySqlConnection cnon = new MySqlConnection(Objetos.constantes.CONEXION_MYSQL);
                 MySqlCommand command = new MySqlCommand();
                 command.CommandText = "INSERT INTO productos (ID_PRODUCTO, NOMBRE_PRODUCTO, TIPO_PRODUCTO, DESCRIPCION_PRODUCTO, PRECIO_MENUDEO, PRECIO_MAYOREO, EXISTENCIAS) VALUES('" + txtID.Text + "','" + txtNombre.Text.ToUpper() + "','" + txtTipo.Text.ToUpper() + "','" + txtDescripcion.Text.ToUpper() + "','" + txtMenudeo.Text + "','" + txtMayoreo.Text + "','" + txtExistencias.Text + "')";
                 cnon.Open();
@@ -144,8 +143,7 @@ namespace Ferreteria
         private void editarProducto()
         {
             try {
-                MySqlConnection cnon = new MySqlConnection();
-                cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                MySqlConnection cnon = new MySqlConnection(Objetos.constantes.CONEXION_MYSQL);
                 MySqlCommand command = new MySqlCommand();
                 command.CommandText = "UPDATE productos SET NOMBRE_PRODUCTO = '" + txtNombre.Text.ToUpper() + "', TIPO_PRODUCTO = '"+txtTipo.Text.ToUpper()+"', DESCRIPCION_PRODUCTO = '" + txtDescripcion.Text.ToUpper() + "', PRECIO_MENUDEO = " + txtMenudeo.Text + ", PRECIO_MAYOREO = " + txtMayoreo.Text + ", EXISTENCIAS = "+txtExistencias.Text+" WHERE ID_PRODUCTO = '" + txtID.Text+"'";
                 cnon.Open();
@@ -249,8 +247,7 @@ namespace Ferreteria
             {
                 try
                 {
-                    MySqlConnection cnon = new MySqlConnection();
-                    cnon.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ferreteria.accdb";
+                    MySqlConnection cnon = new MySqlConnection(Objetos.constantes.CONEXION_MYSQL);
                     MySqlCommand command = new MySqlCommand();
                     command.CommandText = "DELETE FROM productos WHERE ID_PRODUCTO = " + dgProductos.CurrentRow.Cells[0].Value.ToString();
                     cnon.Open();

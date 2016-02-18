@@ -27,9 +27,8 @@ namespace Ferreteria
         {
             try
             {
-                string constring = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
                 string cmdText = "select Count(*) from LOGIN where username=? and password=?";
-                using (MySqlConnection con = new MySqlConnection(constring))
+                using (MySqlConnection con = new MySqlConnection(Objetos.constantes.CONEXION_MYSQL))
                 using (MySqlCommand cmd = new MySqlCommand(cmdText, con))
                 {
                     con.Open();

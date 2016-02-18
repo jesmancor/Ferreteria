@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Ferreteria.Objetos;
 
 namespace Ferreteria
 {
@@ -61,27 +62,17 @@ namespace Ferreteria
                 string strIDVenta = txtIDVenta.Text;
                 try {
                     string strCantidad = ingresarCantidad();
-                    MySqlConnection cnon = new MySqlConnection();
-                    cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
-                    MySqlCommand commandNombre = new MySqlCommand();
-                    MySqlCommand commandPrecio = new MySqlCommand();
-                    commandNombre.CommandText = "SELECT NOMBRE_PRODUCTO FROM productos WHERE ID_PRODUCTO = '" + strIDVenta + "'";
-                    commandPrecio.CommandText = "SELECT PRECIO_MENUDEO FROM productos WHERE ID_PRODUCTO = '" + strIDVenta + "'";
-                    cnon.Open();
-                    commandPrecio.Connection = cnon;
-                    commandNombre.Connection = cnon;
-                    object objPrecioUnitario = commandPrecio.ExecuteScalar();
-                    object objNombre = commandNombre.ExecuteScalar();
-                    cnon.Close();
-                    nombreRepetido(objNombre);
-                    if (strCantidad != null && int.Parse(strCantidad) != 0 && objNombre != null)
+                    producto Producto = new producto();
+                    Producto.consulta(strIDVenta,int.Parse(strCantidad));
+                    nombreRepetido(Producto.strNombreProducto);
+                    if (strCantidad != null && int.Parse(strCantidad) != 0 && Producto.strNombreProducto != null)
                     {
                         lblIDNoexiste.Visible = false;
-                        doubPrecio = double.Parse(objPrecioUnitario.ToString()) * int.Parse(strCantidad);
-                        this.dgVenta.Rows.Add(objNombre, strCantidad,objPrecioUnitario ,doubPrecio);
+                        doubPrecio = double.Parse(Producto.doubPrecioUnitario.ToString()) * int.Parse(strCantidad);
+                        this.dgVenta.Rows.Add(Producto.strNombreProducto, strCantidad, Producto.doubPrecioUnitario , doubPrecio);
                         btnVenta.Enabled = true;
                     }
-                    else if (objNombre == null)
+                    else if (Producto.strNombreProducto == null)
                     {
                         lblIDNoexiste.Visible = true;
                     }
@@ -104,8 +95,7 @@ namespace Ferreteria
                     string strNombre = filas.Cells[0].Value.ToString();
                     string strCantidad = filas.Cells[1].Value.ToString();
                     string strTotal = filas.Cells[3].Value.ToString();
-                    MySqlConnection cnon = new MySqlConnection();
-                    cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                    MySqlConnection cnon = new MySqlConnection(Objetos.constantes.CONEXION_MYSQL);
                     MySqlCommand commandInsertVenta = new MySqlCommand();
                     MySqlCommand commandConsultaExistencias = new MySqlCommand();
                     MySqlCommand commandRestaExistencia = new MySqlCommand();
@@ -137,8 +127,7 @@ namespace Ferreteria
                 {
                     string strNombre = filas.Cells[0].Value.ToString();
                     string strCantidad = filas.Cells[1].Value.ToString();
-                    MySqlConnection cnon = new MySqlConnection();
-                    cnon.ConnectionString = @"Data Source=localhost;User id=root;Password=666666;database=ferreteria";
+                    MySqlConnection cnon = new MySqlConnection(Objetos.constantes.CONEXION_MYSQL);
                     MySqlCommand commandExistencias = new MySqlCommand();
                     commandExistencias.CommandText = "SELECT EXISTENCIAS FROM productos WHERE NOMBRE_PRODUCTO = '"+strNombre+"'";
                     cnon.Open();
