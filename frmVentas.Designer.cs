@@ -36,11 +36,11 @@
             this.txtIDVenta = new System.Windows.Forms.TextBox();
             this.lblIDVenta = new System.Windows.Forms.Label();
             this.dgVenta = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE_PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO_UNITARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblIDNoexiste = new System.Windows.Forms.Label();
             this.gbVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).BeginInit();
             this.SuspendLayout();
@@ -51,9 +51,9 @@
             this.gbVenta.Controls.Add(this.lblTotal);
             this.gbVenta.Controls.Add(this.btnVenta);
             this.gbVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVenta.Location = new System.Drawing.Point(15, 211);
+            this.gbVenta.Location = new System.Drawing.Point(568, 455);
             this.gbVenta.Name = "gbVenta";
-            this.gbVenta.Size = new System.Drawing.Size(217, 137);
+            this.gbVenta.Size = new System.Drawing.Size(143, 137);
             this.gbVenta.TabIndex = 6;
             this.gbVenta.TabStop = false;
             this.gbVenta.Text = "Total venta";
@@ -63,7 +63,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Verdana", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotal.Location = new System.Drawing.Point(1, 32);
+            this.lblTotal.Location = new System.Drawing.Point(35, 32);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(76, 48);
             this.lblTotal.TabIndex = 1;
@@ -73,7 +73,7 @@
             // btnVenta
             // 
             this.btnVenta.Enabled = false;
-            this.btnVenta.Location = new System.Drawing.Point(50, 83);
+            this.btnVenta.Location = new System.Drawing.Point(22, 83);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(112, 32);
             this.btnVenta.TabIndex = 0;
@@ -114,26 +114,35 @@
             this.dgVenta.AllowUserToAddRows = false;
             this.dgVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.NOMBRE_PRODUCTO,
             this.CANTIDAD,
             this.PRECIO_UNITARIO,
             this.TOTAL});
-            this.dgVenta.Location = new System.Drawing.Point(291, 67);
+            this.dgVenta.Location = new System.Drawing.Point(12, 151);
             this.dgVenta.Name = "dgVenta";
             this.dgVenta.ReadOnly = true;
-            this.dgVenta.Size = new System.Drawing.Size(488, 298);
+            this.dgVenta.Size = new System.Drawing.Size(699, 298);
             this.dgVenta.TabIndex = 10;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MaxInputLength = 13;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // NOMBRE_PRODUCTO
             // 
             this.NOMBRE_PRODUCTO.HeaderText = "Nombre del producto";
             this.NOMBRE_PRODUCTO.Name = "NOMBRE_PRODUCTO";
             this.NOMBRE_PRODUCTO.ReadOnly = true;
-            this.NOMBRE_PRODUCTO.Width = 200;
+            this.NOMBRE_PRODUCTO.Width = 300;
             // 
             // CANTIDAD
             // 
             this.CANTIDAD.HeaderText = "Cantidad";
+            this.CANTIDAD.MaxInputLength = 9;
             this.CANTIDAD.Name = "CANTIDAD";
             this.CANTIDAD.ReadOnly = true;
             this.CANTIDAD.Width = 55;
@@ -143,33 +152,22 @@
             dataGridViewCellStyle1.NullValue = null;
             this.PRECIO_UNITARIO.DefaultCellStyle = dataGridViewCellStyle1;
             this.PRECIO_UNITARIO.HeaderText = "Precio unitario";
+            this.PRECIO_UNITARIO.MaxInputLength = 9;
             this.PRECIO_UNITARIO.Name = "PRECIO_UNITARIO";
             this.PRECIO_UNITARIO.ReadOnly = true;
             // 
             // TOTAL
             // 
-            this.TOTAL.HeaderText = "Total";
+            this.TOTAL.HeaderText = "Precio total";
+            this.TOTAL.MaxInputLength = 9;
             this.TOTAL.Name = "TOTAL";
             this.TOTAL.ReadOnly = true;
-            this.TOTAL.Width = 55;
-            // 
-            // lblIDNoexiste
-            // 
-            this.lblIDNoexiste.AutoSize = true;
-            this.lblIDNoexiste.ForeColor = System.Drawing.Color.Red;
-            this.lblIDNoexiste.Location = new System.Drawing.Point(45, 109);
-            this.lblIDNoexiste.Name = "lblIDNoexiste";
-            this.lblIDNoexiste.Size = new System.Drawing.Size(68, 13);
-            this.lblIDNoexiste.TabIndex = 11;
-            this.lblIDNoexiste.Text = "ID incorrecto";
-            this.lblIDNoexiste.Visible = false;
             // 
             // frmVentas
             // 
             this.AcceptButton = this.btnVenta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(870, 420);
-            this.Controls.Add(this.lblIDNoexiste);
+            this.ClientSize = new System.Drawing.Size(1109, 610);
             this.Controls.Add(this.dgVenta);
             this.Controls.Add(this.lblIDVenta);
             this.Controls.Add(this.txtIDVenta);
@@ -182,7 +180,6 @@
             this.Controls.SetChildIndex(this.txtIDVenta, 0);
             this.Controls.SetChildIndex(this.lblIDVenta, 0);
             this.Controls.SetChildIndex(this.dgVenta, 0);
-            this.Controls.SetChildIndex(this.lblIDNoexiste, 0);
             this.gbVenta.ResumeLayout(false);
             this.gbVenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).EndInit();
@@ -200,10 +197,10 @@
         private System.Windows.Forms.TextBox txtIDVenta;
         private System.Windows.Forms.Label lblIDVenta;
         private System.Windows.Forms.DataGridView dgVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE_PRODUCTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO_UNITARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
-        private System.Windows.Forms.Label lblIDNoexiste;
     }
 }
