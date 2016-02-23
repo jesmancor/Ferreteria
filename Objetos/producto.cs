@@ -17,6 +17,7 @@ namespace Ferreteria.Objetos
         public string strMensaje { get; set; }
         public string strNombreProducto { get; set; }
         public double doubPrecioUnitario;
+        public List<string[]> lista;
 
         public producto()
         {
@@ -24,6 +25,7 @@ namespace Ferreteria.Objetos
             blnRetorno = false;
             strNombreProducto = null;
             doubPrecioUnitario = 0;
+            lista = new List<string[]>();
         }
 
         //Método que devuelve un booleano si el producto tiene
@@ -99,30 +101,51 @@ namespace Ferreteria.Objetos
             }
         }
 
+        //Llena la lista de los productos a comprar
+        public void agregaLista(string[] arreglo)
+        {
+            lista.Add(arreglo);
+        }
+
         //Método que se encarga de ingresar las ventas a la tabla de ventas del día y reducir las existencias
-        public static bool procesaVenta(string nombre, string id,string cantidad, string total)
+        public bool procesaVenta()
         {
             MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
-            try
+            conn.Open();
+            MySqlTransaction trans;
+            trans = conn.BeginTransaction();
+            foreach (string[] arr in lista)
             {
-                conn.Open();
                 string sp = "venta";
                 MySqlCommand cmd = new MySqlCommand(sp, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@cantidad", cantidad);
-                cmd.Parameters.AddWithValue("@precio", total);
-
-                bool retorno= Convert.ToBoolean(cmd.ExecuteNonQuery());
-                return retorno;
+                cmd.Transaction = trans;
+                try
+                {
+                    cmd.Parameters.AddWithValue("@nombre", arr[0]);
+                    cmd.Parameters.AddWithValue("@id", arr[1]);
+                    cmd.Parameters.AddWithValue("@cantidad", arr[2]);
+                    cmd.Parameters.AddWithValue("@precio", arr[3]);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception exc)
+                {
+                    try
+                    {
+                        trans.Rollback();
+                    }
+                    catch (MySqlException mse)
+                    {
+                        MessageBox.Show("Fallo en rollback: " + mse.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    MessageBox.Show("Falló la conexión con la base de datos al procesar la venta: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Falló la conexión con la base de datos al procesar la venta: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            trans.Commit();
+            return true;
         }
+
     }
 }

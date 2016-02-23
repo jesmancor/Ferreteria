@@ -109,15 +109,22 @@ namespace Ferreteria
         private void realizaVenta()
         {
             try {
-                foreach (DataGridViewRow filas in dgVenta.Rows)
+                producto Producto = new producto();
+                foreach (DataGridViewRow fila in dgVenta.Rows)
                 {
-                    string strNombre = filas.Cells[FILA_NOMBRE_PRODUCTO].Value.ToString();
-                    string strID = filas.Cells[FILA_ID].Value.ToString();
-                    string strCantidad = filas.Cells[FILA_CANTIDAD].Value.ToString();
-                    string strTotal = filas.Cells[FILA_PRECIO_TOTAL].Value.ToString();
-                    producto.procesaVenta(strNombre,strID,strCantidad,strTotal);
+                    string[] arreglo = new string[4];
+                    string strNombre = fila.Cells[FILA_NOMBRE_PRODUCTO].Value.ToString();
+                    string strID = fila.Cells[FILA_ID].Value.ToString();
+                    string strCantidad = fila.Cells[FILA_CANTIDAD].Value.ToString();
+                    string strTotal = fila.Cells[FILA_PRECIO_TOTAL].Value.ToString();
+                    arreglo[0] = strNombre;
+                    arreglo[1] = strID;
+                    arreglo[2] = strCantidad;
+                    arreglo[3] = strTotal;
+                    Producto.agregaLista(arreglo);
                 }
-                MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(Producto.procesaVenta())
+                    MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception exc)
             {

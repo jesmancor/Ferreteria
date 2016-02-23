@@ -41,6 +41,7 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloj = new System.Windows.Forms.Timer(this.components);
+            this.ventasDelDíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,10 +118,11 @@
             // 
             // ventasToolStripMenuItem
             // 
+            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ventasDelDíaToolStripMenuItem});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ventasToolStripMenuItem.Text = "Ventas";
-            this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
             // 
@@ -132,6 +134,13 @@
             // reloj
             // 
             this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
+            // 
+            // ventasDelDíaToolStripMenuItem
+            // 
+            this.ventasDelDíaToolStripMenuItem.Name = "ventasDelDíaToolStripMenuItem";
+            this.ventasDelDíaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ventasDelDíaToolStripMenuItem.Text = "Ventas del día";
+            this.ventasDelDíaToolStripMenuItem.Click += new System.EventHandler(this.ventasDelDíaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -168,5 +177,6 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.Timer reloj;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasDelDíaToolStripMenuItem;
     }
 }

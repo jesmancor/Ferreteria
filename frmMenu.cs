@@ -66,7 +66,7 @@ namespace Ferreteria
             cerrarSesion();
         }
 
-        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ventasDelDíaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarReporteVentas();
         }
@@ -109,12 +109,6 @@ namespace Ferreteria
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }
-            //if (keyData == (Keys.F1))
-            //{
-            //    MessageBox.Show("What the Ctrl+F?");
-            //    return true;
-            //}
-            //return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

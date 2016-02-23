@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.lblReporteVentas = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ventasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ferreteriaDataSetVentas = new Ferreteria.ferreteriaDataSetVentas();
-            this.ventasTableAdapter = new Ferreteria.ferreteriaDataSetVentasTableAdapters.ventasTableAdapter();
             this.iDVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRODUCTOVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cANTIDADVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tOTALVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fECHAVENTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ventasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ferreteriaDataSetVentas = new Ferreteria.ferreteriaDataSetVentas();
+            this.ventasTableAdapter = new Ferreteria.ferreteriaDataSetVentasTableAdapters.ventasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferreteriaDataSetVentas)).BeginInit();
@@ -50,9 +50,9 @@
             this.lblReporteVentas.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReporteVentas.Location = new System.Drawing.Point(10, 72);
             this.lblReporteVentas.Name = "lblReporteVentas";
-            this.lblReporteVentas.Size = new System.Drawing.Size(182, 25);
+            this.lblReporteVentas.Size = new System.Drawing.Size(252, 25);
             this.lblReporteVentas.TabIndex = 7;
-            this.lblReporteVentas.Text = "Reporte de ventas";
+            this.lblReporteVentas.Text = "Reporte de ventas del día";
             // 
             // dataGridView1
             // 
@@ -67,22 +67,8 @@
             this.dataGridView1.DataSource = this.ventasBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(15, 118);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(590, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 395);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // ventasBindingSource
-            // 
-            this.ventasBindingSource.DataMember = "ventas";
-            this.ventasBindingSource.DataSource = this.ferreteriaDataSetVentas;
-            // 
-            // ferreteriaDataSetVentas
-            // 
-            this.ferreteriaDataSetVentas.DataSetName = "ferreteriaDataSetVentas";
-            this.ferreteriaDataSetVentas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ventasTableAdapter
-            // 
-            this.ventasTableAdapter.ClearBeforeFill = true;
             // 
             // iDVENTADataGridViewTextBoxColumn
             // 
@@ -114,10 +100,24 @@
             this.fECHAVENTADataGridViewTextBoxColumn.HeaderText = "Fecha";
             this.fECHAVENTADataGridViewTextBoxColumn.Name = "fECHAVENTADataGridViewTextBoxColumn";
             // 
+            // ventasBindingSource
+            // 
+            this.ventasBindingSource.DataMember = "ventas";
+            this.ventasBindingSource.DataSource = this.ferreteriaDataSetVentas;
+            // 
+            // ferreteriaDataSetVentas
+            // 
+            this.ferreteriaDataSetVentas.DataSetName = "ferreteriaDataSetVentas";
+            this.ferreteriaDataSetVentas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ventasTableAdapter
+            // 
+            this.ventasTableAdapter.ClearBeforeFill = true;
+            // 
             // frmReporteVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(852, 420);
+            this.ClientSize = new System.Drawing.Size(852, 516);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblReporteVentas);
             this.Location = new System.Drawing.Point(0, 0);
