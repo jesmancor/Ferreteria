@@ -40,6 +40,20 @@ namespace Ferreteria
                 }
         }
 
+        private bool cambioDeEfectivo(double total)
+        {
+            using (var form = new frmEfectivo(total))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
         //Método que reemplaza una línea del DataGridView si es que se vuelve a ingresar un producto
         //contenido en él
         private void nombreRepetido(object objeto)
@@ -123,8 +137,12 @@ namespace Ferreteria
                     arreglo[3] = strTotal;
                     Producto.agregaLista(arreglo);
                 }
-                if(Producto.procesaVenta())
-                    MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool valCambio = cambioDeEfectivo(doubTotalVenta);
+                if (valCambio)
+                {
+                    if(Producto.procesaVenta())
+                        MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception exc)
             {
