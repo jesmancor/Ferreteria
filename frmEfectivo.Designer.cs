@@ -66,7 +66,7 @@
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(180, 68);
+            this.ClientSize = new System.Drawing.Size(176, 64);
             this.ControlBox = false;
             this.Controls.Add(this.txtEfectivo);
             this.Controls.Add(this.btnCancelar);
@@ -75,7 +75,7 @@
             this.Location = new System.Drawing.Point(80, 125);
             this.Name = "frmEfectivo";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Efectivo recibido";
             this.ResumeLayout(false);
             this.PerformLayout();

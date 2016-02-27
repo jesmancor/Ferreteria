@@ -295,13 +295,15 @@ namespace Ferreteria {
             
             private global::System.Data.DataColumn columnEXISTENCIAS;
             
-            private global::System.Data.DataColumn columnMINIMO;
+            private global::System.Data.DataColumn columnMINIMO_PRODUCTO;
             
-            private global::System.Data.DataColumn columnMAXIMO;
+            private global::System.Data.DataColumn columnMAXIMO_PRODUCTO;
             
-            private global::System.Data.DataColumn columnREORDEN;
+            private global::System.Data.DataColumn columnREORDENAR;
             
             private global::System.Data.DataColumn columnPEDIDO;
+            
+            private global::System.Data.DataColumn columnCANTIDAD_MAYOREO;
             
             private global::System.Data.DataColumn columnESTACIONALIDAD;
             
@@ -410,25 +412,25 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MINIMOColumn {
+            public global::System.Data.DataColumn MINIMO_PRODUCTOColumn {
                 get {
-                    return this.columnMINIMO;
+                    return this.columnMINIMO_PRODUCTO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MAXIMOColumn {
+            public global::System.Data.DataColumn MAXIMO_PRODUCTOColumn {
                 get {
-                    return this.columnMAXIMO;
+                    return this.columnMAXIMO_PRODUCTO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn REORDENColumn {
+            public global::System.Data.DataColumn REORDENARColumn {
                 get {
-                    return this.columnREORDEN;
+                    return this.columnREORDENAR;
                 }
             }
             
@@ -437,6 +439,14 @@ namespace Ferreteria {
             public global::System.Data.DataColumn PEDIDOColumn {
                 get {
                     return this.columnPEDIDO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CANTIDAD_MAYOREOColumn {
+                get {
+                    return this.columnCANTIDAD_MAYOREO;
                 }
             }
             
@@ -518,11 +528,12 @@ namespace Ferreteria {
                         decimal PRECIO_MAYOREO, 
                         decimal DESCUENTO, 
                         int EXISTENCIAS, 
-                        int MINIMO, 
-                        int MAXIMO, 
-                        int REORDEN, 
+                        int MINIMO_PRODUCTO, 
+                        int MAXIMO_PRODUCTO, 
+                        int REORDENAR, 
                         int PEDIDO, 
-                        System.DateTime ESTACIONALIDAD, 
+                        int CANTIDAD_MAYOREO, 
+                        string ESTACIONALIDAD, 
                         string PROVEEDOR_ASIGNADO, 
                         string PROVEEDOR_DOS, 
                         string PROVEEDOR_TRES) {
@@ -536,10 +547,11 @@ namespace Ferreteria {
                         PRECIO_MAYOREO,
                         DESCUENTO,
                         EXISTENCIAS,
-                        MINIMO,
-                        MAXIMO,
-                        REORDEN,
+                        MINIMO_PRODUCTO,
+                        MAXIMO_PRODUCTO,
+                        REORDENAR,
                         PEDIDO,
+                        CANTIDAD_MAYOREO,
                         ESTACIONALIDAD,
                         PROVEEDOR_ASIGNADO,
                         PROVEEDOR_DOS,
@@ -581,10 +593,11 @@ namespace Ferreteria {
                 this.columnPRECIO_MAYOREO = base.Columns["PRECIO_MAYOREO"];
                 this.columnDESCUENTO = base.Columns["DESCUENTO"];
                 this.columnEXISTENCIAS = base.Columns["EXISTENCIAS"];
-                this.columnMINIMO = base.Columns["MINIMO"];
-                this.columnMAXIMO = base.Columns["MAXIMO"];
-                this.columnREORDEN = base.Columns["REORDEN"];
+                this.columnMINIMO_PRODUCTO = base.Columns["MINIMO_PRODUCTO"];
+                this.columnMAXIMO_PRODUCTO = base.Columns["MAXIMO_PRODUCTO"];
+                this.columnREORDENAR = base.Columns["REORDENAR"];
                 this.columnPEDIDO = base.Columns["PEDIDO"];
+                this.columnCANTIDAD_MAYOREO = base.Columns["CANTIDAD_MAYOREO"];
                 this.columnESTACIONALIDAD = base.Columns["ESTACIONALIDAD"];
                 this.columnPROVEEDOR_ASIGNADO = base.Columns["PROVEEDOR_ASIGNADO"];
                 this.columnPROVEEDOR_DOS = base.Columns["PROVEEDOR_DOS"];
@@ -610,15 +623,17 @@ namespace Ferreteria {
                 base.Columns.Add(this.columnDESCUENTO);
                 this.columnEXISTENCIAS = new global::System.Data.DataColumn("EXISTENCIAS", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEXISTENCIAS);
-                this.columnMINIMO = new global::System.Data.DataColumn("MINIMO", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMINIMO);
-                this.columnMAXIMO = new global::System.Data.DataColumn("MAXIMO", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMAXIMO);
-                this.columnREORDEN = new global::System.Data.DataColumn("REORDEN", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnREORDEN);
+                this.columnMINIMO_PRODUCTO = new global::System.Data.DataColumn("MINIMO_PRODUCTO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMINIMO_PRODUCTO);
+                this.columnMAXIMO_PRODUCTO = new global::System.Data.DataColumn("MAXIMO_PRODUCTO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMAXIMO_PRODUCTO);
+                this.columnREORDENAR = new global::System.Data.DataColumn("REORDENAR", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREORDENAR);
                 this.columnPEDIDO = new global::System.Data.DataColumn("PEDIDO", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPEDIDO);
-                this.columnESTACIONALIDAD = new global::System.Data.DataColumn("ESTACIONALIDAD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnCANTIDAD_MAYOREO = new global::System.Data.DataColumn("CANTIDAD_MAYOREO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD_MAYOREO);
+                this.columnESTACIONALIDAD = new global::System.Data.DataColumn("ESTACIONALIDAD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnESTACIONALIDAD);
                 this.columnPROVEEDOR_ASIGNADO = new global::System.Data.DataColumn("PROVEEDOR_ASIGNADO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROVEEDOR_ASIGNADO);
@@ -634,6 +649,8 @@ namespace Ferreteria {
                 this.columnNOMBRE_PRODUCTO.MaxLength = 255;
                 this.columnTIPO_PRODUCTO.MaxLength = 255;
                 this.columnDESCRIPCION_PRODUCTO.MaxLength = 255;
+                this.columnCANTIDAD_MAYOREO.AllowDBNull = false;
+                this.columnESTACIONALIDAD.MaxLength = 1;
                 this.columnPROVEEDOR_ASIGNADO.MaxLength = 255;
                 this.columnPROVEEDOR_DOS.MaxLength = 255;
                 this.columnPROVEEDOR_TRES.MaxLength = 255;
@@ -902,49 +919,49 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MINIMO {
+            public int MINIMO_PRODUCTO {
                 get {
                     try {
-                        return ((int)(this[this.tableproductos.MINIMOColumn]));
+                        return ((int)(this[this.tableproductos.MINIMO_PRODUCTOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MINIMO\' de la tabla \'productos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MINIMO_PRODUCTO\' de la tabla \'productos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableproductos.MINIMOColumn] = value;
+                    this[this.tableproductos.MINIMO_PRODUCTOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MAXIMO {
+            public int MAXIMO_PRODUCTO {
                 get {
                     try {
-                        return ((int)(this[this.tableproductos.MAXIMOColumn]));
+                        return ((int)(this[this.tableproductos.MAXIMO_PRODUCTOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MAXIMO\' de la tabla \'productos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MAXIMO_PRODUCTO\' de la tabla \'productos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableproductos.MAXIMOColumn] = value;
+                    this[this.tableproductos.MAXIMO_PRODUCTOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int REORDEN {
+            public int REORDENAR {
                 get {
                     try {
-                        return ((int)(this[this.tableproductos.REORDENColumn]));
+                        return ((int)(this[this.tableproductos.REORDENARColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'REORDEN\' de la tabla \'productos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'REORDENAR\' de la tabla \'productos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableproductos.REORDENColumn] = value;
+                    this[this.tableproductos.REORDENARColumn] = value;
                 }
             }
             
@@ -966,10 +983,21 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ESTACIONALIDAD {
+            public int CANTIDAD_MAYOREO {
+                get {
+                    return ((int)(this[this.tableproductos.CANTIDAD_MAYOREOColumn]));
+                }
+                set {
+                    this[this.tableproductos.CANTIDAD_MAYOREOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ESTACIONALIDAD {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableproductos.ESTACIONALIDADColumn]));
+                        return ((string)(this[this.tableproductos.ESTACIONALIDADColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'ESTACIONALIDAD\' de la tabla \'productos\' es DBNull.", e);
@@ -1114,38 +1142,38 @@ namespace Ferreteria {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMINIMONull() {
-                return this.IsNull(this.tableproductos.MINIMOColumn);
+            public bool IsMINIMO_PRODUCTONull() {
+                return this.IsNull(this.tableproductos.MINIMO_PRODUCTOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMINIMONull() {
-                this[this.tableproductos.MINIMOColumn] = global::System.Convert.DBNull;
+            public void SetMINIMO_PRODUCTONull() {
+                this[this.tableproductos.MINIMO_PRODUCTOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMAXIMONull() {
-                return this.IsNull(this.tableproductos.MAXIMOColumn);
+            public bool IsMAXIMO_PRODUCTONull() {
+                return this.IsNull(this.tableproductos.MAXIMO_PRODUCTOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMAXIMONull() {
-                this[this.tableproductos.MAXIMOColumn] = global::System.Convert.DBNull;
+            public void SetMAXIMO_PRODUCTONull() {
+                this[this.tableproductos.MAXIMO_PRODUCTOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsREORDENNull() {
-                return this.IsNull(this.tableproductos.REORDENColumn);
+            public bool IsREORDENARNull() {
+                return this.IsNull(this.tableproductos.REORDENARColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetREORDENNull() {
-                this[this.tableproductos.REORDENColumn] = global::System.Convert.DBNull;
+            public void SetREORDENARNull() {
+                this[this.tableproductos.REORDENARColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1376,10 +1404,11 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PRECIO_MAYOREO", "PRECIO_MAYOREO");
             tableMapping.ColumnMappings.Add("DESCUENTO", "DESCUENTO");
             tableMapping.ColumnMappings.Add("EXISTENCIAS", "EXISTENCIAS");
-            tableMapping.ColumnMappings.Add("MINIMO", "MINIMO");
-            tableMapping.ColumnMappings.Add("MAXIMO", "MAXIMO");
-            tableMapping.ColumnMappings.Add("REORDEN", "REORDEN");
+            tableMapping.ColumnMappings.Add("MINIMO_PRODUCTO", "MINIMO_PRODUCTO");
+            tableMapping.ColumnMappings.Add("MAXIMO_PRODUCTO", "MAXIMO_PRODUCTO");
+            tableMapping.ColumnMappings.Add("REORDENAR", "REORDENAR");
             tableMapping.ColumnMappings.Add("PEDIDO", "PEDIDO");
+            tableMapping.ColumnMappings.Add("CANTIDAD_MAYOREO", "CANTIDAD_MAYOREO");
             tableMapping.ColumnMappings.Add("ESTACIONALIDAD", "ESTACIONALIDAD");
             tableMapping.ColumnMappings.Add("PROVEEDOR_ASIGNADO", "PROVEEDOR_ASIGNADO");
             tableMapping.ColumnMappings.Add("PROVEEDOR_DOS", "PROVEEDOR_DOS");
@@ -1387,7 +1416,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `productos` WHERE ((`ID_PRODUCTO` = @p1) AND ((@p2 = 1 AND `NOMBRE_PRODUCTO` IS NULL) OR (`NOMBRE_PRODUCTO` = @p3)) AND ((@p4 = 1 AND `TIPO_PRODUCTO` IS NULL) OR (`TIPO_PRODUCTO` = @p5)) AND ((@p6 = 1 AND `DESCRIPCION_PRODUCTO` IS NULL) OR (`DESCRIPCION_PRODUCTO` = @p7)) AND ((@p8 = 1 AND `PRECIO_MENUDEO` IS NULL) OR (`PRECIO_MENUDEO` = @p9)) AND ((@p10 = 1 AND `PRECIO_MAYOREO` IS NULL) OR (`PRECIO_MAYOREO` = @p11)) AND ((@p12 = 1 AND `DESCUENTO` IS NULL) OR (`DESCUENTO` = @p13)) AND ((@p14 = 1 AND `EXISTENCIAS` IS NULL) OR (`EXISTENCIAS` = @p15)) AND ((@p16 = 1 AND `MINIMO` IS NULL) OR (`MINIMO` = @p17)) AND ((@p18 = 1 AND `MAXIMO` IS NULL) OR (`MAXIMO` = @p19)) AND ((@p20 = 1 AND `REORDEN` IS NULL) OR (`REORDEN` = @p21)) AND ((@p22 = 1 AND `PEDIDO` IS NULL) OR (`PEDIDO` = @p23)) AND ((@p24 = 1 AND `ESTACIONALIDAD` IS NULL) OR (`ESTACIONALIDAD` = @p25)) AND ((@p26 = 1 AND `PROVEEDOR_ASIGNADO` IS NULL) OR (`PROVEEDOR_ASIGNADO` = @p27)) AND ((@p28 = 1 AND `PROVEEDOR_DOS` IS NULL) OR (`PROVEEDOR_DOS` = @p29)) AND ((@p30 = 1 AND `PROVEEDOR_TRES` IS NULL) OR (`PROVEEDOR_TRES` = @p31)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `productos` WHERE ((`ID_PRODUCTO` = @p1) AND ((@p2 = 1 AND `NOMBRE_PRODUCTO` IS NULL) OR (`NOMBRE_PRODUCTO` = @p3)) AND ((@p4 = 1 AND `TIPO_PRODUCTO` IS NULL) OR (`TIPO_PRODUCTO` = @p5)) AND ((@p6 = 1 AND `DESCRIPCION_PRODUCTO` IS NULL) OR (`DESCRIPCION_PRODUCTO` = @p7)) AND ((@p8 = 1 AND `PRECIO_MENUDEO` IS NULL) OR (`PRECIO_MENUDEO` = @p9)) AND ((@p10 = 1 AND `PRECIO_MAYOREO` IS NULL) OR (`PRECIO_MAYOREO` = @p11)) AND ((@p12 = 1 AND `DESCUENTO` IS NULL) OR (`DESCUENTO` = @p13)) AND ((@p14 = 1 AND `EXISTENCIAS` IS NULL) OR (`EXISTENCIAS` = @p15)) AND ((@p16 = 1 AND `MINIMO_PRODUCTO` IS NULL) OR (`MINIMO_PRODUCTO` = @p17)) AND ((@p18 = 1 AND `MAXIMO_PRODUCTO` IS NULL) OR (`MAXIMO_PRODUCTO` = @p19)) AND ((@p20 = 1 AND `REORDENAR` IS NULL) OR (`REORDENAR` = @p21)) AND ((@p22 = 1 AND `PEDIDO` IS NULL) OR (`PEDIDO` = @p23)) AND (`CANTIDAD_MAYOREO` = @p24) AND ((@p25 = 1 AND `ESTACIONALIDAD` IS NULL) OR (`ESTACIONALIDAD` = @p26)) AND ((@p27 = 1 AND `PROVEEDOR_ASIGNADO` IS NULL) OR (`PROVEEDOR_ASIGNADO` = @p28)) AND ((@p29 = 1 AND `PROVEEDOR_DOS` IS NULL) OR (`PROVEEDOR_DOS` = @p30)) AND ((@p31 = 1 AND `PROVEEDOR_TRES` IS NULL) OR (`PROVEEDOR_TRES` = @p32)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1521,7 +1550,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MINIMO";
+            param.SourceColumn = "MINIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -1530,7 +1559,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MINIMO";
+            param.SourceColumn = "MINIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1538,7 +1567,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MAXIMO";
+            param.SourceColumn = "MAXIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -1547,7 +1576,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MAXIMO";
+            param.SourceColumn = "MAXIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1555,7 +1584,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "REORDEN";
+            param.SourceColumn = "REORDENAR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -1564,7 +1593,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "REORDEN";
+            param.SourceColumn = "REORDENAR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1589,37 +1618,45 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ESTACIONALIDAD";
+            param.SourceColumn = "CANTIDAD_MAYOREO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p25";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ESTACIONALIDAD";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p26";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
             param.SourceColumn = "ESTACIONALIDAD";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p26";
+            param.ParameterName = "@p27";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "PROVEEDOR_ASIGNADO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p27";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_ASIGNADO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p28";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PROVEEDOR_ASIGNADO";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p29";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1628,7 +1665,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p29";
+            param.ParameterName = "@p30";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1636,7 +1673,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p30";
+            param.ParameterName = "@p31";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1645,7 +1682,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p31";
+            param.ParameterName = "@p32";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1654,7 +1691,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `productos` (`ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `TIPO_PRODUCTO`, `DESCRIPCION_PRODUCTO`, `PRECIO_MENUDEO`, `PRECIO_MAYOREO`, `DESCUENTO`, `EXISTENCIAS`, `MINIMO`, `MAXIMO`, `REORDEN`, `PEDIDO`, `ESTACIONALIDAD`, `PROVEEDOR_ASIGNADO`, `PROVEEDOR_DOS`, `PROVEEDOR_TRES`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `productos` (`ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `TIPO_PRODUCTO`, `DESCRIPCION_PRODUCTO`, `PRECIO_MENUDEO`, `PRECIO_MAYOREO`, `DESCUENTO`, `EXISTENCIAS`, `MINIMO_PRODUCTO`, `MAXIMO_PRODUCTO`, `REORDENAR`, `PEDIDO`, `CANTIDAD_MAYOREO`, `ESTACIONALIDAD`, `PROVEEDOR_ASIGNADO`, `PROVEEDOR_DOS`, `PROVEEDOR_TRES`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1717,21 +1754,21 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MINIMO";
+            param.SourceColumn = "MINIMO_PRODUCTO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MAXIMO";
+            param.SourceColumn = "MAXIMO_PRODUCTO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "REORDEN";
+            param.SourceColumn = "REORDENAR";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
@@ -1742,27 +1779,34 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ESTACIONALIDAD";
+            param.SourceColumn = "CANTIDAD_MAYOREO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p14";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_ASIGNADO";
+            param.SourceColumn = "ESTACIONALIDAD";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_DOS";
+            param.SourceColumn = "PROVEEDOR_ASIGNADO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PROVEEDOR_DOS";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1770,7 +1814,26 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `productos` SET `ID_PRODUCTO` = @p1, `NOMBRE_PRODUCTO` = @p2, `TIPO_PRODUCTO` = @p3, `DESCRIPCION_PRODUCTO` = @p4, `PRECIO_MENUDEO` = @p5, `PRECIO_MAYOREO` = @p6, `DESCUENTO` = @p7, `EXISTENCIAS` = @p8, `MINIMO` = @p9, `MAXIMO` = @p10, `REORDEN` = @p11, `PEDIDO` = @p12, `ESTACIONALIDAD` = @p13, `PROVEEDOR_ASIGNADO` = @p14, `PROVEEDOR_DOS` = @p15, `PROVEEDOR_TRES` = @p16 WHERE ((`ID_PRODUCTO` = @p17) AND ((@p18 = 1 AND `NOMBRE_PRODUCTO` IS NULL) OR (`NOMBRE_PRODUCTO` = @p19)) AND ((@p20 = 1 AND `TIPO_PRODUCTO` IS NULL) OR (`TIPO_PRODUCTO` = @p21)) AND ((@p22 = 1 AND `DESCRIPCION_PRODUCTO` IS NULL) OR (`DESCRIPCION_PRODUCTO` = @p23)) AND ((@p24 = 1 AND `PRECIO_MENUDEO` IS NULL) OR (`PRECIO_MENUDEO` = @p25)) AND ((@p26 = 1 AND `PRECIO_MAYOREO` IS NULL) OR (`PRECIO_MAYOREO` = @p27)) AND ((@p28 = 1 AND `DESCUENTO` IS NULL) OR (`DESCUENTO` = @p29)) AND ((@p30 = 1 AND `EXISTENCIAS` IS NULL) OR (`EXISTENCIAS` = @p31)) AND ((@p32 = 1 AND `MINIMO` IS NULL) OR (`MINIMO` = @p33)) AND ((@p34 = 1 AND `MAXIMO` IS NULL) OR (`MAXIMO` = @p35)) AND ((@p36 = 1 AND `REORDEN` IS NULL) OR (`REORDEN` = @p37)) AND ((@p38 = 1 AND `PEDIDO` IS NULL) OR (`PEDIDO` = @p39)) AND ((@p40 = 1 AND `ESTACIONALIDAD` IS NULL) OR (`ESTACIONALIDAD` = @p41)) AND ((@p42 = 1 AND `PROVEEDOR_ASIGNADO` IS NULL) OR (`PROVEEDOR_ASIGNADO` = @p43)) AND ((@p44 = 1 AND `PROVEEDOR_DOS` IS NULL) OR (`PROVEEDOR_DOS` = @p45)) AND ((@p46 = 1 AND `PROVEEDOR_TRES` IS NULL) OR (`PROVEEDOR_TRES` = @p47)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `productos` SET `ID_PRODUCTO` = @p1, `NOMBRE_PRODUCTO` = @p2, `TIPO_PRODUC" +
+                "TO` = @p3, `DESCRIPCION_PRODUCTO` = @p4, `PRECIO_MENUDEO` = @p5, `PRECIO_MAYOREO" +
+                "` = @p6, `DESCUENTO` = @p7, `EXISTENCIAS` = @p8, `MINIMO_PRODUCTO` = @p9, `MAXIM" +
+                "O_PRODUCTO` = @p10, `REORDENAR` = @p11, `PEDIDO` = @p12, `CANTIDAD_MAYOREO` = @p" +
+                "13, `ESTACIONALIDAD` = @p14, `PROVEEDOR_ASIGNADO` = @p15, `PROVEEDOR_DOS` = @p16" +
+                ", `PROVEEDOR_TRES` = @p17 WHERE ((`ID_PRODUCTO` = @p18) AND ((@p19 = 1 AND `NOMB" +
+                "RE_PRODUCTO` IS NULL) OR (`NOMBRE_PRODUCTO` = @p20)) AND ((@p21 = 1 AND `TIPO_PR" +
+                "ODUCTO` IS NULL) OR (`TIPO_PRODUCTO` = @p22)) AND ((@p23 = 1 AND `DESCRIPCION_PR" +
+                "ODUCTO` IS NULL) OR (`DESCRIPCION_PRODUCTO` = @p24)) AND ((@p25 = 1 AND `PRECIO_" +
+                "MENUDEO` IS NULL) OR (`PRECIO_MENUDEO` = @p26)) AND ((@p27 = 1 AND `PRECIO_MAYOR" +
+                "EO` IS NULL) OR (`PRECIO_MAYOREO` = @p28)) AND ((@p29 = 1 AND `DESCUENTO` IS NUL" +
+                "L) OR (`DESCUENTO` = @p30)) AND ((@p31 = 1 AND `EXISTENCIAS` IS NULL) OR (`EXIST" +
+                "ENCIAS` = @p32)) AND ((@p33 = 1 AND `MINIMO_PRODUCTO` IS NULL) OR (`MINIMO_PRODU" +
+                "CTO` = @p34)) AND ((@p35 = 1 AND `MAXIMO_PRODUCTO` IS NULL) OR (`MAXIMO_PRODUCTO" +
+                "` = @p36)) AND ((@p37 = 1 AND `REORDENAR` IS NULL) OR (`REORDENAR` = @p38)) AND " +
+                "((@p39 = 1 AND `PEDIDO` IS NULL) OR (`PEDIDO` = @p40)) AND (`CANTIDAD_MAYOREO` =" +
+                " @p41) AND ((@p42 = 1 AND `ESTACIONALIDAD` IS NULL) OR (`ESTACIONALIDAD` = @p43)" +
+                ") AND ((@p44 = 1 AND `PROVEEDOR_ASIGNADO` IS NULL) OR (`PROVEEDOR_ASIGNADO` = @p" +
+                "45)) AND ((@p46 = 1 AND `PROVEEDOR_DOS` IS NULL) OR (`PROVEEDOR_DOS` = @p47)) AN" +
+                "D ((@p48 = 1 AND `PROVEEDOR_TRES` IS NULL) OR (`PROVEEDOR_TRES` = @p49)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1833,21 +1896,21 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MINIMO";
+            param.SourceColumn = "MINIMO_PRODUCTO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MAXIMO";
+            param.SourceColumn = "MAXIMO_PRODUCTO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "REORDEN";
+            param.SourceColumn = "REORDENAR";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
@@ -1858,34 +1921,41 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ESTACIONALIDAD";
+            param.SourceColumn = "CANTIDAD_MAYOREO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p14";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_ASIGNADO";
+            param.SourceColumn = "ESTACIONALIDAD";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_DOS";
+            param.SourceColumn = "PROVEEDOR_ASIGNADO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_TRES";
+            param.SourceColumn = "PROVEEDOR_DOS";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p17";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PROVEEDOR_TRES";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1893,33 +1963,33 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p18";
+            param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "NOMBRE_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p19";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "NOMBRE_PRODUCTO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p20";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "TIPO_PRODUCTO";
+            param.SourceColumn = "NOMBRE_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p21";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TIPO_PRODUCTO";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1927,7 +1997,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
+            param.ParameterName = "@p23";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1936,7 +2006,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p23";
+            param.ParameterName = "@p24";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1944,33 +2014,33 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p24";
+            param.ParameterName = "@p25";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "PRECIO_MENUDEO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p25";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "PRECIO_MENUDEO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p26";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "PRECIO_MAYOREO";
+            param.SourceColumn = "PRECIO_MENUDEO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p27";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "PRECIO_MAYOREO";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p28";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -1978,7 +2048,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p28";
+            param.ParameterName = "@p29";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1987,21 +2057,12 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p29";
+            param.ParameterName = "@p30";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
             param.SourceColumn = "DESCUENTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p30";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "EXISTENCIAS";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p31";
@@ -2010,66 +2071,66 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "EXISTENCIAS";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p32";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MINIMO";
+            param.SourceColumn = "EXISTENCIAS";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p33";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MINIMO";
+            param.SourceColumn = "MINIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p34";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MAXIMO";
+            param.SourceColumn = "MINIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p35";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "MAXIMO";
+            param.SourceColumn = "MAXIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p36";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "REORDEN";
+            param.SourceColumn = "MAXIMO_PRODUCTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p37";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "REORDEN";
+            param.SourceColumn = "REORDENAR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p38";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "PEDIDO";
+            param.SourceColumn = "REORDENAR";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p39";
@@ -2078,22 +2139,22 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "PEDIDO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p40";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ESTACIONALIDAD";
+            param.SourceColumn = "PEDIDO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p41";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ESTACIONALIDAD";
+            param.SourceColumn = "CANTIDAD_MAYOREO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2101,16 +2162,16 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_ASIGNADO";
+            param.SourceColumn = "ESTACIONALIDAD";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p43";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_ASIGNADO";
+            param.SourceColumn = "ESTACIONALIDAD";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2118,7 +2179,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_DOS";
+            param.SourceColumn = "PROVEEDOR_ASIGNADO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -2127,11 +2188,28 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "PROVEEDOR_DOS";
+            param.SourceColumn = "PROVEEDOR_ASIGNADO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p46";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "PROVEEDOR_DOS";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p47";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "PROVEEDOR_DOS";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p48";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -2140,7 +2218,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p47";
+            param.ParameterName = "@p49";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -2162,7 +2240,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT `ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `TIPO_PRODUCTO`, `DESCRIPCION_PRODUCTO`, `PRECIO_MENUDEO`, `PRECIO_MAYOREO`, `DESCUENTO`, `EXISTENCIAS`, `MINIMO`, `MAXIMO`, `REORDEN`, `PEDIDO`, `ESTACIONALIDAD`, `PROVEEDOR_ASIGNADO`, `PROVEEDOR_DOS`, `PROVEEDOR_TRES` FROM `productos`";
+            this._commandCollection[0].CommandText = @"SELECT `ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `TIPO_PRODUCTO`, `DESCRIPCION_PRODUCTO`, `PRECIO_MENUDEO`, `PRECIO_MAYOREO`, `DESCUENTO`, `EXISTENCIAS`, `MINIMO_PRODUCTO`, `MAXIMO_PRODUCTO`, `REORDENAR`, `PEDIDO`, `CANTIDAD_MAYOREO`, `ESTACIONALIDAD`, `PROVEEDOR_ASIGNADO`, `PROVEEDOR_DOS`, `PROVEEDOR_TRES` FROM `productos`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2236,10 +2314,11 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     global::System.Nullable<int> p19, 
                     global::System.Nullable<int> p21, 
                     global::System.Nullable<int> p23, 
-                    global::System.Nullable<global::System.DateTime> p25, 
-                    string p27, 
-                    string p29, 
-                    string p31) {
+                    int p24, 
+                    string p26, 
+                    string p28, 
+                    string p30, 
+                    string p32) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -2334,37 +2413,38 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((p25.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((System.DateTime)(p25.Value));
+            this.Adapter.DeleteCommand.Parameters[23].Value = ((int)(p24));
+            if ((p26 == null)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(p26));
             }
-            if ((p27 == null)) {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(p27));
-            }
-            if ((p29 == null)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            if ((p28 == null)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(p29));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((string)(p28));
             }
-            if ((p31 == null)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            if ((p30 == null)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(p31));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(p30));
+            }
+            if ((p32 == null)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(p32));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2399,10 +2479,11 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     global::System.Nullable<int> p10, 
                     global::System.Nullable<int> p11, 
                     global::System.Nullable<int> p12, 
-                    global::System.Nullable<global::System.DateTime> p13, 
+                    int p13, 
                     string p14, 
                     string p15, 
-                    string p16) {
+                    string p16, 
+                    string p17) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -2475,12 +2556,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((p13.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(p13.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(p13));
             if ((p14 == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
@@ -2498,6 +2574,12 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = ((string)(p16));
+            }
+            if ((p17 == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(p17));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2532,26 +2614,28 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     global::System.Nullable<int> p10, 
                     global::System.Nullable<int> p11, 
                     global::System.Nullable<int> p12, 
-                    global::System.Nullable<global::System.DateTime> p13, 
+                    int p13, 
                     string p14, 
                     string p15, 
                     string p16, 
                     string p17, 
-                    string p19, 
-                    string p21, 
-                    string p23, 
-                    global::System.Nullable<decimal> p25, 
-                    global::System.Nullable<decimal> p27, 
-                    global::System.Nullable<decimal> p29, 
-                    global::System.Nullable<int> p31, 
-                    global::System.Nullable<int> p33, 
-                    global::System.Nullable<int> p35, 
-                    global::System.Nullable<int> p37, 
-                    global::System.Nullable<int> p39, 
-                    global::System.Nullable<global::System.DateTime> p41, 
+                    string p18, 
+                    string p20, 
+                    string p22, 
+                    string p24, 
+                    global::System.Nullable<decimal> p26, 
+                    global::System.Nullable<decimal> p28, 
+                    global::System.Nullable<decimal> p30, 
+                    global::System.Nullable<int> p32, 
+                    global::System.Nullable<int> p34, 
+                    global::System.Nullable<int> p36, 
+                    global::System.Nullable<int> p38, 
+                    global::System.Nullable<int> p40, 
+                    int p41, 
                     string p43, 
                     string p45, 
-                    string p47) {
+                    string p47, 
+                    string p49) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -2624,12 +2708,7 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((p13.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(p13.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(p13));
             if ((p14 == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
@@ -2649,107 +2728,106 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
             }
             if ((p17 == null)) {
-                throw new global::System.ArgumentNullException("p17");
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
             }
-            if ((p19 == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            if ((p18 == null)) {
+                throw new global::System.ArgumentNullException("p18");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(p19));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(p18));
             }
-            if ((p21 == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(p21));
-            }
-            if ((p23 == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            if ((p20 == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(p23));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(p20));
             }
-            if ((p25.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(p25.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((p27.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(p27.Value));
+            if ((p22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(p22));
             }
-            if ((p29.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(p29.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((p31.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(p31.Value));
+            if ((p24 == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(p24));
             }
-            if ((p33.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(p33.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((p35.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(p35.Value));
+            if ((p26.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(p26.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((p37.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(p37.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            if ((p39.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(p39.Value));
+            if ((p28.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(p28.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((p41.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((System.DateTime)(p41.Value));
+            if ((p30.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(p30.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
+            if ((p32.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(p32.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((p34.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(p34.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((p36.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(p36.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((p38.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(p38.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((p40.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(p40.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(p41));
             if ((p43 == null)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
@@ -2773,6 +2851,14 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(p47));
+            }
+            if ((p49 == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(p49));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2806,27 +2892,29 @@ namespace Ferreteria.ferreteriaDataSetTableAdapters {
                     global::System.Nullable<int> p10, 
                     global::System.Nullable<int> p11, 
                     global::System.Nullable<int> p12, 
-                    global::System.Nullable<global::System.DateTime> p13, 
+                    int p13, 
                     string p14, 
                     string p15, 
                     string p16, 
                     string p17, 
-                    string p19, 
-                    string p21, 
-                    string p23, 
-                    global::System.Nullable<decimal> p25, 
-                    global::System.Nullable<decimal> p27, 
-                    global::System.Nullable<decimal> p29, 
-                    global::System.Nullable<int> p31, 
-                    global::System.Nullable<int> p33, 
-                    global::System.Nullable<int> p35, 
-                    global::System.Nullable<int> p37, 
-                    global::System.Nullable<int> p39, 
-                    global::System.Nullable<global::System.DateTime> p41, 
+                    string p18, 
+                    string p20, 
+                    string p22, 
+                    string p24, 
+                    global::System.Nullable<decimal> p26, 
+                    global::System.Nullable<decimal> p28, 
+                    global::System.Nullable<decimal> p30, 
+                    global::System.Nullable<int> p32, 
+                    global::System.Nullable<int> p34, 
+                    global::System.Nullable<int> p36, 
+                    global::System.Nullable<int> p38, 
+                    global::System.Nullable<int> p40, 
+                    int p41, 
                     string p43, 
                     string p45, 
-                    string p47) {
-            return this.Update(p17, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p19, p21, p23, p25, p27, p29, p31, p33, p35, p37, p39, p41, p43, p45, p47);
+                    string p47, 
+                    string p49) {
+            return this.Update(p18, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p20, p22, p24, p26, p28, p30, p32, p34, p36, p38, p40, p41, p43, p45, p47, p49);
         }
     }
     

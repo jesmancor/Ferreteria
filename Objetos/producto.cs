@@ -62,6 +62,10 @@ namespace Ferreteria.Objetos
                 {
                     MessageBox.Show(strMensaje, "No es posible realizar la venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else if(strMensaje!=null)
+                {
+                    MessageBox.Show(strMensaje, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 return blnRetorno;
             }
             catch (Exception exc)

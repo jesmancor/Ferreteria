@@ -15,7 +15,6 @@ namespace Ferreteria
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
-
             // TODO: esta línea de código carga datos en la tabla 'ferreteriaDataSet.PRODUCTOS' Puede moverla o quitarla según sea necesario.
             try
             {
