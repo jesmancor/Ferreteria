@@ -61,7 +61,7 @@ namespace Ferreteria
 
         private void confirmaCancelar()
         {
-            DialogResult pregunta = MessageBox.Show("¿Desea cancelar la venta?", "¿Cancelar venta?", MessageBoxButtons.YesNo);
+            DialogResult pregunta = MessageBox.Show("¿Desea cancelar la venta?", "¿Cancelar venta?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (pregunta == DialogResult.Yes)
             {
                 this.DialogResult = DialogResult.Cancel;

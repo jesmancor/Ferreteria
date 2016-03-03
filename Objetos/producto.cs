@@ -64,7 +64,7 @@ namespace Ferreteria.Objetos
                 }
                 else if(strMensaje!=null)
                 {
-                    MessageBox.Show(strMensaje, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(strMensaje, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 return blnRetorno;
             }

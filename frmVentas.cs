@@ -40,6 +40,8 @@ namespace Ferreteria
                 }
         }
 
+        //Despliega la ventana en la que se ingresa el efectivo que se recibe al hacer la venta y muestra el cambio
+        //a devolver al cliente
         private bool cambioDeEfectivo(double total)
         {
             using (var form = new frmEfectivo(total))

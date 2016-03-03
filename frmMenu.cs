@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ferreteria.Objetos;
 
 namespace Ferreteria
 {
@@ -63,7 +64,7 @@ namespace Ferreteria
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cerrarSesion();
+
         }
 
         private void ventasDelDíaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +75,18 @@ namespace Ferreteria
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarUsuarios();
+        }
+
+        private void bloquearCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarSesion();
+        }
+
+        private void cierreDeDiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool cierra = sistema.cierreDeDia();
+            if (cierra)
+                cerrarSesion();      
         }
 
         private void frmMenu_Load(object sender, EventArgs e)

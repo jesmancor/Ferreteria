@@ -39,9 +39,11 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasDelDíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloj = new System.Windows.Forms.Timer(this.components);
-            this.ventasDelDíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloquearCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cierreDeDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,11 +123,21 @@
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasDelDíaToolStripMenuItem});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.ventasToolStripMenuItem.Text = "Ventas";
+            // 
+            // ventasDelDíaToolStripMenuItem
+            // 
+            this.ventasDelDíaToolStripMenuItem.Name = "ventasDelDíaToolStripMenuItem";
+            this.ventasDelDíaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ventasDelDíaToolStripMenuItem.Text = "Ventas del día";
+            this.ventasDelDíaToolStripMenuItem.Click += new System.EventHandler(this.ventasDelDíaToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
             // 
+            this.cerrarSesiónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bloquearCajaToolStripMenuItem,
+            this.cierreDeDiaToolStripMenuItem});
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar caja";
@@ -135,12 +147,19 @@
             // 
             this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
             // 
-            // ventasDelDíaToolStripMenuItem
+            // bloquearCajaToolStripMenuItem
             // 
-            this.ventasDelDíaToolStripMenuItem.Name = "ventasDelDíaToolStripMenuItem";
-            this.ventasDelDíaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ventasDelDíaToolStripMenuItem.Text = "Ventas del día";
-            this.ventasDelDíaToolStripMenuItem.Click += new System.EventHandler(this.ventasDelDíaToolStripMenuItem_Click);
+            this.bloquearCajaToolStripMenuItem.Name = "bloquearCajaToolStripMenuItem";
+            this.bloquearCajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bloquearCajaToolStripMenuItem.Text = "Bloquear caja";
+            this.bloquearCajaToolStripMenuItem.Click += new System.EventHandler(this.bloquearCajaToolStripMenuItem_Click);
+            // 
+            // cierreDeDiaToolStripMenuItem
+            // 
+            this.cierreDeDiaToolStripMenuItem.Name = "cierreDeDiaToolStripMenuItem";
+            this.cierreDeDiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cierreDeDiaToolStripMenuItem.Text = "Cierre de día";
+            this.cierreDeDiaToolStripMenuItem.Click += new System.EventHandler(this.cierreDeDiaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -178,5 +197,7 @@
         private System.Windows.Forms.Timer reloj;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasDelDíaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloquearCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cierreDeDiaToolStripMenuItem;
     }
 }
