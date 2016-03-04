@@ -54,11 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ferreteriaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ferreteriaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ferreteriaDataSetVentas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +115,7 @@
     </Compile>
     <Compile Include="Objetos\constantes.cs" />
     <Compile Include="Objetos\producto.cs" />
+    <Compile Include="Objetos\sistema.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -158,17 +154,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ferreteriaDataSet.xsc">
-      <DependentUpon>ferreteriaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ferreteriaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ferreteriaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ferreteriaDataSet.xss">
-      <DependentUpon>ferreteriaDataSet.xsd</DependentUpon>
-    </None>
     <None Include="ferreteriaDataSetVentas.xsc">
       <DependentUpon>ferreteriaDataSetVentas.xsd</DependentUpon>
     </None>

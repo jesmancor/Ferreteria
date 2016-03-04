@@ -13,19 +13,44 @@ namespace Ferreteria.Objetos
 {
     public class producto
     {
+        //Variables de retorno para consulta
         public bool blnRetorno { get; set; }
-        public string strMensaje { get; set; }
-        public string strNombreProducto { get; set; }
         public double doubPrecioUnitario;
+        public string strMensaje { get; set; }
+
+        //Campos de la tabla producto para el alta
+        public string strNombreProducto { get; set; }
+        public string strID { get; set; }
+        public string strTipo { get; set; }
+        public string strDescripcion { get; set; }
+        public string strMayoreo { get; set; }
+        public string strMenudeo { get; set; }
+        public string strDescuento  { get; set; }
+        public string strExistencias { get; set; }
+        public string strMinimo { get; set; }
+        public string strMaximo { get; set; }
+        public string strReorden { get; set; }
+
+        //Lista para ingresar todos los productos de la venta al sp
         public List<string[]> lista;
 
         public producto()
         {
             strMensaje = null;
             blnRetorno = false;
-            strNombreProducto = null;
             doubPrecioUnitario = 0;
             lista = new List<string[]>();
+            strNombreProducto = null;
+            strID = null;
+            strTipo = null;
+            strDescripcion = null;
+            strMayoreo = null;
+            strMenudeo = null;
+            strDescuento = null;
+            strExistencias = null;
+            strMinimo = null;
+            strMaximo = null;
+            strReorden = null;
         }
 
         //Método que devuelve un booleano si el producto tiene
@@ -120,12 +145,12 @@ namespace Ferreteria.Objetos
             trans = conn.BeginTransaction();
             foreach (string[] arr in lista)
             {
-                string sp = "venta";
-                MySqlCommand cmd = new MySqlCommand(sp, conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Transaction = trans;
                 try
                 {
+                    string sp = "venta";
+                    MySqlCommand cmd = new MySqlCommand(sp, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Transaction = trans;
                     cmd.Parameters.AddWithValue("@nombre", arr[0]);
                     cmd.Parameters.AddWithValue("@id", arr[1]);
                     cmd.Parameters.AddWithValue("@cantidad", arr[2]);
@@ -151,5 +176,34 @@ namespace Ferreteria.Objetos
             return true;
         }
 
+        //Método que agrega un nuevo producto a la base de datos
+        public void altaProducto()
+        {
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "productoAlta";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", strID);
+                cmd.Parameters.AddWithValue("@nombre",strNombreProducto);
+                cmd.Parameters.AddWithValue("@tipo",strTipo);
+                cmd.Parameters.AddWithValue("@descripcion",strDescripcion);
+                cmd.Parameters.AddWithValue("@pMenudeo",strMenudeo);
+                cmd.Parameters.AddWithValue("@pMayoreo",strMayoreo);
+                cmd.Parameters.AddWithValue("@descuento",strDescuento);
+                cmd.Parameters.AddWithValue("@existencias",strExistencias);
+                cmd.Parameters.AddWithValue("@minimo",strMinimo);
+                cmd.Parameters.AddWithValue("@maximo",strMaximo);
+                cmd.Parameters.AddWithValue("@reorden",strReorden);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El producto "+strNombreProducto+" fue agregado", "Registro agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al dar de alta el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
