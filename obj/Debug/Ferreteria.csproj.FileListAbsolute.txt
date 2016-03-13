@@ -31,3 +31,5 @@ C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\De
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmCantidad.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\MySql.Data.dll
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmEfectivo.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\LibPrintTicket.dll
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\LibPrintTicket.pdb

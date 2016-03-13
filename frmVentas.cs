@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using MySql.Data.MySqlClient;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Ferreteria.Objetos;
 
@@ -18,6 +12,10 @@ namespace Ferreteria
         private const int FILA_CANTIDAD = 2;
         private const int FILA_PRECIO_UNITARIO = 3;
         private const int FILA_PRECIO_TOTAL = 4;
+        private const int ARR_NOMBRE = 0;
+        private const int ARR_ID = 1;
+        private const int ARR_CANTIDAD = 2;
+        private const int ARR_PRECIO = 3;
 
         public frmVentas()
         {
@@ -29,8 +27,8 @@ namespace Ferreteria
         {
             using (var form = new frmCantidad())
             {
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                var resultado = form.ShowDialog();
+                if (resultado == DialogResult.OK)
                 {
                     string valor = form.retornoCantidad;
                     return valor;
@@ -42,17 +40,23 @@ namespace Ferreteria
 
         //Despliega la ventana en la que se ingresa el efectivo que se recibe al hacer la venta y muestra el cambio
         //a devolver al cliente
-        private bool cambioDeEfectivo(double total)
+        private bool cambioDeEfectivo(double total, out double retorno, out double efectivo)
         {
             using (var form = new frmEfectivo(total))
             {
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                var resultado = form.ShowDialog();
+                if (resultado == DialogResult.OK)
                 {
+                    retorno = form.retorno;
+                    efectivo = form.efectivo;
                     return true;
                 }
                 else
+                {
+                    retorno = 0;
+                    efectivo = 0;
                     return false;
+                }
             }
         }
 
@@ -133,17 +137,23 @@ namespace Ferreteria
                     string strID = fila.Cells[FILA_ID].Value.ToString();
                     string strCantidad = fila.Cells[FILA_CANTIDAD].Value.ToString();
                     string strTotal = fila.Cells[FILA_PRECIO_TOTAL].Value.ToString();
-                    arreglo[0] = strNombre;
-                    arreglo[1] = strID;
-                    arreglo[2] = strCantidad;
-                    arreglo[3] = strTotal;
+                    arreglo[ARR_NOMBRE] = strNombre;
+                    arreglo[ARR_ID] = strID;
+                    arreglo[ARR_CANTIDAD] = strCantidad;
+                    arreglo[ARR_PRECIO] = strTotal;
                     Producto.agregaLista(arreglo);
                 }
-                bool valCambio = cambioDeEfectivo(doubTotalVenta);
+                double retorno;
+                double efectivo;
+                bool valCambio = cambioDeEfectivo(doubTotalVenta,out retorno,out efectivo);
                 if (valCambio)
                 {
-                    if(Producto.procesaVenta())
+                    if (Producto.procesaVenta())
+                    {
                         MessageBox.Show("Se ha realizado la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Producto.imprimeTicket(doubTotalVenta, retorno, efectivo);
+                        
+                    }
                 }
             }
             catch (Exception exc)

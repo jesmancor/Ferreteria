@@ -12,9 +12,9 @@ namespace Ferreteria
 {
     public partial class frmEfectivo : Form
     {
-        public double efectivo;
+        public double efectivo { get; set; }
         public double total;
-        public double retorno;
+        public double retorno { get; set; }
 
         public frmEfectivo(double totalVenta)
         {

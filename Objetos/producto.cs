@@ -1,13 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using MySql.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using LibPrintTicket;
 
 namespace Ferreteria.Objetos
 {
@@ -30,6 +26,12 @@ namespace Ferreteria.Objetos
         public string strMinimo { get; set; }
         public string strMaximo { get; set; }
         public string strReorden { get; set; }
+
+        //Constantes para el arreglo de datos del producto
+        private const int ARR_NOMBRE = 0;
+        private const int ARR_ID = 1;
+        private const int ARR_CANTIDAD = 2;
+        private const int ARR_PRECIO = 3;
 
         //Lista para ingresar todos los productos de la venta al sp
         public List<string[]> lista;
@@ -151,10 +153,10 @@ namespace Ferreteria.Objetos
                     MySqlCommand cmd = new MySqlCommand(sp, conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Transaction = trans;
-                    cmd.Parameters.AddWithValue("@nombre", arr[0]);
-                    cmd.Parameters.AddWithValue("@id", arr[1]);
-                    cmd.Parameters.AddWithValue("@cantidad", arr[2]);
-                    cmd.Parameters.AddWithValue("@precio", arr[3]);
+                    cmd.Parameters.AddWithValue("@nombre", arr[ARR_NOMBRE]);
+                    cmd.Parameters.AddWithValue("@id", arr[ARR_ID]);
+                    cmd.Parameters.AddWithValue("@cantidad", arr[ARR_CANTIDAD]);
+                    cmd.Parameters.AddWithValue("@precio", arr[ARR_PRECIO]);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception exc)
@@ -203,6 +205,41 @@ namespace Ferreteria.Objetos
             catch (Exception exc)
             {
                 MessageBox.Show("Falló la conexión con la base de datos al dar de alta el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Método que imprime ticket con la información de los productos vendidos
+        public void imprimeTicket(double doubTotalVenta, double retorno, double efectivo)
+        {
+            try
+            {
+                Ticket ticket = new Ticket();
+
+                ticket.AddHeaderLine("Ferretería y Tlapalería");
+                ticket.AddHeaderLine("'Los Jilgueros'");
+                ticket.AddHeaderLine("Calle 10 Oriente, # 1150,");
+                ticket.AddHeaderLine("Villas De Carrizalejo,");
+                ticket.AddHeaderLine("Ciénega de Flores, Nuevo León");
+
+                ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
+                foreach (string[] arr in lista)
+                {
+                    ticket.AddItem(arr[ARR_CANTIDAD], arr[ARR_NOMBRE],"$" + arr[ARR_PRECIO]);
+                }
+
+                ticket.AddTotal("SUBTOTAL", "");
+                ticket.AddTotal("IVA", "");
+                ticket.AddTotal("TOTAL", "$"+doubTotalVenta.ToString());
+                ticket.AddTotal("RECIBIDO", "$"+efectivo.ToString());
+                ticket.AddTotal("CAMBIO", "$"+retorno.ToString());
+
+                ticket.AddFooterLine("VUELVA PRONTO");
+
+                ticket.PrintTicket("doPDF 8"); //Nombre de la impresora de tickets
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
