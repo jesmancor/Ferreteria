@@ -49,11 +49,10 @@
             // 
             this.gbVenta.AutoSize = true;
             this.gbVenta.Controls.Add(this.lblTotal);
-            this.gbVenta.Controls.Add(this.btnVenta);
             this.gbVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVenta.Location = new System.Drawing.Point(568, 455);
+            this.gbVenta.Location = new System.Drawing.Point(543, 461);
             this.gbVenta.Name = "gbVenta";
-            this.gbVenta.Size = new System.Drawing.Size(143, 137);
+            this.gbVenta.Size = new System.Drawing.Size(168, 86);
             this.gbVenta.TabIndex = 6;
             this.gbVenta.TabStop = false;
             this.gbVenta.Text = "Total venta";
@@ -63,17 +62,16 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Verdana", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotal.Location = new System.Drawing.Point(35, 32);
+            this.lblTotal.Location = new System.Drawing.Point(6, 19);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(76, 48);
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "$0";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnVenta
             // 
             this.btnVenta.Enabled = false;
-            this.btnVenta.Location = new System.Drawing.Point(22, 83);
+            this.btnVenta.Location = new System.Drawing.Point(599, 553);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(112, 32);
             this.btnVenta.TabIndex = 0;
@@ -87,9 +85,9 @@
             this.lblVenta.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVenta.Location = new System.Drawing.Point(10, 67);
             this.lblVenta.Name = "lblVenta";
-            this.lblVenta.Size = new System.Drawing.Size(124, 25);
+            this.lblVenta.Size = new System.Drawing.Size(143, 25);
             this.lblVenta.TabIndex = 7;
-            this.lblVenta.Text = "Hacer venta";
+            this.lblVenta.Text = "Realizar venta";
             // 
             // txtIDVenta
             // 
@@ -169,6 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1109, 610);
             this.Controls.Add(this.dgVenta);
+            this.Controls.Add(this.btnVenta);
             this.Controls.Add(this.lblIDVenta);
             this.Controls.Add(this.txtIDVenta);
             this.Controls.Add(this.lblVenta);
@@ -179,6 +178,7 @@
             this.Controls.SetChildIndex(this.lblVenta, 0);
             this.Controls.SetChildIndex(this.txtIDVenta, 0);
             this.Controls.SetChildIndex(this.lblIDVenta, 0);
+            this.Controls.SetChildIndex(this.btnVenta, 0);
             this.Controls.SetChildIndex(this.dgVenta, 0);
             this.gbVenta.ResumeLayout(false);
             this.gbVenta.PerformLayout();

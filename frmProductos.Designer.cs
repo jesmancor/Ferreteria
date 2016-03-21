@@ -30,7 +30,6 @@
         {
             this.lblProductos = new System.Windows.Forms.Label();
             this.gbEditarNuevo = new System.Windows.Forms.GroupBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtReorden = new System.Windows.Forms.TextBox();
             this.lblReorden = new System.Windows.Forms.Label();
             this.txtMaximo = new System.Windows.Forms.TextBox();
@@ -53,6 +52,9 @@
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.gbEditarNuevo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,22 +99,14 @@
             this.gbEditarNuevo.TabIndex = 5;
             this.gbEditarNuevo.TabStop = false;
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(17, 241);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // txtReorden
             // 
             this.txtReorden.Location = new System.Drawing.Point(1214, 70);
             this.txtReorden.Name = "txtReorden";
             this.txtReorden.Size = new System.Drawing.Size(49, 20);
             this.txtReorden.TabIndex = 10;
+            this.txtReorden.TextChanged += new System.EventHandler(this.txtReorden_TextChanged);
+            this.txtReorden.Validating += new System.ComponentModel.CancelEventHandler(this.txtReorden_Validating);
             // 
             // lblReorden
             // 
@@ -129,6 +123,8 @@
             this.txtMaximo.Name = "txtMaximo";
             this.txtMaximo.Size = new System.Drawing.Size(49, 20);
             this.txtMaximo.TabIndex = 9;
+            this.txtMaximo.TextChanged += new System.EventHandler(this.txtMaximo_TextChanged);
+            this.txtMaximo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaximo_Validating);
             // 
             // lblMaximo
             // 
@@ -154,6 +150,8 @@
             this.txtMinimo.Name = "txtMinimo";
             this.txtMinimo.Size = new System.Drawing.Size(49, 20);
             this.txtMinimo.TabIndex = 8;
+            this.txtMinimo.TextChanged += new System.EventHandler(this.txtMinimo_TextChanged);
+            this.txtMinimo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMinimo_Validating);
             // 
             // txtDescuento
             // 
@@ -161,6 +159,8 @@
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(49, 20);
             this.txtDescuento.TabIndex = 6;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtDescuento.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescuento_Validating);
             // 
             // lblDecuento
             // 
@@ -241,6 +241,7 @@
             this.txtExistencias.Size = new System.Drawing.Size(49, 20);
             this.txtExistencias.TabIndex = 7;
             this.txtExistencias.TextChanged += new System.EventHandler(this.txtExistencias_TextChanged);
+            this.txtExistencias.Validating += new System.ComponentModel.CancelEventHandler(this.txtExistencias_Validating);
             // 
             // txtMayoreo
             // 
@@ -249,6 +250,7 @@
             this.txtMayoreo.Size = new System.Drawing.Size(49, 20);
             this.txtMayoreo.TabIndex = 5;
             this.txtMayoreo.TextChanged += new System.EventHandler(this.txtMayoreo_TextChanged);
+            this.txtMayoreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMayoreo_Validating);
             // 
             // txtMenudeo
             // 
@@ -257,6 +259,7 @@
             this.txtMenudeo.Size = new System.Drawing.Size(49, 20);
             this.txtMenudeo.TabIndex = 4;
             this.txtMenudeo.TextChanged += new System.EventHandler(this.txtMenudeo_TextChanged);
+            this.txtMenudeo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMenudeo_Validating);
             // 
             // txtDescripcion
             // 
@@ -266,6 +269,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(252, 88);
             this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescripcion_Validating);
             // 
             // txtTipo
             // 
@@ -274,6 +278,7 @@
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(252, 20);
             this.txtTipo.TabIndex = 2;
+            this.txtTipo.Validating += new System.ComponentModel.CancelEventHandler(this.txtTipo_Validating);
             // 
             // txtNombre
             // 
@@ -282,6 +287,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(252, 20);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
             // 
             // txtID
             // 
@@ -292,11 +298,47 @@
             this.txtID.Size = new System.Drawing.Size(108, 20);
             this.txtID.TabIndex = 0;
             this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Enabled = false;
+            this.btnAgregar.Location = new System.Drawing.Point(17, 241);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Enabled = false;
+            this.btnModificar.Location = new System.Drawing.Point(98, 241);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 7;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(179, 241);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1355, 646);
+            this.ClientSize = new System.Drawing.Size(1354, 646);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbEditarNuevo);
             this.Controls.Add(this.lblProductos);
@@ -306,6 +348,8 @@
             this.Controls.SetChildIndex(this.lblProductos, 0);
             this.Controls.SetChildIndex(this.gbEditarNuevo, 0);
             this.Controls.SetChildIndex(this.btnAgregar, 0);
+            this.Controls.SetChildIndex(this.btnModificar, 0);
+            this.Controls.SetChildIndex(this.btnEliminar, 0);
             this.gbEditarNuevo.ResumeLayout(false);
             this.gbEditarNuevo.PerformLayout();
             this.ResumeLayout(false);
@@ -340,5 +384,7 @@
         private System.Windows.Forms.Label lblMinimo;
         private System.Windows.Forms.TextBox txtMinimo;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

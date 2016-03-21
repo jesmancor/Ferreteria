@@ -41,9 +41,9 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasDelDíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloj = new System.Windows.Forms.Timer(this.components);
             this.bloquearCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloj = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,8 +83,8 @@
             // hacerVentaToolStripMenuItem
             // 
             this.hacerVentaToolStripMenuItem.Name = "hacerVentaToolStripMenuItem";
-            this.hacerVentaToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.hacerVentaToolStripMenuItem.Text = "Hacer venta";
+            this.hacerVentaToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.hacerVentaToolStripMenuItem.Text = "Realizar venta";
             this.hacerVentaToolStripMenuItem.Click += new System.EventHandler(this.hacerVentaToolStripMenuItem_Click);
             // 
             // cToolStripMenuItem
@@ -143,23 +143,23 @@
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar caja";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
-            // reloj
-            // 
-            this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
-            // 
             // bloquearCajaToolStripMenuItem
             // 
             this.bloquearCajaToolStripMenuItem.Name = "bloquearCajaToolStripMenuItem";
-            this.bloquearCajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bloquearCajaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.bloquearCajaToolStripMenuItem.Text = "Bloquear caja";
             this.bloquearCajaToolStripMenuItem.Click += new System.EventHandler(this.bloquearCajaToolStripMenuItem_Click);
             // 
             // cierreDeDiaToolStripMenuItem
             // 
             this.cierreDeDiaToolStripMenuItem.Name = "cierreDeDiaToolStripMenuItem";
-            this.cierreDeDiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cierreDeDiaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.cierreDeDiaToolStripMenuItem.Text = "Cierre de día";
             this.cierreDeDiaToolStripMenuItem.Click += new System.EventHandler(this.cierreDeDiaToolStripMenuItem_Click);
+            // 
+            // reloj
+            // 
+            this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
             // 
             // frmMenu
             // 

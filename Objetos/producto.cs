@@ -21,7 +21,7 @@ namespace Ferreteria.Objetos
         public string strDescripcion { get; set; }
         public string strMayoreo { get; set; }
         public string strMenudeo { get; set; }
-        public string strDescuento  { get; set; }
+        public string strDescuento { get; set; }
         public string strExistencias { get; set; }
         public string strMinimo { get; set; }
         public string strMaximo { get; set; }
@@ -32,6 +32,10 @@ namespace Ferreteria.Objetos
         private const int ARR_ID = 1;
         private const int ARR_CANTIDAD = 2;
         private const int ARR_PRECIO = 3;
+
+        //Constantes para el tipo de consulta
+        private const int CON_VENTA = 1;
+        private const int CON_MOD = 2;
 
         //Lista para ingresar todos los productos de la venta al sp
         public List<string[]> lista;
@@ -80,6 +84,8 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@nombre", null);
                 cmd.Parameters["@nombre"].Direction = ParameterDirection.Output;
 
+                cmd.Parameters.AddWithValue("@tipoCon", CON_VENTA);
+
                 cmd.ExecuteNonQuery();
                 blnRetorno = Convert.ToBoolean(int.Parse(cmd.Parameters["@retorno"].Value.ToString()));
                 strMensaje = cmd.Parameters["@mensaje"].Value.ToString();
@@ -89,7 +95,7 @@ namespace Ferreteria.Objetos
                 {
                     MessageBox.Show(strMensaje, "No es posible realizar la venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if(strMensaje!=null)
+                else if (strMensaje != "nulo")
                 {
                     MessageBox.Show(strMensaje, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -104,7 +110,7 @@ namespace Ferreteria.Objetos
 
         //Método que consulta el precio de venta del producto tomando como referencia la
         //cantidad de la venta actual, para aplicar precio de mayoreo o menudeo según corresponda
-        public double consultaPrecio(string id,int cantidad)
+        public double consultaPrecio(string id, int cantidad)
         {
             MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
             try
@@ -179,7 +185,7 @@ namespace Ferreteria.Objetos
         }
 
         //Método que agrega un nuevo producto a la base de datos
-        public void altaProducto()
+        public bool altaProducto()
         {
             MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
             try
@@ -189,22 +195,77 @@ namespace Ferreteria.Objetos
                 MySqlCommand cmd = new MySqlCommand(sp, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", strID);
-                cmd.Parameters.AddWithValue("@nombre",strNombreProducto);
-                cmd.Parameters.AddWithValue("@tipo",strTipo);
-                cmd.Parameters.AddWithValue("@descripcion",strDescripcion);
-                cmd.Parameters.AddWithValue("@pMenudeo",strMenudeo);
-                cmd.Parameters.AddWithValue("@pMayoreo",strMayoreo);
-                cmd.Parameters.AddWithValue("@descuento",strDescuento);
-                cmd.Parameters.AddWithValue("@existencias",strExistencias);
-                cmd.Parameters.AddWithValue("@minimo",strMinimo);
-                cmd.Parameters.AddWithValue("@maximo",strMaximo);
-                cmd.Parameters.AddWithValue("@reorden",strReorden);
+                cmd.Parameters.AddWithValue("@nombre", strNombreProducto);
+                cmd.Parameters.AddWithValue("@tipo", strTipo);
+                cmd.Parameters.AddWithValue("@descripcion", strDescripcion);
+                cmd.Parameters.AddWithValue("@pMenudeo", strMenudeo);
+                cmd.Parameters.AddWithValue("@pMayoreo", strMayoreo);
+                cmd.Parameters.AddWithValue("@descuento", strDescuento);
+                cmd.Parameters.AddWithValue("@existencias", strExistencias);
+                cmd.Parameters.AddWithValue("@minimo", strMinimo);
+                cmd.Parameters.AddWithValue("@maximo", strMaximo);
+                cmd.Parameters.AddWithValue("@reorden", strReorden);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("El producto "+strNombreProducto+" fue agregado", "Registro agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El producto " + strNombreProducto + " fue agregado", "Registro agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (Exception exc)
             {
                 MessageBox.Show("Falló la conexión con la base de datos al dar de alta el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        //Método que modifica un producto existente
+        public bool modificarProducto()
+        {
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "productoMod";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", strID);
+                cmd.Parameters.AddWithValue("@nombre", strNombreProducto);
+                cmd.Parameters.AddWithValue("@tipo", strTipo);
+                cmd.Parameters.AddWithValue("@descripcion", strDescripcion);
+                cmd.Parameters.AddWithValue("@pMenudeo", strMenudeo);
+                cmd.Parameters.AddWithValue("@pMayoreo", strMayoreo);
+                cmd.Parameters.AddWithValue("@descuento", strDescuento);
+                cmd.Parameters.AddWithValue("@existencias", strExistencias);
+                cmd.Parameters.AddWithValue("@minimo", strMinimo);
+                cmd.Parameters.AddWithValue("@maximo", strMaximo);
+                cmd.Parameters.AddWithValue("@reorden", strReorden);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Producto modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al modificar el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool eliminarProducto()
+        {
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "productoBaja";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", strID);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El producto " + strNombreProducto + " fue dado de baja", "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al dar de baja el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -224,14 +285,14 @@ namespace Ferreteria.Objetos
                 ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
                 foreach (string[] arr in lista)
                 {
-                    ticket.AddItem(arr[ARR_CANTIDAD], arr[ARR_NOMBRE],"$" + arr[ARR_PRECIO]);
+                    ticket.AddItem(arr[ARR_CANTIDAD], arr[ARR_NOMBRE], "$" + arr[ARR_PRECIO]);
                 }
 
-                ticket.AddTotal("SUBTOTAL", "");
-                ticket.AddTotal("IVA", "");
-                ticket.AddTotal("TOTAL", "$"+doubTotalVenta.ToString());
-                ticket.AddTotal("RECIBIDO", "$"+efectivo.ToString());
-                ticket.AddTotal("CAMBIO", "$"+retorno.ToString());
+                ticket.AddTotal("SUBTOTAL :", "");
+                ticket.AddTotal("IVA :", "");
+                ticket.AddTotal("TOTAL :", "$" + doubTotalVenta.ToString());
+                ticket.AddTotal("RECIBIDO :", "$" + efectivo.ToString());
+                ticket.AddTotal("CAMBIO :", "$" + retorno.ToString());
 
                 ticket.AddFooterLine("VUELVA PRONTO");
 
@@ -240,6 +301,60 @@ namespace Ferreteria.Objetos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public bool valida(string id)
+        {
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "conProducto";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.Parameters.AddWithValue("@cantidad", null);
+
+                cmd.Parameters.AddWithValue("@mensaje", null);
+                cmd.Parameters["@mensaje"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@retorno", null);
+                cmd.Parameters["@retorno"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@nombre", null);
+                cmd.Parameters["@nombre"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@tipoCon", CON_MOD);
+
+                MySqlDataReader resultadoBD = cmd.ExecuteReader();
+                if (resultadoBD.Read())
+                {
+                    strNombreProducto = resultadoBD["NOMBRE_PRODUCTO"].ToString();
+                    strDescripcion = resultadoBD["DESCRIPCION_PRODUCTO"].ToString();
+                    strTipo= resultadoBD["TIPO_PRODUCTO"].ToString();
+                    strMenudeo = resultadoBD["PRECIO_MENUDEO"].ToString();
+                    strMayoreo = resultadoBD["PRECIO_MAYOREO"].ToString();
+                    strDescuento = resultadoBD["DESCUENTO"].ToString();
+                    strExistencias = resultadoBD["EXISTENCIAS"].ToString();
+                    strMaximo = resultadoBD["MAXIMO_PRODUCTO"].ToString();
+                    strMinimo = resultadoBD["MINIMO_PRODUCTO"].ToString();
+                    strReorden = resultadoBD["REORDENAR"].ToString();
+                    conn.Close();
+                    return true;
+                }
+                else
+                {
+                    conn.Close();
+                    return false;
+                }
+                
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al consultar existencias del producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }

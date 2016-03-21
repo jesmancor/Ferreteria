@@ -2,7 +2,6 @@
 {
     public static class constantes
     {
-        public const string STR_VACIO = "";
         public const string CONEXION_MYSQL = "server=localhost;user=root;database=ferreteria;port=3306;password=666666;";
     }
 }

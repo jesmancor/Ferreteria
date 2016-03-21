@@ -7,11 +7,15 @@ namespace Ferreteria
     public partial class frmVentas : frmMenu
     {
         private double doubTotalVenta = 0;
+
+        //Constantes para filas del grid
         private const int FILA_ID = 0;
         private const int FILA_NOMBRE_PRODUCTO = 1;
         private const int FILA_CANTIDAD = 2;
         private const int FILA_PRECIO_UNITARIO = 3;
         private const int FILA_PRECIO_TOTAL = 4;
+
+        //Constantes para elementos del arreglo
         private const int ARR_NOMBRE = 0;
         private const int ARR_ID = 1;
         private const int ARR_CANTIDAD = 2;
