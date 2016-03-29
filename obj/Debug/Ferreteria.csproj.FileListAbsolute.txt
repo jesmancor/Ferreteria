@@ -17,7 +17,6 @@ C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\De
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.exe
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\Ferreteria.pdb
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmLogin.resources
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmAyuda.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmMenu.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmProductos.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmReporteVentas.resources
@@ -33,3 +32,4 @@ C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\De
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\LibPrintTicket.dll
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\LibPrintTicket.pdb
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csprojResolveAssemblyReference.cache
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmConsulta.resources

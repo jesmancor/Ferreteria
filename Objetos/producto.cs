@@ -36,6 +36,7 @@ namespace Ferreteria.Objetos
         //Constantes para el tipo de consulta
         private const int CON_VENTA = 1;
         private const int CON_MOD = 2;
+        private const int CON_BUSQ = 3;
 
         //Lista para ingresar todos los productos de la venta al sp
         public List<string[]> lista;
@@ -83,6 +84,8 @@ namespace Ferreteria.Objetos
 
                 cmd.Parameters.AddWithValue("@nombre", null);
                 cmd.Parameters["@nombre"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@descripcion", null);
 
                 cmd.Parameters.AddWithValue("@tipoCon", CON_VENTA);
 
@@ -326,6 +329,8 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@nombre", null);
                 cmd.Parameters["@nombre"].Direction = ParameterDirection.Output;
 
+                cmd.Parameters.AddWithValue("@descripcion", null);
+
                 cmd.Parameters.AddWithValue("@tipoCon", CON_MOD);
 
                 MySqlDataReader resultadoBD = cmd.ExecuteReader();
@@ -333,7 +338,7 @@ namespace Ferreteria.Objetos
                 {
                     strNombreProducto = resultadoBD["NOMBRE_PRODUCTO"].ToString();
                     strDescripcion = resultadoBD["DESCRIPCION_PRODUCTO"].ToString();
-                    strTipo= resultadoBD["TIPO_PRODUCTO"].ToString();
+                    strTipo = resultadoBD["TIPO_PRODUCTO"].ToString();
                     strMenudeo = resultadoBD["PRECIO_MENUDEO"].ToString();
                     strMayoreo = resultadoBD["PRECIO_MAYOREO"].ToString();
                     strDescuento = resultadoBD["DESCUENTO"].ToString();
@@ -349,12 +354,60 @@ namespace Ferreteria.Objetos
                     conn.Close();
                     return false;
                 }
-                
+
             }
             catch (Exception exc)
             {
                 MessageBox.Show("Falló la conexión con la base de datos al consultar existencias del producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+        public List<string[]> busquedaProducto(string descripcion)
+        {
+            List<string[]> Lista = new List<string[]>();
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "conProducto";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", null);
+
+                cmd.Parameters.AddWithValue("@cantidad", null);
+
+                cmd.Parameters.AddWithValue("@mensaje", null);
+                cmd.Parameters["@mensaje"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@retorno", null);
+                cmd.Parameters["@retorno"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@nombre", null);
+                cmd.Parameters["@nombre"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+
+                cmd.Parameters.AddWithValue("@tipoCon", CON_BUSQ);
+
+                MySqlDataReader resultadoBD = cmd.ExecuteReader();
+                while (resultadoBD.Read())
+                {
+                    string[] arreglo = new string[5];
+                    arreglo[0] = resultadoBD["ID_PRODUCTO"].ToString();
+                    arreglo[1] = resultadoBD["NOMBRE_PRODUCTO"].ToString();
+                    arreglo[2] = resultadoBD["DESCRIPCION_PRODUCTO"].ToString();
+                    arreglo[3] = resultadoBD["PRECIO_MENUDEO"].ToString();
+                    arreglo[4] = resultadoBD["PRECIO_MAYOREO"].ToString();
+                    Lista.Add(arreglo);
+                }
+                conn.Close();
+                return Lista;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al buscar el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return Lista;
             }
         }
     }

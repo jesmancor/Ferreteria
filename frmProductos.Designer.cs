@@ -298,6 +298,8 @@
             this.txtID.Size = new System.Drawing.Size(108, 20);
             this.txtID.TabIndex = 0;
             this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
+            this.txtID.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtID_PreviewKeyDown);
             this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // btnAgregar

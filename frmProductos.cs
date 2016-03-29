@@ -5,17 +5,31 @@ using Ferreteria.Objetos;
 
 namespace Ferreteria
 {
-    public partial class frmProductos : Ferreteria.frmMenu
+    public partial class frmProductos : frmMenu
     {
         public frmProductos()
         {
             InitializeComponent();
-            txtID.GotFocus += txtID_GotFocus;
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
         }
+
+        private string consultaPorDescripcion() { 
+        using (var form = new frmConsulta())
+            {
+                var resultado = form.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    string valor = form.valor;
+                    return valor;
+                }
+                else
+                    return null;
+                }
+            }
+
 
         private void txtID_GotFocus(object sender, EventArgs e)
         {
@@ -330,13 +344,17 @@ namespace Ferreteria
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            producto Producto = new producto();
-            Producto.strID = txtID.Text;
-            bool valida = Producto.eliminarProducto();
-            if (valida)
+            DialogResult pregunta = MessageBox.Show("¿Desea dar de baja el producto con ID " + txtID.Text + "?", "¿Eliminar producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pregunta == DialogResult.Yes)
             {
-                txtID.Text = string.Empty;
-                txtID.Focus();
+                producto Producto = new producto();
+                Producto.strID = txtID.Text;
+                bool valida = Producto.eliminarProducto();
+                if (valida)
+                {
+                    txtID.Text = string.Empty;
+                    txtID.Focus();
+                }
             }
         }
 
@@ -375,6 +393,14 @@ namespace Ferreteria
             else
             {
                 return true;
+            }
+        }
+
+        private void txtID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtID.Text = consultaPorDescripcion();
             }
         }
     }

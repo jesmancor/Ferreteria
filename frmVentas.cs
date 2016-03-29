@@ -107,7 +107,7 @@ namespace Ferreteria
                             doubPrecio = Producto.consultaPrecio(strIDVenta,intCantidad) * intCantidad;
                             if (doubPrecio > 0)
                             {
-                                this.dgVenta.Rows.Add(strIDVenta, Producto.strNombreProducto, strCantidad, Producto.doubPrecioUnitario, doubPrecio);
+                                dgVenta.Rows.Add(strIDVenta, Producto.strNombreProducto, strCantidad, Producto.doubPrecioUnitario, doubPrecio);
                                 btnVenta.Enabled = true;
                                 txtIDVenta.Text = string.Empty;
                                 doubTotalVenta = doubTotalVenta + doubPrecio;
