@@ -124,7 +124,7 @@ namespace Ferreteria
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Error inesperado: " + exc.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtIDVenta.Text = string.Empty;
                 }
             }
         }

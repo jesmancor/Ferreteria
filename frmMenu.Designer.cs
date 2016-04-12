@@ -36,6 +36,8 @@
             this.hacerVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirModificarYEliminarProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarExistenciasAlInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,15 +100,32 @@
             // 
             // productoToolStripMenuItem
             // 
+            this.productoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.añadirModificarYEliminarProductosToolStripMenuItem,
+            this.agregarExistenciasAlInventarioToolStripMenuItem});
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.productoToolStripMenuItem.Text = "Productos";
             this.productoToolStripMenuItem.Click += new System.EventHandler(this.productoToolStripMenuItem_Click);
+            // 
+            // añadirModificarYEliminarProductosToolStripMenuItem
+            // 
+            this.añadirModificarYEliminarProductosToolStripMenuItem.Name = "añadirModificarYEliminarProductosToolStripMenuItem";
+            this.añadirModificarYEliminarProductosToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.añadirModificarYEliminarProductosToolStripMenuItem.Text = "Añadir, modificar y eliminar productos";
+            this.añadirModificarYEliminarProductosToolStripMenuItem.Click += new System.EventHandler(this.añadirModificarYEliminarProductosToolStripMenuItem_Click);
+            // 
+            // agregarExistenciasAlInventarioToolStripMenuItem
+            // 
+            this.agregarExistenciasAlInventarioToolStripMenuItem.Name = "agregarExistenciasAlInventarioToolStripMenuItem";
+            this.agregarExistenciasAlInventarioToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.agregarExistenciasAlInventarioToolStripMenuItem.Text = "Agregar existencias al inventario";
+            this.agregarExistenciasAlInventarioToolStripMenuItem.Click += new System.EventHandler(this.agregarExistenciasAlInventarioToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -199,5 +218,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventasDelDíaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloquearCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cierreDeDiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem añadirModificarYEliminarProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarExistenciasAlInventarioToolStripMenuItem;
     }
 }

@@ -30,22 +30,12 @@
         {
             this.lblProductos = new System.Windows.Forms.Label();
             this.gbEditarNuevo = new System.Windows.Forms.GroupBox();
-            this.txtReorden = new System.Windows.Forms.TextBox();
-            this.lblReorden = new System.Windows.Forms.Label();
-            this.txtMaximo = new System.Windows.Forms.TextBox();
-            this.lblMaximo = new System.Windows.Forms.Label();
-            this.lblMinimo = new System.Windows.Forms.Label();
-            this.txtMinimo = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.lblDecuento = new System.Windows.Forms.Label();
-            this.lblExistencias = new System.Windows.Forms.Label();
             this.lblMayoreo = new System.Windows.Forms.Label();
             this.lblMenudeo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.txtExistencias = new System.Windows.Forms.TextBox();
             this.txtMayoreo = new System.Windows.Forms.TextBox();
             this.txtMenudeo = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -70,22 +60,12 @@
             // 
             // gbEditarNuevo
             // 
-            this.gbEditarNuevo.Controls.Add(this.txtReorden);
-            this.gbEditarNuevo.Controls.Add(this.lblReorden);
-            this.gbEditarNuevo.Controls.Add(this.txtMaximo);
-            this.gbEditarNuevo.Controls.Add(this.lblMaximo);
-            this.gbEditarNuevo.Controls.Add(this.lblMinimo);
-            this.gbEditarNuevo.Controls.Add(this.txtMinimo);
-            this.gbEditarNuevo.Controls.Add(this.txtDescuento);
-            this.gbEditarNuevo.Controls.Add(this.lblDecuento);
-            this.gbEditarNuevo.Controls.Add(this.lblExistencias);
             this.gbEditarNuevo.Controls.Add(this.lblMayoreo);
             this.gbEditarNuevo.Controls.Add(this.lblMenudeo);
             this.gbEditarNuevo.Controls.Add(this.lblDescripcion);
             this.gbEditarNuevo.Controls.Add(this.lblTipo);
             this.gbEditarNuevo.Controls.Add(this.lblNombre);
             this.gbEditarNuevo.Controls.Add(this.lblID);
-            this.gbEditarNuevo.Controls.Add(this.txtExistencias);
             this.gbEditarNuevo.Controls.Add(this.txtMayoreo);
             this.gbEditarNuevo.Controls.Add(this.txtMenudeo);
             this.gbEditarNuevo.Controls.Add(this.txtDescripcion);
@@ -95,90 +75,9 @@
             this.gbEditarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEditarNuevo.Location = new System.Drawing.Point(17, 109);
             this.gbEditarNuevo.Name = "gbEditarNuevo";
-            this.gbEditarNuevo.Size = new System.Drawing.Size(1301, 126);
+            this.gbEditarNuevo.Size = new System.Drawing.Size(1046, 126);
             this.gbEditarNuevo.TabIndex = 5;
             this.gbEditarNuevo.TabStop = false;
-            // 
-            // txtReorden
-            // 
-            this.txtReorden.Location = new System.Drawing.Point(1214, 70);
-            this.txtReorden.Name = "txtReorden";
-            this.txtReorden.Size = new System.Drawing.Size(49, 20);
-            this.txtReorden.TabIndex = 10;
-            this.txtReorden.TextChanged += new System.EventHandler(this.txtReorden_TextChanged);
-            this.txtReorden.Validating += new System.ComponentModel.CancelEventHandler(this.txtReorden_Validating);
-            // 
-            // lblReorden
-            // 
-            this.lblReorden.AutoSize = true;
-            this.lblReorden.Location = new System.Drawing.Point(1115, 77);
-            this.lblReorden.Name = "lblReorden";
-            this.lblReorden.Size = new System.Drawing.Size(95, 13);
-            this.lblReorden.TabIndex = 20;
-            this.lblReorden.Text = "Punto de reorden :";
-            // 
-            // txtMaximo
-            // 
-            this.txtMaximo.Location = new System.Drawing.Point(1214, 44);
-            this.txtMaximo.Name = "txtMaximo";
-            this.txtMaximo.Size = new System.Drawing.Size(49, 20);
-            this.txtMaximo.TabIndex = 9;
-            this.txtMaximo.TextChanged += new System.EventHandler(this.txtMaximo_TextChanged);
-            this.txtMaximo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaximo_Validating);
-            // 
-            // lblMaximo
-            // 
-            this.lblMaximo.AutoSize = true;
-            this.lblMaximo.Location = new System.Drawing.Point(1115, 51);
-            this.lblMaximo.Name = "lblMaximo";
-            this.lblMaximo.Size = new System.Drawing.Size(49, 13);
-            this.lblMaximo.TabIndex = 18;
-            this.lblMaximo.Text = "Máximo :";
-            // 
-            // lblMinimo
-            // 
-            this.lblMinimo.AutoSize = true;
-            this.lblMinimo.Location = new System.Drawing.Point(1115, 25);
-            this.lblMinimo.Name = "lblMinimo";
-            this.lblMinimo.Size = new System.Drawing.Size(48, 13);
-            this.lblMinimo.TabIndex = 17;
-            this.lblMinimo.Text = "Mínimo :";
-            // 
-            // txtMinimo
-            // 
-            this.txtMinimo.Location = new System.Drawing.Point(1214, 18);
-            this.txtMinimo.Name = "txtMinimo";
-            this.txtMinimo.Size = new System.Drawing.Size(49, 20);
-            this.txtMinimo.TabIndex = 8;
-            this.txtMinimo.TextChanged += new System.EventHandler(this.txtMinimo_TextChanged);
-            this.txtMinimo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMinimo_Validating);
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(972, 70);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(49, 20);
-            this.txtDescuento.TabIndex = 6;
-            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
-            this.txtDescuento.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescuento_Validating);
-            // 
-            // lblDecuento
-            // 
-            this.lblDecuento.AutoSize = true;
-            this.lblDecuento.Location = new System.Drawing.Point(873, 77);
-            this.lblDecuento.Name = "lblDecuento";
-            this.lblDecuento.Size = new System.Drawing.Size(65, 13);
-            this.lblDecuento.TabIndex = 14;
-            this.lblDecuento.Text = "Descuento :";
-            // 
-            // lblExistencias
-            // 
-            this.lblExistencias.AutoSize = true;
-            this.lblExistencias.Location = new System.Drawing.Point(873, 103);
-            this.lblExistencias.Name = "lblExistencias";
-            this.lblExistencias.Size = new System.Drawing.Size(66, 13);
-            this.lblExistencias.TabIndex = 13;
-            this.lblExistencias.Text = "Existencias :";
             // 
             // lblMayoreo
             // 
@@ -233,15 +132,6 @@
             this.lblID.Size = new System.Drawing.Size(24, 13);
             this.lblID.TabIndex = 7;
             this.lblID.Text = "ID :";
-            // 
-            // txtExistencias
-            // 
-            this.txtExistencias.Location = new System.Drawing.Point(972, 96);
-            this.txtExistencias.Name = "txtExistencias";
-            this.txtExistencias.Size = new System.Drawing.Size(49, 20);
-            this.txtExistencias.TabIndex = 7;
-            this.txtExistencias.TextChanged += new System.EventHandler(this.txtExistencias_TextChanged);
-            this.txtExistencias.Validating += new System.ComponentModel.CancelEventHandler(this.txtExistencias_Validating);
             // 
             // txtMayoreo
             // 
@@ -363,28 +253,18 @@
 
         private System.Windows.Forms.Label lblProductos;
         private System.Windows.Forms.GroupBox gbEditarNuevo;
-        private System.Windows.Forms.Label lblExistencias;
         private System.Windows.Forms.Label lblMayoreo;
         private System.Windows.Forms.Label lblMenudeo;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtExistencias;
         private System.Windows.Forms.TextBox txtMayoreo;
         private System.Windows.Forms.TextBox txtMenudeo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.Label lblDecuento;
-        private System.Windows.Forms.TextBox txtReorden;
-        private System.Windows.Forms.Label lblReorden;
-        private System.Windows.Forms.TextBox txtMaximo;
-        private System.Windows.Forms.Label lblMaximo;
-        private System.Windows.Forms.Label lblMinimo;
-        private System.Windows.Forms.TextBox txtMinimo;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;

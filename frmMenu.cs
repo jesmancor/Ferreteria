@@ -45,6 +45,13 @@ namespace Ferreteria
             this.Hide();
         }
 
+        private void mostrarExistencias()
+        {
+            frmExistencias frm = new frmExistencias();
+            frm.Show();
+            this.Hide();
+        }
+
         private void hacerVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarVentas();
@@ -52,7 +59,6 @@ namespace Ferreteria
 
         private void productoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mostrarProductos();
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +74,16 @@ namespace Ferreteria
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarUsuarios();
+        }
+
+        private void agregarExistenciasAlInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarExistencias();
+        }
+
+        private void añadirModificarYEliminarProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarProductos();
         }
 
         private void bloquearCajaToolStripMenuItem_Click(object sender, EventArgs e)

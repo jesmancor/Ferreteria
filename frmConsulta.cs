@@ -22,21 +22,28 @@ namespace Ferreteria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvBusqueda.Rows.Clear();
-            producto Producto = new producto();
-            List<string[]> lista = Producto.busquedaProducto(txtBusqueda.Text);
-            if(lista.Count != 0)
+            if (txtBusqueda.Text.Length > 5)
             {
-                foreach (string[] elemento in lista)
+                dgvBusqueda.Rows.Clear();
+                producto Producto = new producto();
+                List<string[]> lista = Producto.busquedaProducto(txtBusqueda.Text);
+                if (lista.Count != 0)
                 {
-                    dgvBusqueda.Rows.Add(elemento[ID_NUM],elemento[NOMBRE_NUM],elemento[DESCRI_NUM],elemento[MENU_NUM], elemento[MAYO_NUM]);
+                    foreach (string[] elemento in lista)
+                    {
+                        dgvBusqueda.Rows.Add(elemento[ID_NUM], elemento[NOMBRE_NUM], elemento[DESCRI_NUM], elemento[MENU_NUM], elemento[MAYO_NUM]);
+                    }
+                    dgvBusqueda.Focus();
                 }
-                dgvBusqueda.Focus();
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados de la búsqueda realizada", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtBusqueda.Text = string.Empty;
+                }
             }
             else
             {
-                MessageBox.Show("No se encontraron resultados de la búsqueda realizada", "Sin resultados",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtBusqueda.Text = string.Empty;
+                MessageBox.Show("Introducir al menos cinco caracteres para realizar una búsqueda", "Búsqueda muy corta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,9 +70,11 @@ namespace Ferreteria
 
         private void seleccionar(int fila)
         {
-            valor = dgvBusqueda.Rows[fila].Cells[ID_NUM].Value.ToString();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (dgvBusqueda.Rows[fila].Cells[ID_NUM].Value!=null) {
+                valor = dgvBusqueda.Rows[fila].Cells[ID_NUM].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

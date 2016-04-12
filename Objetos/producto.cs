@@ -38,6 +38,10 @@ namespace Ferreteria.Objetos
         private const int CON_MOD = 2;
         private const int CON_BUSQ = 3;
 
+        //Constantes para el tipo de modificación
+        private const int MODI_UNO = 1;
+        private const int MODI_DOS = 2;
+
         //Lista para ingresar todos los productos de la venta al sp
         public List<string[]> lista;
 
@@ -204,10 +208,6 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@pMenudeo", strMenudeo);
                 cmd.Parameters.AddWithValue("@pMayoreo", strMayoreo);
                 cmd.Parameters.AddWithValue("@descuento", strDescuento);
-                cmd.Parameters.AddWithValue("@existencias", strExistencias);
-                cmd.Parameters.AddWithValue("@minimo", strMinimo);
-                cmd.Parameters.AddWithValue("@maximo", strMaximo);
-                cmd.Parameters.AddWithValue("@reorden", strReorden);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("El producto " + strNombreProducto + " fue agregado", "Registro agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -236,10 +236,11 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@pMenudeo", strMenudeo);
                 cmd.Parameters.AddWithValue("@pMayoreo", strMayoreo);
                 cmd.Parameters.AddWithValue("@descuento", strDescuento);
-                cmd.Parameters.AddWithValue("@existencias", strExistencias);
-                cmd.Parameters.AddWithValue("@minimo", strMinimo);
-                cmd.Parameters.AddWithValue("@maximo", strMaximo);
-                cmd.Parameters.AddWithValue("@reorden", strReorden);
+                cmd.Parameters.AddWithValue("@nuevaExistencia", null);
+                cmd.Parameters.AddWithValue("@maximo", null);
+                cmd.Parameters.AddWithValue("@minimo", null);
+                cmd.Parameters.AddWithValue("@reorden", null);
+                cmd.Parameters.AddWithValue("@tipoMod", MODI_UNO);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Producto modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -247,6 +248,39 @@ namespace Ferreteria.Objetos
             catch (Exception exc)
             {
                 MessageBox.Show("Falló la conexión con la base de datos al modificar el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        //Método que modifica las existencias de un producto
+        public bool agregarExistencias()
+        {
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "productoMod";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", strID);
+                cmd.Parameters.AddWithValue("@nombre", null);
+                cmd.Parameters.AddWithValue("@tipo", null);
+                cmd.Parameters.AddWithValue("@descripcion", null);
+                cmd.Parameters.AddWithValue("@pMenudeo", null);
+                cmd.Parameters.AddWithValue("@pMayoreo", null);
+                cmd.Parameters.AddWithValue("@descuento", null);
+                cmd.Parameters.AddWithValue("@nuevaExistencia", strExistencias);
+                cmd.Parameters.AddWithValue("@maximo", strMaximo);
+                cmd.Parameters.AddWithValue("@minimo", strMinimo);
+                cmd.Parameters.AddWithValue("@reorden", strReorden);
+                cmd.Parameters.AddWithValue("@tipoMod", MODI_DOS);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Existencias actualizadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al agregar existencias: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -336,6 +370,7 @@ namespace Ferreteria.Objetos
                 MySqlDataReader resultadoBD = cmd.ExecuteReader();
                 if (resultadoBD.Read())
                 {
+                    strID = id;
                     strNombreProducto = resultadoBD["NOMBRE_PRODUCTO"].ToString();
                     strDescripcion = resultadoBD["DESCRIPCION_PRODUCTO"].ToString();
                     strTipo = resultadoBD["TIPO_PRODUCTO"].ToString();

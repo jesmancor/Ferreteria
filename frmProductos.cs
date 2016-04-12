@@ -67,47 +67,6 @@ namespace Ferreteria
             }
         }
 
-        private void txtExistencias_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtExistencias.Text, "[^0-9]"))
-            {
-                txtExistencias.Text = txtExistencias.Text.Remove(txtExistencias.Text.Length - 1);
-            }
-        }
-
-        private void txtDescuento_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtDescuento.Text, "[^0-9]"))
-            {
-                txtDescuento.Text = txtDescuento.Text.Remove(txtDescuento.Text.Length - 1);
-            }
-        }
-
-        private void txtMinimo_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtMinimo.Text, "[^0-9]"))
-            {
-                txtMinimo.Text = txtMinimo.Text.Remove(txtMinimo.Text.Length - 1);
-            }
-        }
-
-        private void txtMaximo_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtMaximo.Text, "[^0-9]"))
-            {
-                txtMaximo.Text = txtMaximo.Text.Remove(txtMaximo.Text.Length - 1);
-            }
-        }
-
-        private void txtReorden_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtReorden.Text, "[^0-9]"))
-            {
-                txtReorden.Text = txtReorden.Text.Remove(txtReorden.Text.Length - 1);
-            }
-        }
-
-
         private void txtID_Validating(object sender, CancelEventArgs e)
         {
             if (txtID.Text != string.Empty)
@@ -122,11 +81,6 @@ namespace Ferreteria
                     txtDescripcion.Text = Producto.strDescripcion;
                     txtMenudeo.Text = Producto.strMenudeo;
                     txtMayoreo.Text = Producto.strMayoreo;
-                    txtDescuento.Text = Producto.strDescuento;
-                    txtExistencias.Text = Producto.strExistencias;
-                    txtMaximo.Text = Producto.strMaximo;
-                    txtMinimo.Text = Producto.strMinimo;
-                    txtReorden.Text = Producto.strReorden;
                     btnAgregar.Enabled = false;
                     btnModificar.Enabled = true;
                     btnEliminar.Enabled = true;
@@ -159,20 +113,6 @@ namespace Ferreteria
 
         private void txtNombre_Validating(object sender, CancelEventArgs e)
         {
-        }
-
-        private void txtExistencias_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtExistencias.Text != string.Empty)
-            {
-                int intExistencias = int.Parse(txtExistencias.Text);
-                if (intExistencias < 1)
-                {
-                    MessageBox.Show("El valor no puede ser cero", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtExistencias.Text = string.Empty;
-                    e.Cancel = true;
-                }
-            }
         }
 
         private void txtMenudeo_Validating(object sender, CancelEventArgs e)
@@ -208,88 +148,6 @@ namespace Ferreteria
             
         }
 
-        private void txtMinimo_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtMinimo.Text != string.Empty)
-            {
-                int intMinimo = int.Parse(txtMinimo.Text);
-                if (intMinimo < 1)
-                {
-                    MessageBox.Show("El valor no puede ser cero", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMinimo.Text = string.Empty;
-                    e.Cancel = true;
-                }
-                if (txtExistencias.Text != string.Empty)
-                {
-                    int intExistencias = int.Parse(txtExistencias.Text);
-                    if (intExistencias < intMinimo)
-                    {
-                        MessageBox.Show("El mínimo debe ser menor que las existencias", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtMinimo.Text = string.Empty;
-                        e.Cancel = true;
-                    }
-                    else if (txtReorden.Text != string.Empty)
-                    {
-                        int intReorden = int.Parse(txtReorden.Text);
-                        if (intReorden < intMinimo)
-                        {
-                            MessageBox.Show("El mínimo debe ser menor que el punto de reorden", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtMinimo.Text = string.Empty;
-                            e.Cancel = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void txtMaximo_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtMaximo.Text != string.Empty)
-            {
-                int intMaximo = int.Parse(txtMaximo.Text);
-                if (intMaximo < 1)
-                {
-                    MessageBox.Show("El valor no puede ser cero", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMaximo.Text = string.Empty;
-                    e.Cancel = true;
-                }
-            }
-        }
-
-        private void txtReorden_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtReorden.Text != string.Empty)
-            {
-                int intReorden = int.Parse(txtReorden.Text);
-                if (intReorden < 1)
-                {
-                    MessageBox.Show("El valor no puede ser cero", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtReorden.Text = string.Empty;
-                    e.Cancel = true;
-                }
-                if (txtExistencias.Text != string.Empty)
-                {
-                    int intExistencias = int.Parse(txtExistencias.Text);
-                    if (intExistencias < intReorden)
-                    {
-                        MessageBox.Show("El punto de reorden debe ser menor que las existencias", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtReorden.Text = string.Empty;
-                        e.Cancel = true;
-                    }
-                    else if (txtMinimo.Text != string.Empty)
-                    {
-                        int intMinimo = int.Parse(txtMinimo.Text);
-                        if (intReorden < intMinimo)
-                        {
-                            MessageBox.Show("El punto de reorden debe ser mayor que el mínimo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtReorden.Text = string.Empty;
-                            e.Cancel = true;
-                        }
-                    }
-                }
-            }
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             producto Producto = new producto();
@@ -299,19 +157,24 @@ namespace Ferreteria
             Producto.strDescripcion = txtDescripcion.Text;
             Producto.strMenudeo = txtMenudeo.Text;
             Producto.strMayoreo = txtMayoreo.Text;
-            Producto.strDescuento = txtDescuento.Text;
-            Producto.strExistencias = txtExistencias.Text;
-            Producto.strMinimo = txtMinimo.Text;
-            Producto.strMaximo = txtMaximo.Text;
-            Producto.strReorden = txtReorden.Text;
             bool valida = validaCampos();
             if (valida)
             {
                 valida = Producto.altaProducto();
                 if (valida)
                 {
-                    txtID.Text = string.Empty;
-                    txtID.Focus();
+                    DialogResult pregunta = MessageBox.Show("¿Agregar existencias al nuevo producto?", "¿Alta existencias?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (pregunta == DialogResult.Yes)
+                    {
+                        frmExistencias frm = new frmExistencias(Producto);
+                        frm.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        txtID.Text = string.Empty;
+                        txtID.Focus();
+                    }
                 }
             }
         }
@@ -325,11 +188,6 @@ namespace Ferreteria
             Producto.strDescripcion = txtDescripcion.Text;
             Producto.strMenudeo = txtMenudeo.Text;
             Producto.strMayoreo = txtMayoreo.Text;
-            Producto.strDescuento = txtDescuento.Text;
-            Producto.strExistencias = txtExistencias.Text;
-            Producto.strMinimo = txtMinimo.Text;
-            Producto.strMaximo = txtMaximo.Text;
-            Producto.strReorden = txtReorden.Text;
             bool valida = validaCampos();
             if (valida)
             {
@@ -365,11 +223,6 @@ namespace Ferreteria
             txtDescripcion.Text = string.Empty;
             txtMenudeo.Text = string.Empty;
             txtMayoreo.Text = string.Empty;
-            txtDescuento.Text = string.Empty;
-            txtExistencias.Text = string.Empty;
-            txtMaximo.Text = string.Empty;
-            txtMinimo.Text = string.Empty;
-            txtReorden.Text = string.Empty;
         }
 
         private bool validaCampos()
@@ -379,12 +232,7 @@ namespace Ferreteria
             txtTipo.Text == string.Empty ||
             txtDescripcion.Text == string.Empty ||
             txtMenudeo.Text == string.Empty ||
-            txtMayoreo.Text == string.Empty ||
-            txtDescuento.Text == string.Empty ||
-            txtExistencias.Text == string.Empty ||
-            txtMaximo.Text ==string.Empty ||
-            txtMinimo.Text == string.Empty ||
-            txtReorden.Text == string.Empty
+            txtMayoreo.Text == string.Empty
             )
             {
                 MessageBox.Show("Se deben llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
