@@ -38,8 +38,10 @@
             this.txtNuevas = new System.Windows.Forms.TextBox();
             this.lblNuevas = new System.Windows.Forms.Label();
             this.txtMinimo = new System.Windows.Forms.NumericUpDown();
+            this.txtReorden = new System.Windows.Forms.NumericUpDown();
             this.txtMaximo = new System.Windows.Forms.NumericUpDown();
-            this.lblMinimo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblReorden = new System.Windows.Forms.Label();
             this.lblMaximo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -47,6 +49,7 @@
             this.lblProductos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReorden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgregar)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +96,7 @@
             // lblAgregar
             // 
             this.lblAgregar.AutoSize = true;
-            this.lblAgregar.Location = new System.Drawing.Point(13, 128);
+            this.lblAgregar.Location = new System.Drawing.Point(13, 174);
             this.lblAgregar.Name = "lblAgregar";
             this.lblAgregar.Size = new System.Drawing.Size(114, 13);
             this.lblAgregar.TabIndex = 10;
@@ -102,7 +105,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Enabled = false;
-            this.btnAgregar.Location = new System.Drawing.Point(15, 298);
+            this.btnAgregar.Location = new System.Drawing.Point(15, 366);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 0;
@@ -115,8 +118,10 @@
             this.groupBox1.Controls.Add(this.txtNuevas);
             this.groupBox1.Controls.Add(this.lblNuevas);
             this.groupBox1.Controls.Add(this.txtMinimo);
+            this.groupBox1.Controls.Add(this.txtReorden);
             this.groupBox1.Controls.Add(this.txtMaximo);
-            this.groupBox1.Controls.Add(this.lblMinimo);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblReorden);
             this.groupBox1.Controls.Add(this.lblMaximo);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.lblNombre);
@@ -128,23 +133,23 @@
             this.groupBox1.Controls.Add(this.txtActuales);
             this.groupBox1.Location = new System.Drawing.Point(15, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(491, 166);
+            this.groupBox1.Size = new System.Drawing.Size(529, 213);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
             // txtNuevas
             // 
             this.txtNuevas.Enabled = false;
-            this.txtNuevas.Location = new System.Drawing.Point(407, 121);
+            this.txtNuevas.Location = new System.Drawing.Point(328, 171);
             this.txtNuevas.Name = "txtNuevas";
-            this.txtNuevas.Size = new System.Drawing.Size(55, 20);
+            this.txtNuevas.Size = new System.Drawing.Size(54, 20);
             this.txtNuevas.TabIndex = 4;
             this.txtNuevas.Text = "1";
             // 
             // lblNuevas
             // 
             this.lblNuevas.AutoSize = true;
-            this.lblNuevas.Location = new System.Drawing.Point(296, 128);
+            this.lblNuevas.Location = new System.Drawing.Point(217, 174);
             this.lblNuevas.Name = "lblNuevas";
             this.lblNuevas.Size = new System.Drawing.Size(105, 13);
             this.lblNuevas.TabIndex = 19;
@@ -152,7 +157,7 @@
             // 
             // txtMinimo
             // 
-            this.txtMinimo.Location = new System.Drawing.Point(407, 92);
+            this.txtMinimo.Location = new System.Drawing.Point(327, 130);
             this.txtMinimo.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -173,9 +178,32 @@
             0});
             this.txtMinimo.ValueChanged += new System.EventHandler(this.txtMinimo_ValueChanged);
             // 
+            // txtReorden
+            // 
+            this.txtReorden.Location = new System.Drawing.Point(137, 131);
+            this.txtReorden.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.txtReorden.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtReorden.Name = "txtReorden";
+            this.txtReorden.Size = new System.Drawing.Size(55, 20);
+            this.txtReorden.TabIndex = 2;
+            this.txtReorden.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtReorden.ValueChanged += new System.EventHandler(this.txtMinimo_ValueChanged);
+            // 
             // txtMaximo
             // 
-            this.txtMaximo.Location = new System.Drawing.Point(272, 92);
+            this.txtMaximo.Location = new System.Drawing.Point(327, 92);
             this.txtMaximo.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -196,19 +224,28 @@
             0});
             this.txtMaximo.ValueChanged += new System.EventHandler(this.txtMaximo_ValueChanged);
             // 
-            // lblMinimo
+            // label1
             // 
-            this.lblMinimo.AutoSize = true;
-            this.lblMinimo.Location = new System.Drawing.Point(353, 98);
-            this.lblMinimo.Name = "lblMinimo";
-            this.lblMinimo.Size = new System.Drawing.Size(48, 13);
-            this.lblMinimo.TabIndex = 15;
-            this.lblMinimo.Text = "Mínimo :";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(273, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Mínimo :";
+            // 
+            // lblReorden
+            // 
+            this.lblReorden.AutoSize = true;
+            this.lblReorden.Location = new System.Drawing.Point(36, 137);
+            this.lblReorden.Name = "lblReorden";
+            this.lblReorden.Size = new System.Drawing.Size(95, 13);
+            this.lblReorden.TabIndex = 15;
+            this.lblReorden.Text = "Punto de reorden :";
             // 
             // lblMaximo
             // 
             this.lblMaximo.AutoSize = true;
-            this.lblMaximo.Location = new System.Drawing.Point(217, 98);
+            this.lblMaximo.Location = new System.Drawing.Point(272, 98);
             this.lblMaximo.Name = "lblMaximo";
             this.lblMaximo.Size = new System.Drawing.Size(49, 13);
             this.lblMaximo.TabIndex = 13;
@@ -234,7 +271,7 @@
             // 
             // txtAgregar
             // 
-            this.txtAgregar.Location = new System.Drawing.Point(138, 121);
+            this.txtAgregar.Location = new System.Drawing.Point(138, 167);
             this.txtAgregar.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -281,6 +318,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReorden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaximo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgregar)).EndInit();
             this.ResumeLayout(false);
@@ -300,12 +338,14 @@
         private System.Windows.Forms.NumericUpDown txtAgregar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblMinimo;
+        private System.Windows.Forms.Label lblReorden;
         private System.Windows.Forms.Label lblMaximo;
-        private System.Windows.Forms.NumericUpDown txtMinimo;
+        private System.Windows.Forms.NumericUpDown txtReorden;
         private System.Windows.Forms.NumericUpDown txtMaximo;
         private System.Windows.Forms.Label lblProductos;
         private System.Windows.Forms.TextBox txtNuevas;
         private System.Windows.Forms.Label lblNuevas;
+        private System.Windows.Forms.NumericUpDown txtMinimo;
+        private System.Windows.Forms.Label label1;
     }
 }

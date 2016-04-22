@@ -26,6 +26,22 @@ namespace Ferreteria
             InitializeComponent();
         }
 
+        //Despliega la ventana en la que se realiza la consulta por descripción
+        private string consultaPorDescripcion()
+        {
+            using (var form = new frmConsulta())
+            {
+                var resultado = form.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    string valor = form.valor;
+                    return valor;
+                }
+                else
+                    return null;
+            }
+        }
+
         //Despliega la ventana en la que se ingresa la cantidad del producto a vender
         private string ingresarCantidad()
         {
@@ -77,6 +93,14 @@ namespace Ferreteria
                     doubTotalVenta = doubTotalVenta - doubRestarPrecio;
                     dgVenta.Rows.Remove(filas);
                 }
+            }
+        }
+
+        private void txtIDVenta_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtIDVenta.Text = consultaPorDescripcion();
             }
         }
 

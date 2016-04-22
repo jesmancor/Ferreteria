@@ -97,6 +97,7 @@
             this.txtIDVenta.Size = new System.Drawing.Size(100, 20);
             this.txtIDVenta.TabIndex = 8;
             this.txtIDVenta.TextChanged += new System.EventHandler(this.txtIDVenta_TextChanged);
+            this.txtIDVenta.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtIDVenta_PreviewKeyDown);
             // 
             // lblIDVenta
             // 

@@ -61,6 +61,7 @@ namespace Ferreteria
                     txtNombre.Text = Producto.strNombreProducto;
                     txtMaximo.Value = int.Parse(Producto.strMaximo);
                     txtMinimo.Value = int.Parse(Producto.strMinimo);
+                    txtReorden.Value = int.Parse(Producto.strReorden);
                     int intNuevas = int.Parse(txtActuales.Text) + (int)txtAgregar.Value;
                     txtNuevas.Text = intNuevas.ToString();
                 }
@@ -79,6 +80,7 @@ namespace Ferreteria
             Producto = null;
             txtActuales.Text = "0";
             txtAgregar.Value = 1;
+            txtReorden.Value = 1;
             txtMinimo.Value = 1;
             txtMaximo.Value = 1;
             txtNuevas.Text = "0";
@@ -111,8 +113,11 @@ namespace Ferreteria
         }
         private void activaBoton()
         {
-            if (txtMinimo.Value <= txtMaximo.Value &&
+            if (txtReorden.Value <= txtMaximo.Value &&
+                txtReorden.Value >= txtMinimo.Value &&
+                txtMinimo.Value <= txtMaximo.Value &&
                 (txtAgregar.Value + int.Parse(txtActuales.Text)) <= txtMaximo.Value &&
+                (txtAgregar.Value + int.Parse(txtActuales.Text)) >= txtReorden.Value &&
                 (txtAgregar.Value + int.Parse(txtActuales.Text)) >= txtMinimo.Value &&
                 Producto != null)
             {
@@ -129,6 +134,7 @@ namespace Ferreteria
             Producto.strExistencias = txtNuevas.Text;
             Producto.strMaximo = txtMaximo.Value.ToString();
             Producto.strMinimo = txtMinimo.Value.ToString();
+            Producto.strReorden = txtReorden.Value.ToString();
             if (Producto.agregarExistencias())
             {
                 txtID.Focus();
