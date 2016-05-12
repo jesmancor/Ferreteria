@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Ferreteria
 {
-    public partial class frmConsulta : Form
+    public partial class vtnProducto : Form
     {
         private const int ID_NUM = 0;
         private const int NOMBRE_NUM = 1;
@@ -15,7 +15,7 @@ namespace Ferreteria
 
         public string valor { get; set; }
 
-        public frmConsulta()
+        public vtnProducto()
         {
             InitializeComponent();
         }

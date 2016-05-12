@@ -340,6 +340,8 @@ namespace Ferreteria.Objetos
                 MessageBox.Show(ex.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //Método que realiza una consulta para validar que un producto se encuentre registrado en la base de datos
         public bool valida(string id)
         {
             MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
@@ -397,6 +399,8 @@ namespace Ferreteria.Objetos
                 return false;
             }
         }
+
+        //Método que devuelve una lista de productos que coincidan con la búsqueda ingresada
         public List<string[]> busquedaProducto(string descripcion)
         {
             List<string[]> Lista = new List<string[]>();
@@ -442,6 +446,7 @@ namespace Ferreteria.Objetos
             catch (Exception exc)
             {
                 MessageBox.Show("Falló la conexión con la base de datos al buscar el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Lista.Clear();
                 return Lista;
             }
         }

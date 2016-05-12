@@ -46,6 +46,7 @@
             this.bloquearCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloj = new System.Windows.Forms.Timer(this.components);
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +94,8 @@
             // 
             this.cToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.productoToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.proveedoresToolStripMenuItem});
             this.cToolStripMenuItem.Name = "cToolStripMenuItem";
             this.cToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.cToolStripMenuItem.Text = "Catálogo";
@@ -180,6 +182,13 @@
             // 
             this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
             // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,5 +229,6 @@
         private System.Windows.Forms.ToolStripMenuItem cierreDeDiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem añadirModificarYEliminarProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExistenciasAlInventarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
     }
 }

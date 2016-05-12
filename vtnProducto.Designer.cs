@@ -1,6 +1,6 @@
 ﻿namespace Ferreteria
 {
-    partial class frmConsulta
+    partial class vtnProducto
     {
         /// <summary>
         /// Required designer variable.

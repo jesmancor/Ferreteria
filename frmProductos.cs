@@ -17,7 +17,7 @@ namespace Ferreteria
         }
 
         private string consultaPorDescripcion() { 
-        using (var form = new frmConsulta())
+        using (var form = new vtnProducto())
             {
                 var resultado = form.ShowDialog();
                 if (resultado == DialogResult.OK)
@@ -148,6 +148,14 @@ namespace Ferreteria
             
         }
 
+        private void txtID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtID.Text = consultaPorDescripcion();
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             producto Producto = new producto();
@@ -241,14 +249,6 @@ namespace Ferreteria
             else
             {
                 return true;
-            }
-        }
-
-        private void txtID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                txtID.Text = consultaPorDescripcion();
             }
         }
     }

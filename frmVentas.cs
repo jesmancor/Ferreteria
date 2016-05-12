@@ -29,7 +29,7 @@ namespace Ferreteria
         //Despliega la ventana en la que se realiza la consulta por descripción
         private string consultaPorDescripcion()
         {
-            using (var form = new frmConsulta())
+            using (var form = new vtnProducto())
             {
                 var resultado = form.ShowDialog();
                 if (resultado == DialogResult.OK)

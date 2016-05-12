@@ -24,7 +24,22 @@ namespace Ferreteria
 
         private string consultaPorDescripcion()
         {
-            using (var form = new frmConsulta())
+            using (var form = new vtnProducto())
+            {
+                var resultado = form.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    string valor = form.valor;
+                    return valor;
+                }
+                else
+                    return null;
+            }
+        }
+
+        private string consultaProveedor()
+        {
+            using (var form = new vtnProveedor())
             {
                 var resultado = form.ShowDialog();
                 if (resultado == DialogResult.OK)
@@ -111,6 +126,43 @@ namespace Ferreteria
         {
             activaBoton();
         }
+
+        private void txtProveedor_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, "[^0-9]"))
+            {
+                txtProveedor.Text = txtProveedor.Text.Remove(txtID.Text.Length - 1);
+            }
+            if (txtProveedor.Text.Length >= 10)
+            {
+                txtUnitario.Focus();
+            }
+        }
+
+        private void txtProveedor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtProveedor.Text = consultaProveedor();
+            }
+        }
+
+        private void txtProveedor_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtProveedor.Text != string.Empty)
+            {
+                proveedor Proveedor = new proveedor();
+                if (Proveedor.validaExistencia(txtProveedor.Text))
+                {
+                    txtProveedorNombre.Text = Proveedor.strNombreProveedor;
+                }
+                else
+                {
+                    MessageBox.Show("El proveedor no existe", "Proveedor no existe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void activaBoton()
         {
             if (txtReorden.Value <= txtMaximo.Value &&
