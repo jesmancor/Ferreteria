@@ -12,33 +12,6 @@ namespace Ferreteria
             InitializeComponent();
         }
 
-        private string consultaPorDescripcion()
-        {
-            using (var form = new vtnProveedor())
-            {
-                var resultado = form.ShowDialog();
-                if (resultado == DialogResult.OK)
-                {
-                    string valor = form.valor;
-                    return valor;
-                }
-                else
-                    return null;
-            }
-        }
-
-        private void txtID_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, "[^0-9]"))
-            {
-                txtID.Text = txtID.Text.Remove(txtID.Text.Length - 1);
-            }
-            if (txtID.Text.Length >= 10)
-            {
-                txtNombre.Focus();
-            }
-        }
-
         private void txtID_Validating(object sender, CancelEventArgs e)
         {
             if (txtID.Text != string.Empty)
@@ -72,14 +45,6 @@ namespace Ferreteria
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
-        }
-
-        private void txtID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                txtID.Text = consultaPorDescripcion();
-            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

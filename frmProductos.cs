@@ -16,55 +16,12 @@ namespace Ferreteria
         {
         }
 
-        private string consultaPorDescripcion() { 
-        using (var form = new vtnProducto())
-            {
-                var resultado = form.ShowDialog();
-                if (resultado == DialogResult.OK)
-                {
-                    string valor = form.valor;
-                    return valor;
-                }
-                else
-                    return null;
-                }
-            }
-
-
         private void txtID_GotFocus(object sender, EventArgs e)
         {
             limpiarCampos();
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
-        }
-
-        private void txtID_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, "[^0-9]"))
-            {
-                txtID.Text = txtID.Text.Remove(txtID.Text.Length - 1);
-            }
-            if (txtID.Text.Length >= 13)
-            {
-                txtNombre.Focus();
-            }
-        }
-
-        private void txtMenudeo_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtMenudeo.Text, "[^0-9,^0-9]"))
-            {
-                txtMenudeo.Text = txtMenudeo.Text.Remove(txtMenudeo.Text.Length - 1);
-            }
-        }
-
-        private void txtMayoreo_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtMayoreo.Text, "[^0-9,^0-9]"))
-            {
-                txtMayoreo.Text = txtMayoreo.Text.Remove(txtMayoreo.Text.Length - 1);
-            }
         }
 
         private void txtID_Validating(object sender, CancelEventArgs e)
@@ -146,14 +103,6 @@ namespace Ferreteria
         private void txtDescuento_Validating(object sender, CancelEventArgs e)
         {
             
-        }
-
-        private void txtID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                txtID.Text = consultaPorDescripcion();
-            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -30,21 +30,21 @@
         {
             this.lblProductos = new System.Windows.Forms.Label();
             this.gbEditarNuevo = new System.Windows.Forms.GroupBox();
+            this.txtMenudeo = new Ferreteria.Herramientas.doble();
+            this.txtID = new Ferreteria.Herramientas.controlProducto();
             this.lblMayoreo = new System.Windows.Forms.Label();
             this.lblMenudeo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.txtMayoreo = new System.Windows.Forms.TextBox();
-            this.txtMenudeo = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtMayoreo = new Ferreteria.Herramientas.doble();
             this.gbEditarNuevo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,24 +60,43 @@
             // 
             // gbEditarNuevo
             // 
+            this.gbEditarNuevo.Controls.Add(this.txtMayoreo);
+            this.gbEditarNuevo.Controls.Add(this.txtMenudeo);
+            this.gbEditarNuevo.Controls.Add(this.txtID);
             this.gbEditarNuevo.Controls.Add(this.lblMayoreo);
             this.gbEditarNuevo.Controls.Add(this.lblMenudeo);
             this.gbEditarNuevo.Controls.Add(this.lblDescripcion);
             this.gbEditarNuevo.Controls.Add(this.lblTipo);
             this.gbEditarNuevo.Controls.Add(this.lblNombre);
             this.gbEditarNuevo.Controls.Add(this.lblID);
-            this.gbEditarNuevo.Controls.Add(this.txtMayoreo);
-            this.gbEditarNuevo.Controls.Add(this.txtMenudeo);
             this.gbEditarNuevo.Controls.Add(this.txtDescripcion);
             this.gbEditarNuevo.Controls.Add(this.txtTipo);
             this.gbEditarNuevo.Controls.Add(this.txtNombre);
-            this.gbEditarNuevo.Controls.Add(this.txtID);
             this.gbEditarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEditarNuevo.Location = new System.Drawing.Point(17, 109);
             this.gbEditarNuevo.Name = "gbEditarNuevo";
             this.gbEditarNuevo.Size = new System.Drawing.Size(1046, 126);
             this.gbEditarNuevo.TabIndex = 5;
             this.gbEditarNuevo.TabStop = false;
+            // 
+            // txtMenudeo
+            // 
+            this.txtMenudeo.Location = new System.Drawing.Point(972, 18);
+            this.txtMenudeo.Name = "txtMenudeo";
+            this.txtMenudeo.Size = new System.Drawing.Size(49, 20);
+            this.txtMenudeo.TabIndex = 4;
+            this.txtMenudeo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMenudeo_Validating);
+            // 
+            // txtID
+            // 
+            this.txtID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtID.Location = new System.Drawing.Point(102, 18);
+            this.txtID.MaxLength = 13;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(108, 20);
+            this.txtID.TabIndex = 0;
+            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
+            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // lblMayoreo
             // 
@@ -133,24 +152,6 @@
             this.lblID.TabIndex = 7;
             this.lblID.Text = "ID :";
             // 
-            // txtMayoreo
-            // 
-            this.txtMayoreo.Location = new System.Drawing.Point(972, 44);
-            this.txtMayoreo.Name = "txtMayoreo";
-            this.txtMayoreo.Size = new System.Drawing.Size(49, 20);
-            this.txtMayoreo.TabIndex = 5;
-            this.txtMayoreo.TextChanged += new System.EventHandler(this.txtMayoreo_TextChanged);
-            this.txtMayoreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMayoreo_Validating);
-            // 
-            // txtMenudeo
-            // 
-            this.txtMenudeo.Location = new System.Drawing.Point(972, 18);
-            this.txtMenudeo.Name = "txtMenudeo";
-            this.txtMenudeo.Size = new System.Drawing.Size(49, 20);
-            this.txtMenudeo.TabIndex = 4;
-            this.txtMenudeo.TextChanged += new System.EventHandler(this.txtMenudeo_TextChanged);
-            this.txtMenudeo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMenudeo_Validating);
-            // 
             // txtDescripcion
             // 
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -178,19 +179,6 @@
             this.txtNombre.Size = new System.Drawing.Size(252, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
-            // 
-            // txtID
-            // 
-            this.txtID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtID.Location = new System.Drawing.Point(102, 18);
-            this.txtID.MaxLength = 13;
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(108, 20);
-            this.txtID.TabIndex = 0;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
-            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
-            this.txtID.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtID_PreviewKeyDown);
-            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // btnAgregar
             // 
@@ -224,6 +212,14 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // txtMayoreo
+            // 
+            this.txtMayoreo.Location = new System.Drawing.Point(972, 44);
+            this.txtMayoreo.Name = "txtMayoreo";
+            this.txtMayoreo.Size = new System.Drawing.Size(49, 20);
+            this.txtMayoreo.TabIndex = 5;
+            this.txtMayoreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMayoreo_Validating);
             // 
             // frmProductos
             // 
@@ -259,14 +255,14 @@
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtMayoreo;
-        private System.Windows.Forms.TextBox txtMenudeo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private Herramientas.controlProducto txtID;
+        private Herramientas.doble txtMenudeo;
+        private Herramientas.doble txtMayoreo;
     }
 }

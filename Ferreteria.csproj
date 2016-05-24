@@ -63,17 +63,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ferreteriaDataSetVentas.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCantidad.cs">
+    <Compile Include="vtnCantidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCantidad.Designer.cs">
-      <DependentUpon>frmCantidad.cs</DependentUpon>
+    <Compile Include="vtnCantidad.Designer.cs">
+      <DependentUpon>vtnCantidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProvProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProvProd.Designer.cs">
+      <DependentUpon>frmProvProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas\controlProducto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Herramientas\controlProveedor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Herramientas\doble.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Herramientas\entero.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="vtnProducto.cs">
       <SubType>Form</SubType>
@@ -81,11 +99,11 @@
     <Compile Include="vtnProducto.Designer.cs">
       <DependentUpon>vtnProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEfectivo.cs">
+    <Compile Include="vtnEfectivo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEfectivo.Designer.cs">
-      <DependentUpon>frmEfectivo.cs</DependentUpon>
+    <Compile Include="vtnEfectivo.Designer.cs">
+      <DependentUpon>vtnEfectivo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmExistencias.cs">
       <SubType>Form</SubType>
@@ -141,17 +159,20 @@
     <Compile Include="vtnProveedor.Designer.cs">
       <DependentUpon>vtnProveedor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCantidad.resx">
-      <DependentUpon>frmCantidad.cs</DependentUpon>
+    <EmbeddedResource Include="vtnCantidad.resx">
+      <DependentUpon>vtnCantidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProvProd.resx">
+      <DependentUpon>frmProvProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vtnProducto.resx">
       <DependentUpon>vtnProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEfectivo.resx">
-      <DependentUpon>frmEfectivo.cs</DependentUpon>
+    <EmbeddedResource Include="vtnEfectivo.resx">
+      <DependentUpon>vtnEfectivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExistencias.resx">
       <DependentUpon>frmExistencias.cs</DependentUpon>

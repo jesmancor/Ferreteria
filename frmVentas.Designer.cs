@@ -33,7 +33,6 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
             this.lblVenta = new System.Windows.Forms.Label();
-            this.txtIDVenta = new System.Windows.Forms.TextBox();
             this.lblIDVenta = new System.Windows.Forms.Label();
             this.dgVenta = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +40,7 @@
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO_UNITARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIDVenta = new Ferreteria.Herramientas.controlProducto();
             this.gbVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).BeginInit();
             this.SuspendLayout();
@@ -88,16 +88,6 @@
             this.lblVenta.Size = new System.Drawing.Size(143, 25);
             this.lblVenta.TabIndex = 7;
             this.lblVenta.Text = "Realizar venta";
-            // 
-            // txtIDVenta
-            // 
-            this.txtIDVenta.Location = new System.Drawing.Point(34, 125);
-            this.txtIDVenta.MaxLength = 13;
-            this.txtIDVenta.Name = "txtIDVenta";
-            this.txtIDVenta.Size = new System.Drawing.Size(100, 20);
-            this.txtIDVenta.TabIndex = 8;
-            this.txtIDVenta.TextChanged += new System.EventHandler(this.txtIDVenta_TextChanged);
-            this.txtIDVenta.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtIDVenta_PreviewKeyDown);
             // 
             // lblIDVenta
             // 
@@ -162,25 +152,34 @@
             this.TOTAL.Name = "TOTAL";
             this.TOTAL.ReadOnly = true;
             // 
+            // txtIDVenta
+            // 
+            this.txtIDVenta.Location = new System.Drawing.Point(34, 125);
+            this.txtIDVenta.MaxLength = 13;
+            this.txtIDVenta.Name = "txtIDVenta";
+            this.txtIDVenta.Size = new System.Drawing.Size(100, 20);
+            this.txtIDVenta.TabIndex = 8;
+            this.txtIDVenta.TextChanged += new System.EventHandler(this.txtIDVenta_TextChanged);
+            // 
             // frmVentas
             // 
             this.AcceptButton = this.btnVenta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1109, 610);
+            this.Controls.Add(this.txtIDVenta);
             this.Controls.Add(this.dgVenta);
             this.Controls.Add(this.btnVenta);
             this.Controls.Add(this.lblIDVenta);
-            this.Controls.Add(this.txtIDVenta);
             this.Controls.Add(this.lblVenta);
             this.Controls.Add(this.gbVenta);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "frmVentas";
             this.Controls.SetChildIndex(this.gbVenta, 0);
             this.Controls.SetChildIndex(this.lblVenta, 0);
-            this.Controls.SetChildIndex(this.txtIDVenta, 0);
             this.Controls.SetChildIndex(this.lblIDVenta, 0);
             this.Controls.SetChildIndex(this.btnVenta, 0);
             this.Controls.SetChildIndex(this.dgVenta, 0);
+            this.Controls.SetChildIndex(this.txtIDVenta, 0);
             this.gbVenta.ResumeLayout(false);
             this.gbVenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).EndInit();
@@ -195,7 +194,6 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Label lblVenta;
-        private System.Windows.Forms.TextBox txtIDVenta;
         private System.Windows.Forms.Label lblIDVenta;
         private System.Windows.Forms.DataGridView dgVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -203,5 +201,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO_UNITARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
+        private Herramientas.controlProducto txtIDVenta;
     }
 }

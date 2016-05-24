@@ -26,6 +26,8 @@ namespace Ferreteria.Objetos
         public string strMinimo { get; set; }
         public string strMaximo { get; set; }
         public string strReorden { get; set; }
+        public string strProveedor { get; set; }
+        public string strCantidad { get; set; }
 
         //Constantes para el arreglo de datos del producto
         private const int ARR_NOMBRE = 0;
@@ -240,7 +242,11 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@maximo", null);
                 cmd.Parameters.AddWithValue("@minimo", null);
                 cmd.Parameters.AddWithValue("@reorden", null);
+                cmd.Parameters.AddWithValue("@proveedor", null);
+                cmd.Parameters.AddWithValue("@cantidad", null);
                 cmd.Parameters.AddWithValue("@tipoMod", MODI_UNO);
+                cmd.Parameters.AddWithValue("@mensaje", null);
+                cmd.Parameters["@mensaje"].Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Producto modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -273,10 +279,24 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@maximo", strMaximo);
                 cmd.Parameters.AddWithValue("@minimo", strMinimo);
                 cmd.Parameters.AddWithValue("@reorden", strReorden);
+                cmd.Parameters.AddWithValue("@proveedor", strProveedor);
+                cmd.Parameters.AddWithValue("@cantidad", strCantidad);
                 cmd.Parameters.AddWithValue("@tipoMod", MODI_DOS);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Existencias actualizadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+                cmd.Parameters.AddWithValue("@mensaje", null);
+                cmd.Parameters["@mensaje"].Direction = ParameterDirection.Output;
+                int exito = cmd.ExecuteNonQuery();
+                conn.Close();
+                string mensaje = cmd.Parameters["@mensaje"].Value.ToString();
+                if (exito > 0)
+                {
+                    MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Existencias actualizadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Error al aregar existencias", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             catch (Exception exc)
             {

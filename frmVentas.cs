@@ -26,26 +26,10 @@ namespace Ferreteria
             InitializeComponent();
         }
 
-        //Despliega la ventana en la que se realiza la consulta por descripción
-        private string consultaPorDescripcion()
-        {
-            using (var form = new vtnProducto())
-            {
-                var resultado = form.ShowDialog();
-                if (resultado == DialogResult.OK)
-                {
-                    string valor = form.valor;
-                    return valor;
-                }
-                else
-                    return null;
-            }
-        }
-
         //Despliega la ventana en la que se ingresa la cantidad del producto a vender
         private string ingresarCantidad()
         {
-            using (var form = new frmCantidad())
+            using (var form = new vtnCantidad())
             {
                 var resultado = form.ShowDialog();
                 if (resultado == DialogResult.OK)
@@ -62,7 +46,7 @@ namespace Ferreteria
         //a devolver al cliente
         private bool cambioDeEfectivo(double total, out double retorno, out double efectivo)
         {
-            using (var form = new frmEfectivo(total))
+            using (var form = new vtnEfectivo(total))
             {
                 var resultado = form.ShowDialog();
                 if (resultado == DialogResult.OK)
@@ -96,23 +80,11 @@ namespace Ferreteria
             }
         }
 
-        private void txtIDVenta_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                txtIDVenta.Text = consultaPorDescripcion();
-            }
-        }
-
         //Método que agrega los datos del producto al DataGridView
         private void txtIDVenta_TextChanged(object sender, EventArgs e)
         {
             double doubPrecio = 0;
             bool validacionConsulta = false;
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtIDVenta.Text, "[^0-9]"))
-            {
-                txtIDVenta.Text = txtIDVenta.Text.Remove(txtIDVenta.Text.Length - 1);
-            }
             if (txtIDVenta.Text.Length>=13)
             {
                 string strIDVenta = txtIDVenta.Text;

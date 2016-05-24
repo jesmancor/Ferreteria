@@ -39,6 +39,9 @@
             this.añadirModificarYEliminarProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarExistenciasAlInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignarProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasDelDíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +49,6 @@
             this.bloquearCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloj = new System.Windows.Forms.Timer(this.components);
-            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,15 +115,15 @@
             // añadirModificarYEliminarProductosToolStripMenuItem
             // 
             this.añadirModificarYEliminarProductosToolStripMenuItem.Name = "añadirModificarYEliminarProductosToolStripMenuItem";
-            this.añadirModificarYEliminarProductosToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.añadirModificarYEliminarProductosToolStripMenuItem.Text = "Añadir, modificar y eliminar productos";
+            this.añadirModificarYEliminarProductosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.añadirModificarYEliminarProductosToolStripMenuItem.Text = "Registro";
             this.añadirModificarYEliminarProductosToolStripMenuItem.Click += new System.EventHandler(this.añadirModificarYEliminarProductosToolStripMenuItem_Click);
             // 
             // agregarExistenciasAlInventarioToolStripMenuItem
             // 
             this.agregarExistenciasAlInventarioToolStripMenuItem.Name = "agregarExistenciasAlInventarioToolStripMenuItem";
-            this.agregarExistenciasAlInventarioToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.agregarExistenciasAlInventarioToolStripMenuItem.Text = "Agregar existencias al inventario";
+            this.agregarExistenciasAlInventarioToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.agregarExistenciasAlInventarioToolStripMenuItem.Text = "Comprar";
             this.agregarExistenciasAlInventarioToolStripMenuItem.Click += new System.EventHandler(this.agregarExistenciasAlInventarioToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
@@ -130,6 +132,30 @@
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroToolStripMenuItem,
+            this.asignarProductosToolStripMenuItem});
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
+            // 
+            // registroToolStripMenuItem
+            // 
+            this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
+            this.registroToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.registroToolStripMenuItem.Text = "Registro";
+            this.registroToolStripMenuItem.Click += new System.EventHandler(this.registroToolStripMenuItem_Click);
+            // 
+            // asignarProductosToolStripMenuItem
+            // 
+            this.asignarProductosToolStripMenuItem.Name = "asignarProductosToolStripMenuItem";
+            this.asignarProductosToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.asignarProductosToolStripMenuItem.Text = "Asignar productos";
+            this.asignarProductosToolStripMenuItem.Click += new System.EventHandler(this.asignarProductosToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -182,13 +208,6 @@
             // 
             this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
             // 
-            // proveedoresToolStripMenuItem
-            // 
-            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.proveedoresToolStripMenuItem.Text = "Proveedores";
-            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,5 +249,7 @@
         private System.Windows.Forms.ToolStripMenuItem añadirModificarYEliminarProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarExistenciasAlInventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignarProductosToolStripMenuItem;
     }
 }

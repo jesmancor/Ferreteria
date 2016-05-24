@@ -26,9 +26,7 @@ C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\De
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csproj.GenerateResource.Cache
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.exe
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.pdb
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmCantidad.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\MySql.Data.dll
-C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmEfectivo.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\LibPrintTicket.dll
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\bin\Debug\LibPrintTicket.pdb
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.csprojResolveAssemblyReference.cache
@@ -36,3 +34,6 @@ C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\De
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmProveedores.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.vtnProducto.resources
 C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.vtnProveedor.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.frmProvProd.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.vtnEfectivo.resources
+C:\Users\chuy\Documents\Visual Studio 2015\Projects\Ferreteria\Ferreteria\obj\Debug\Ferreteria.vtnCantidad.resources

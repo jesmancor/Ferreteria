@@ -10,24 +10,16 @@ using System.Windows.Forms;
 
 namespace Ferreteria
 {
-    public partial class frmEfectivo : Form
+    public partial class vtnEfectivo : Form
     {
         public double efectivo { get; set; }
         public double total;
         public double retorno { get; set; }
 
-        public frmEfectivo(double totalVenta)
+        public vtnEfectivo(double totalVenta)
         {
             InitializeComponent();
             total = totalVenta;
-        }
-
-        private void txtEfectivo_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtEfectivo.Text, "[^0-9,^0-9]"))
-            {
-                txtEfectivo.Text = txtEfectivo.Text.Remove(txtEfectivo.Text.Length - 1);
-            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

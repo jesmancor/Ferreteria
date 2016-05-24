@@ -31,12 +31,12 @@
             this.lblID = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblProveedores = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtID = new Ferreteria.Herramientas.controlProveedor();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,8 +51,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.txtID);
+            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.lblID);
             this.groupBox1.Location = new System.Drawing.Point(15, 109);
@@ -68,18 +68,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(366, 20);
             this.txtNombre.TabIndex = 9;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(72, 22);
-            this.txtID.MaxLength = 10;
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
-            this.txtID.TabIndex = 8;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
-            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
-            this.txtID.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtID_PreviewKeyDown);
-            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // lblNombre
             // 
@@ -133,6 +121,16 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(72, 22);
+            this.txtID.MaxLength = 3;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(46, 20);
+            this.txtID.TabIndex = 8;
+            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
+            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
+            // 
             // frmProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,11 +159,11 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblProveedores;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private Herramientas.controlProveedor txtID;
     }
 }

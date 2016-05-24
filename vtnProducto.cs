@@ -22,7 +22,7 @@ namespace Ferreteria
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtBusqueda.Text.Length > 5)
+            if (txtBusqueda.Text.Length > 4)
             {
                 dgvBusqueda.Rows.Clear();
                 producto Producto = new producto();

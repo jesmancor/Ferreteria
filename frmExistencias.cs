@@ -22,48 +22,6 @@ namespace Ferreteria
             txtNombre.Text = Producto.strNombreProducto;
         }
 
-        private string consultaPorDescripcion()
-        {
-            using (var form = new vtnProducto())
-            {
-                var resultado = form.ShowDialog();
-                if (resultado == DialogResult.OK)
-                {
-                    string valor = form.valor;
-                    return valor;
-                }
-                else
-                    return null;
-            }
-        }
-
-        private string consultaProveedor()
-        {
-            using (var form = new vtnProveedor())
-            {
-                var resultado = form.ShowDialog();
-                if (resultado == DialogResult.OK)
-                {
-                    string valor = form.valor;
-                    return valor;
-                }
-                else
-                    return null;
-            }
-        }
-
-        private void txtID_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, "[^0-9]"))
-            {
-                txtID.Text = txtID.Text.Remove(txtID.Text.Length - 1);
-            }
-            if (txtID.Text.Length >= 13)
-            {
-                txtMaximo.Focus();
-            }
-        }
-
         private void txtID_Validating(object sender, CancelEventArgs e)
         {
             if (txtID.Text != string.Empty)
@@ -79,6 +37,7 @@ namespace Ferreteria
                     txtReorden.Value = int.Parse(Producto.strReorden);
                     int intNuevas = int.Parse(txtActuales.Text) + (int)txtAgregar.Value;
                     txtNuevas.Text = intNuevas.ToString();
+                    txtProveedor.Text = string.Empty;
                 }
                 else
                 {
@@ -99,15 +58,9 @@ namespace Ferreteria
             txtMinimo.Value = 1;
             txtMaximo.Value = 1;
             txtNuevas.Text = "0";
+            txtProveedor.Text = string.Empty;
+            txtProveedorNombre.Text = string.Empty;
             btnAgregar.Enabled = false;
-        }
-
-        private void txtID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                txtID.Text = consultaPorDescripcion();
-            }
         }
 
         private void txtAgregar_ValueChanged(object sender, EventArgs e)
@@ -125,26 +78,6 @@ namespace Ferreteria
         private void txtMinimo_ValueChanged(object sender, EventArgs e)
         {
             activaBoton();
-        }
-
-        private void txtProveedor_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtID.Text, "[^0-9]"))
-            {
-                txtProveedor.Text = txtProveedor.Text.Remove(txtID.Text.Length - 1);
-            }
-            if (txtProveedor.Text.Length >= 10)
-            {
-                txtUnitario.Focus();
-            }
-        }
-
-        private void txtProveedor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                txtProveedor.Text = consultaProveedor();
-            }
         }
 
         private void txtProveedor_Validating(object sender, CancelEventArgs e)
@@ -187,6 +120,8 @@ namespace Ferreteria
             Producto.strMaximo = txtMaximo.Value.ToString();
             Producto.strMinimo = txtMinimo.Value.ToString();
             Producto.strReorden = txtReorden.Value.ToString();
+            Producto.strProveedor = txtProveedor.Text;
+            Producto.strCantidad = txtAgregar.Value.ToString();
             if (Producto.agregarExistencias())
             {
                 txtID.Focus();

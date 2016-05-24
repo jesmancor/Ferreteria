@@ -3,21 +3,13 @@ using System.Windows.Forms;
 
 namespace Ferreteria
 {
-    public partial class frmCantidad : Form
+    public partial class vtnCantidad : Form
     {
         public string retornoCantidad { get; set; }
 
-        public frmCantidad()
+        public vtnCantidad()
         {
             InitializeComponent();
-        }
-
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtCantidad.Text, "[^0-9]"))
-            {
-                txtCantidad.Text = txtCantidad.Text.Remove(txtCantidad.Text.Length - 1);
-            }
         }
 
         private void sumar()

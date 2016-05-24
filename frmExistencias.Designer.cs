@@ -29,20 +29,16 @@
         private void InitializeComponent()
         {
             this.lbID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.lblActuales = new System.Windows.Forms.Label();
-            this.txtActuales = new System.Windows.Forms.TextBox();
             this.lblAgregar = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtProveedor = new Ferreteria.Herramientas.controlProveedor();
+            this.txtID = new Ferreteria.Herramientas.controlProducto();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblUnitario = new System.Windows.Forms.Label();
-            this.txtUnitario = new System.Windows.Forms.TextBox();
             this.lblProveedor = new System.Windows.Forms.Label();
             this.txtProveedorNombre = new System.Windows.Forms.TextBox();
-            this.txtProveedor = new System.Windows.Forms.TextBox();
-            this.txtNuevas = new System.Windows.Forms.TextBox();
             this.lblNuevas = new System.Windows.Forms.Label();
             this.txtMinimo = new System.Windows.Forms.NumericUpDown();
             this.txtReorden = new System.Windows.Forms.NumericUpDown();
@@ -54,6 +50,8 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtAgregar = new System.Windows.Forms.NumericUpDown();
             this.lblProductos = new System.Windows.Forms.Label();
+            this.txtActuales = new Ferreteria.Herramientas.entero();
+            this.txtNuevas = new Ferreteria.Herramientas.entero();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReorden)).BeginInit();
@@ -70,35 +68,14 @@
             this.lbID.TabIndex = 6;
             this.lbID.Text = "ID :";
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(138, 31);
-            this.txtID.MaxLength = 13;
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(108, 20);
-            this.txtID.TabIndex = 0;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
-            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
-            this.txtID.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtID_PreviewKeyDown);
-            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
-            // 
             // lblActuales
             // 
             this.lblActuales.AutoSize = true;
-            this.lblActuales.Location = new System.Drawing.Point(13, 98);
+            this.lblActuales.Location = new System.Drawing.Point(18, 94);
             this.lblActuales.Name = "lblActuales";
             this.lblActuales.Size = new System.Drawing.Size(109, 13);
             this.lblActuales.TabIndex = 8;
             this.lblActuales.Text = "Existencias actuales :";
-            // 
-            // txtActuales
-            // 
-            this.txtActuales.Enabled = false;
-            this.txtActuales.Location = new System.Drawing.Point(138, 91);
-            this.txtActuales.Name = "txtActuales";
-            this.txtActuales.Size = new System.Drawing.Size(55, 20);
-            this.txtActuales.TabIndex = 1;
-            this.txtActuales.Text = "0";
             // 
             // lblAgregar
             // 
@@ -122,14 +99,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtNuevas);
+            this.groupBox1.Controls.Add(this.txtActuales);
+            this.groupBox1.Controls.Add(this.txtProveedor);
+            this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.lblUnitario);
-            this.groupBox1.Controls.Add(this.txtUnitario);
             this.groupBox1.Controls.Add(this.lblProveedor);
             this.groupBox1.Controls.Add(this.txtProveedorNombre);
-            this.groupBox1.Controls.Add(this.txtProveedor);
-            this.groupBox1.Controls.Add(this.txtNuevas);
             this.groupBox1.Controls.Add(this.lblNuevas);
             this.groupBox1.Controls.Add(this.txtMinimo);
             this.groupBox1.Controls.Add(this.txtReorden);
@@ -140,23 +117,33 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.txtAgregar);
-            this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.lbID);
             this.groupBox1.Controls.Add(this.lblAgregar);
             this.groupBox1.Controls.Add(this.lblActuales);
-            this.groupBox1.Controls.Add(this.txtActuales);
             this.groupBox1.Location = new System.Drawing.Point(15, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(529, 287);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
-            // textBox3
+            // txtProveedor
             // 
-            this.textBox3.Location = new System.Drawing.Point(362, 231);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 26;
+            this.txtProveedor.Location = new System.Drawing.Point(138, 205);
+            this.txtProveedor.MaxLength = 3;
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(46, 20);
+            this.txtProveedor.TabIndex = 28;
+            this.txtProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.txtProveedor_Validating);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(138, 31);
+            this.txtID.MaxLength = 13;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(108, 20);
+            this.txtID.TabIndex = 0;
+            this.txtID.GotFocus += new System.EventHandler(this.txtID_GotFocus);
+            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // lblTotal
             // 
@@ -176,49 +163,21 @@
             this.lblUnitario.TabIndex = 24;
             this.lblUnitario.Text = "Precio unitario :";
             // 
-            // txtUnitario
-            // 
-            this.txtUnitario.Location = new System.Drawing.Point(138, 231);
-            this.txtUnitario.Name = "txtUnitario";
-            this.txtUnitario.Size = new System.Drawing.Size(82, 20);
-            this.txtUnitario.TabIndex = 23;
-            // 
             // lblProveedor
             // 
-            this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(63, 208);
+            this.lblProveedor.Location = new System.Drawing.Point(60, 211);
             this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(62, 13);
-            this.lblProveedor.TabIndex = 22;
+            this.lblProveedor.Size = new System.Drawing.Size(62, 14);
+            this.lblProveedor.TabIndex = 29;
             this.lblProveedor.Text = "Proveedor :";
             // 
             // txtProveedorNombre
             // 
             this.txtProveedorNombre.Enabled = false;
-            this.txtProveedorNombre.Location = new System.Drawing.Point(226, 205);
+            this.txtProveedorNombre.Location = new System.Drawing.Point(190, 205);
             this.txtProveedorNombre.Name = "txtProveedorNombre";
-            this.txtProveedorNombre.Size = new System.Drawing.Size(236, 20);
+            this.txtProveedorNombre.Size = new System.Drawing.Size(280, 20);
             this.txtProveedorNombre.TabIndex = 21;
-            // 
-            // txtProveedor
-            // 
-            this.txtProveedor.Location = new System.Drawing.Point(138, 205);
-            this.txtProveedor.MaxLength = 10;
-            this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(82, 20);
-            this.txtProveedor.TabIndex = 20;
-            this.txtProveedor.TextChanged += new System.EventHandler(this.txtProveedor_TextChanged);
-            this.txtProveedor.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtProveedor_PreviewKeyDown);
-            this.txtProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.txtProveedor_Validating);
-            // 
-            // txtNuevas
-            // 
-            this.txtNuevas.Enabled = false;
-            this.txtNuevas.Location = new System.Drawing.Point(328, 171);
-            this.txtNuevas.Name = "txtNuevas";
-            this.txtNuevas.Size = new System.Drawing.Size(54, 20);
-            this.txtNuevas.TabIndex = 4;
-            this.txtNuevas.Text = "1";
             // 
             // lblNuevas
             // 
@@ -376,6 +335,21 @@
             this.lblProductos.TabIndex = 14;
             this.lblProductos.Text = "Agregar existencias";
             // 
+            // txtActuales
+            // 
+            this.txtActuales.Location = new System.Drawing.Point(138, 91);
+            this.txtActuales.Name = "txtActuales";
+            this.txtActuales.Size = new System.Drawing.Size(55, 20);
+            this.txtActuales.TabIndex = 30;
+            // 
+            // txtNuevas
+            // 
+            this.txtNuevas.Location = new System.Drawing.Point(327, 166);
+            this.txtNuevas.Name = "txtNuevas";
+            this.txtNuevas.Size = new System.Drawing.Size(55, 20);
+            this.txtNuevas.TabIndex = 31;
+            this.txtNuevas.Text = "1";
+            // 
             // frmExistencias
             // 
             this.AcceptButton = this.btnAgregar;
@@ -403,9 +377,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbID;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblActuales;
-        private System.Windows.Forms.TextBox txtActuales;
         private System.Windows.Forms.Label lblAgregar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -417,16 +389,16 @@
         private System.Windows.Forms.NumericUpDown txtReorden;
         private System.Windows.Forms.NumericUpDown txtMaximo;
         private System.Windows.Forms.Label lblProductos;
-        private System.Windows.Forms.TextBox txtNuevas;
         private System.Windows.Forms.Label lblNuevas;
         private System.Windows.Forms.NumericUpDown txtMinimo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblUnitario;
-        private System.Windows.Forms.TextBox txtUnitario;
         private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.TextBox txtProveedorNombre;
-        private System.Windows.Forms.TextBox txtProveedor;
+        private Herramientas.controlProveedor txtProveedor;
+        private Herramientas.controlProducto txtID;
+        private Herramientas.entero txtNuevas;
+        private Herramientas.entero txtActuales;
     }
 }

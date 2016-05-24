@@ -1,6 +1,6 @@
 ﻿namespace Ferreteria
 {
-    partial class frmEfectivo
+    partial class vtnEfectivo
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtEfectivo = new System.Windows.Forms.TextBox();
+            this.txtEfectivo = new Ferreteria.Herramientas.doble();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -59,21 +59,20 @@
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(156, 20);
             this.txtEfectivo.TabIndex = 0;
-            this.txtEfectivo.TextChanged += new System.EventHandler(this.txtEfectivo_TextChanged);
             // 
-            // frmEfectivo
+            // vtnEfectivo
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(176, 64);
+            this.ClientSize = new System.Drawing.Size(179, 66);
             this.ControlBox = false;
             this.Controls.Add(this.txtEfectivo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(80, 125);
-            this.Name = "frmEfectivo";
+            this.Name = "vtnEfectivo";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Efectivo recibido";
@@ -86,6 +85,6 @@
 
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtEfectivo;
+        private Herramientas.doble txtEfectivo;
     }
 }

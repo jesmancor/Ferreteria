@@ -1,6 +1,6 @@
 ﻿namespace Ferreteria
 {
-    partial class frmCantidad
+    partial class vtnCantidad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtCantidad = new Ferreteria.Herramientas.entero();
             this.SuspendLayout();
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(12, 12);
-            this.txtCantidad.MaxLength = 3;
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(156, 20);
-            this.txtCantidad.TabIndex = 0;
-            this.txtCantidad.Text = "1";
-            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
             // btnAceptar
             // 
@@ -64,17 +54,26 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(12, 12);
+            this.txtCantidad.MaxLength = 4;
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(156, 20);
+            this.txtCantidad.TabIndex = 0;
+            this.txtCantidad.Text = "1";
+            // 
             // frmCantidad
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(184, 71);
+            this.ClientSize = new System.Drawing.Size(176, 63);
             this.ControlBox = false;
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtCantidad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(80, 125);
@@ -88,9 +87,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private Herramientas.entero txtCantidad;
     }
 }
