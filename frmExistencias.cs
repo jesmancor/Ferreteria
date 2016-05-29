@@ -18,8 +18,8 @@ namespace Ferreteria
         {
             InitializeComponent();
             Producto = Prod;
-            txtID.Text = Producto.strID;
-            txtNombre.Text = Producto.strNombreProducto;
+            txtID.Text = Producto.ID;
+            txtNombre.Text = Producto.NombreProducto;
         }
 
         private void txtID_Validating(object sender, CancelEventArgs e)
@@ -30,11 +30,11 @@ namespace Ferreteria
                 bool valida = Producto.valida(txtID.Text);
                 if (valida)
                 {
-                    txtActuales.Text = Producto.strExistencias;
-                    txtNombre.Text = Producto.strNombreProducto;
-                    txtMaximo.Value = int.Parse(Producto.strMaximo);
-                    txtMinimo.Value = int.Parse(Producto.strMinimo);
-                    txtReorden.Value = int.Parse(Producto.strReorden);
+                    txtActuales.Text = Producto.Existencias.ToString();
+                    txtNombre.Text = Producto.NombreProducto;
+                    txtMaximo.Value = Producto.Maximo;
+                    txtMinimo.Value = Producto.Minimo;
+                    txtReorden.Value = Producto.Reorden;
                     int intNuevas = int.Parse(txtActuales.Text) + (int)txtAgregar.Value;
                     txtNuevas.Text = intNuevas.ToString();
                     txtProveedor.Text = string.Empty;
@@ -116,12 +116,9 @@ namespace Ferreteria
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Producto.strExistencias = txtNuevas.Text;
-            Producto.strMaximo = txtMaximo.Value.ToString();
-            Producto.strMinimo = txtMinimo.Value.ToString();
-            Producto.strReorden = txtReorden.Value.ToString();
-            Producto.strProveedor = txtProveedor.Text;
-            Producto.strCantidad = txtAgregar.Value.ToString();
+            Producto.Existencias = txtNuevas.valor();
+            Producto.Proveedor = txtProveedor.Text;
+            Producto.Cantidad = txtAgregar.Value.ToString();
             if (Producto.agregarExistencias())
             {
                 txtID.Focus();

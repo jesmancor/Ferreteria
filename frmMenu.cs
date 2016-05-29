@@ -9,61 +9,68 @@ namespace Ferreteria
         public frmMenu()
         {
             InitializeComponent();
+            this.FormClosing += new FormClosingEventHandler(cerrar);
         }
+
+        private void cerrar(object sender, FormClosingEventArgs e)
+        {
+           Application.Exit();
+        }
+
         private void mostrarVentas()
         {
             frmVentas frm = new frmVentas();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void mostrarProductos()
         {
             frmProductos frm = new frmProductos();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void cerrarSesion()
         {
             frmLogin frm = new frmLogin();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void mostrarReporteVentas()
         {
             frmReporteVentas frm = new frmReporteVentas();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void mostrarUsuarios()
         {
             frmUsuarios frm = new frmUsuarios();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void mostrarExistencias()
         {
             frmExistencias frm = new frmExistencias();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void mostrarProveedores()
         {
             frmProveedores frm = new frmProveedores();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void mostrarProvProd()
         {
             frmProvProd frm = new frmProvProd();
             frm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void hacerVentaToolStripMenuItem_Click(object sender, EventArgs e)

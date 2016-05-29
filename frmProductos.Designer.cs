@@ -30,7 +30,8 @@
         {
             this.lblProductos = new System.Windows.Forms.Label();
             this.gbEditarNuevo = new System.Windows.Forms.GroupBox();
-            this.txtMenudeo = new Ferreteria.Herramientas.doble();
+            this.txtMayoreo = new Ferreteria.Herramientas.moneda();
+            this.txtMenudeo = new Ferreteria.Herramientas.moneda();
             this.txtID = new Ferreteria.Herramientas.controlProducto();
             this.lblMayoreo = new System.Windows.Forms.Label();
             this.lblMenudeo = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtMayoreo = new Ferreteria.Herramientas.doble();
             this.gbEditarNuevo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,11 +79,19 @@
             this.gbEditarNuevo.TabIndex = 5;
             this.gbEditarNuevo.TabStop = false;
             // 
+            // txtMayoreo
+            // 
+            this.txtMayoreo.Location = new System.Drawing.Point(917, 44);
+            this.txtMayoreo.Name = "txtMayoreo";
+            this.txtMayoreo.Size = new System.Drawing.Size(104, 20);
+            this.txtMayoreo.TabIndex = 5;
+            this.txtMayoreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMayoreo_Validating);
+            // 
             // txtMenudeo
             // 
-            this.txtMenudeo.Location = new System.Drawing.Point(972, 18);
+            this.txtMenudeo.Location = new System.Drawing.Point(917, 18);
             this.txtMenudeo.Name = "txtMenudeo";
-            this.txtMenudeo.Size = new System.Drawing.Size(49, 20);
+            this.txtMenudeo.Size = new System.Drawing.Size(104, 20);
             this.txtMenudeo.TabIndex = 4;
             this.txtMenudeo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMenudeo_Validating);
             // 
@@ -101,7 +109,7 @@
             // lblMayoreo
             // 
             this.lblMayoreo.AutoSize = true;
-            this.lblMayoreo.Location = new System.Drawing.Point(873, 51);
+            this.lblMayoreo.Location = new System.Drawing.Point(813, 47);
             this.lblMayoreo.Name = "lblMayoreo";
             this.lblMayoreo.Size = new System.Drawing.Size(98, 13);
             this.lblMayoreo.TabIndex = 12;
@@ -110,7 +118,7 @@
             // lblMenudeo
             // 
             this.lblMenudeo.AutoSize = true;
-            this.lblMenudeo.Location = new System.Drawing.Point(873, 25);
+            this.lblMenudeo.Location = new System.Drawing.Point(812, 21);
             this.lblMenudeo.Name = "lblMenudeo";
             this.lblMenudeo.Size = new System.Drawing.Size(99, 13);
             this.lblMenudeo.TabIndex = 11;
@@ -213,14 +221,6 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // txtMayoreo
-            // 
-            this.txtMayoreo.Location = new System.Drawing.Point(972, 44);
-            this.txtMayoreo.Name = "txtMayoreo";
-            this.txtMayoreo.Size = new System.Drawing.Size(49, 20);
-            this.txtMayoreo.TabIndex = 5;
-            this.txtMayoreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtMayoreo_Validating);
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,7 +232,6 @@
             this.Controls.Add(this.lblProductos);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "frmProductos";
-            this.Load += new System.EventHandler(this.frmProductos_Load);
             this.Controls.SetChildIndex(this.lblProductos, 0);
             this.Controls.SetChildIndex(this.gbEditarNuevo, 0);
             this.Controls.SetChildIndex(this.btnAgregar, 0);
@@ -262,7 +261,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private Herramientas.controlProducto txtID;
-        private Herramientas.doble txtMenudeo;
-        private Herramientas.doble txtMayoreo;
+        private Herramientas.moneda txtMenudeo;
+        private Herramientas.moneda txtMayoreo;
     }
 }

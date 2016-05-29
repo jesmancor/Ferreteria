@@ -12,10 +12,6 @@ namespace Ferreteria
             InitializeComponent();
         }
 
-        private void frmProductos_Load(object sender, EventArgs e)
-        {
-        }
-
         private void txtID_GotFocus(object sender, EventArgs e)
         {
             limpiarCampos();
@@ -33,11 +29,11 @@ namespace Ferreteria
                 valida = Producto.valida(txtID.Text);
                 if (valida)
                 {
-                    txtNombre.Text = Producto.strNombreProducto;
-                    txtTipo.Text = Producto.strTipo;
-                    txtDescripcion.Text = Producto.strDescripcion;
-                    txtMenudeo.Text = Producto.strMenudeo;
-                    txtMayoreo.Text = Producto.strMayoreo;
+                    txtNombre.Text = Producto.NombreProducto;
+                    txtTipo.Text = Producto.Tipo;
+                    txtDescripcion.Text = Producto.Descripcion;
+                    txtMenudeo.asignarValor(Producto.Menudeo);
+                    txtMayoreo.asignarValor(Producto.Mayoreo);
                     btnAgregar.Enabled = false;
                     btnModificar.Enabled = true;
                     btnEliminar.Enabled = true;
@@ -108,12 +104,12 @@ namespace Ferreteria
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             producto Producto = new producto();
-            Producto.strID = txtID.Text;
-            Producto.strNombreProducto = txtNombre.Text;
-            Producto.strTipo = txtTipo.Text;
-            Producto.strDescripcion = txtDescripcion.Text;
-            Producto.strMenudeo = txtMenudeo.Text;
-            Producto.strMayoreo = txtMayoreo.Text;
+            Producto.ID = txtID.Text;
+            Producto.NombreProducto = txtNombre.Text;
+            Producto.Tipo = txtTipo.Text;
+            Producto.Descripcion = txtDescripcion.Text;
+            Producto.Menudeo = txtMenudeo.valor();
+            Producto.Mayoreo = txtMayoreo.valor();
             bool valida = validaCampos();
             if (valida)
             {
@@ -139,12 +135,12 @@ namespace Ferreteria
         private void btnModificar_Click(object sender, EventArgs e)
         {
             producto Producto = new producto();
-            Producto.strID = txtID.Text;
-            Producto.strNombreProducto = txtNombre.Text;
-            Producto.strTipo = txtTipo.Text;
-            Producto.strDescripcion = txtDescripcion.Text;
-            Producto.strMenudeo = txtMenudeo.Text;
-            Producto.strMayoreo = txtMayoreo.Text;
+            Producto.ID = txtID.Text;
+            Producto.NombreProducto = txtNombre.Text;
+            Producto.Tipo = txtTipo.Text;
+            Producto.Descripcion = txtDescripcion.Text;
+            Producto.Menudeo = txtMenudeo.valor();
+            Producto.Mayoreo = txtMayoreo.valor();
             bool valida = validaCampos();
             if (valida)
             {
@@ -163,7 +159,7 @@ namespace Ferreteria
             if (pregunta == DialogResult.Yes)
             {
                 producto Producto = new producto();
-                Producto.strID = txtID.Text;
+                Producto.ID = txtID.Text;
                 bool valida = Producto.eliminarProducto();
                 if (valida)
                 {

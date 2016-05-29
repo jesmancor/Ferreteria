@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using LibPrintTicket;
+using System.Globalization;
 
 namespace Ferreteria.Objetos
 {
@@ -15,19 +16,19 @@ namespace Ferreteria.Objetos
         public string strMensaje { get; set; }
 
         //Campos de la tabla producto para el alta
-        public string strNombreProducto { get; set; }
-        public string strID { get; set; }
-        public string strTipo { get; set; }
-        public string strDescripcion { get; set; }
-        public string strMayoreo { get; set; }
-        public string strMenudeo { get; set; }
-        public string strDescuento { get; set; }
-        public string strExistencias { get; set; }
-        public string strMinimo { get; set; }
-        public string strMaximo { get; set; }
-        public string strReorden { get; set; }
-        public string strProveedor { get; set; }
-        public string strCantidad { get; set; }
+        public string NombreProducto { get; set; }
+        public string ID { get; set; }
+        public string Tipo { get; set; }
+        public string Descripcion { get; set; }
+        public double Mayoreo { get; set; }
+        public double Menudeo { get; set; }
+        public double Descuento { get; set; }
+        public int Existencias { get; set; }
+        public int Minimo { get; set; }
+        public int Maximo { get; set; }
+        public int Reorden { get; set; }
+        public string Proveedor { get; set; }
+        public string Cantidad { get; set; }
 
         //Constantes para el arreglo de datos del producto
         private const int ARR_NOMBRE = 0;
@@ -53,17 +54,17 @@ namespace Ferreteria.Objetos
             blnRetorno = false;
             doubPrecioUnitario = 0;
             lista = new List<string[]>();
-            strNombreProducto = null;
-            strID = null;
-            strTipo = null;
-            strDescripcion = null;
-            strMayoreo = null;
-            strMenudeo = null;
-            strDescuento = null;
-            strExistencias = null;
-            strMinimo = null;
-            strMaximo = null;
-            strReorden = null;
+            NombreProducto = null;
+            ID = null;
+            Tipo = null;
+            Descripcion = null;
+            Mayoreo = 0;
+            Menudeo = 0;
+            Descuento = 0;
+            Existencias = 0;
+            Minimo = 0;
+            Maximo = 0;
+            Reorden = 0;
         }
 
         //Método que devuelve un booleano si el producto tiene
@@ -98,7 +99,7 @@ namespace Ferreteria.Objetos
                 cmd.ExecuteNonQuery();
                 blnRetorno = Convert.ToBoolean(int.Parse(cmd.Parameters["@retorno"].Value.ToString()));
                 strMensaje = cmd.Parameters["@mensaje"].Value.ToString();
-                strNombreProducto = cmd.Parameters["@nombre"].Value.ToString();
+                NombreProducto = cmd.Parameters["@nombre"].Value.ToString();
                 conn.Close();
                 if (!blnRetorno)
                 {
@@ -203,15 +204,15 @@ namespace Ferreteria.Objetos
                 string sp = "productoAlta";
                 MySqlCommand cmd = new MySqlCommand(sp, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", strID);
-                cmd.Parameters.AddWithValue("@nombre", strNombreProducto);
-                cmd.Parameters.AddWithValue("@tipo", strTipo);
-                cmd.Parameters.AddWithValue("@descripcion", strDescripcion);
-                cmd.Parameters.AddWithValue("@pMenudeo", strMenudeo);
-                cmd.Parameters.AddWithValue("@pMayoreo", strMayoreo);
-                cmd.Parameters.AddWithValue("@descuento", strDescuento);
+                cmd.Parameters.AddWithValue("@id", ID);
+                cmd.Parameters.AddWithValue("@nombre", NombreProducto);
+                cmd.Parameters.AddWithValue("@tipo", Tipo);
+                cmd.Parameters.AddWithValue("@descripcion", Descripcion);
+                cmd.Parameters.AddWithValue("@pMenudeo", Menudeo);
+                cmd.Parameters.AddWithValue("@pMayoreo", Mayoreo);
+                cmd.Parameters.AddWithValue("@descuento", Descuento);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("El producto " + strNombreProducto + " fue agregado", "Registro agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El producto " + NombreProducto + " fue agregado", "Registro agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             catch (Exception exc)
@@ -231,13 +232,13 @@ namespace Ferreteria.Objetos
                 string sp = "productoMod";
                 MySqlCommand cmd = new MySqlCommand(sp, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", strID);
-                cmd.Parameters.AddWithValue("@nombre", strNombreProducto);
-                cmd.Parameters.AddWithValue("@tipo", strTipo);
-                cmd.Parameters.AddWithValue("@descripcion", strDescripcion);
-                cmd.Parameters.AddWithValue("@pMenudeo", strMenudeo);
-                cmd.Parameters.AddWithValue("@pMayoreo", strMayoreo);
-                cmd.Parameters.AddWithValue("@descuento", strDescuento);
+                cmd.Parameters.AddWithValue("@id", ID);
+                cmd.Parameters.AddWithValue("@nombre", NombreProducto);
+                cmd.Parameters.AddWithValue("@tipo", Tipo);
+                cmd.Parameters.AddWithValue("@descripcion", Descripcion);
+                cmd.Parameters.AddWithValue("@pMenudeo", Menudeo);
+                cmd.Parameters.AddWithValue("@pMayoreo", Mayoreo);
+                cmd.Parameters.AddWithValue("@descuento", Descuento);
                 cmd.Parameters.AddWithValue("@nuevaExistencia", null);
                 cmd.Parameters.AddWithValue("@maximo", null);
                 cmd.Parameters.AddWithValue("@minimo", null);
@@ -248,7 +249,7 @@ namespace Ferreteria.Objetos
                 cmd.Parameters.AddWithValue("@mensaje", null);
                 cmd.Parameters["@mensaje"].Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Producto modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El producto " + NombreProducto + " fue modificado", "Producto modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             catch (Exception exc)
@@ -268,19 +269,19 @@ namespace Ferreteria.Objetos
                 string sp = "productoMod";
                 MySqlCommand cmd = new MySqlCommand(sp, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", strID);
+                cmd.Parameters.AddWithValue("@id", ID);
                 cmd.Parameters.AddWithValue("@nombre", null);
                 cmd.Parameters.AddWithValue("@tipo", null);
                 cmd.Parameters.AddWithValue("@descripcion", null);
                 cmd.Parameters.AddWithValue("@pMenudeo", null);
                 cmd.Parameters.AddWithValue("@pMayoreo", null);
                 cmd.Parameters.AddWithValue("@descuento", null);
-                cmd.Parameters.AddWithValue("@nuevaExistencia", strExistencias);
-                cmd.Parameters.AddWithValue("@maximo", strMaximo);
-                cmd.Parameters.AddWithValue("@minimo", strMinimo);
-                cmd.Parameters.AddWithValue("@reorden", strReorden);
-                cmd.Parameters.AddWithValue("@proveedor", strProveedor);
-                cmd.Parameters.AddWithValue("@cantidad", strCantidad);
+                cmd.Parameters.AddWithValue("@nuevaExistencia", Existencias);
+                cmd.Parameters.AddWithValue("@maximo", Maximo);
+                cmd.Parameters.AddWithValue("@minimo", Minimo);
+                cmd.Parameters.AddWithValue("@reorden", Reorden);
+                cmd.Parameters.AddWithValue("@proveedor", Proveedor);
+                cmd.Parameters.AddWithValue("@cantidad", Cantidad);
                 cmd.Parameters.AddWithValue("@tipoMod", MODI_DOS);
                 cmd.Parameters.AddWithValue("@mensaje", null);
                 cmd.Parameters["@mensaje"].Direction = ParameterDirection.Output;
@@ -289,7 +290,7 @@ namespace Ferreteria.Objetos
                 string mensaje = cmd.Parameters["@mensaje"].Value.ToString();
                 if (exito > 0)
                 {
-                    MessageBox.Show("El producto " + strNombreProducto + " fue modificado", "Existencias actualizadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El producto " + NombreProducto + " fue modificado", "Existencias actualizadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
                 else
@@ -314,9 +315,9 @@ namespace Ferreteria.Objetos
                 string sp = "productoBaja";
                 MySqlCommand cmd = new MySqlCommand(sp, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", strID);
+                cmd.Parameters.AddWithValue("@id", ID);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("El producto " + strNombreProducto + " fue dado de baja", "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El producto " + NombreProducto + " fue dado de baja", "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             catch (Exception exc)
@@ -392,17 +393,17 @@ namespace Ferreteria.Objetos
                 MySqlDataReader resultadoBD = cmd.ExecuteReader();
                 if (resultadoBD.Read())
                 {
-                    strID = id;
-                    strNombreProducto = resultadoBD["NOMBRE_PRODUCTO"].ToString();
-                    strDescripcion = resultadoBD["DESCRIPCION_PRODUCTO"].ToString();
-                    strTipo = resultadoBD["TIPO_PRODUCTO"].ToString();
-                    strMenudeo = resultadoBD["PRECIO_MENUDEO"].ToString();
-                    strMayoreo = resultadoBD["PRECIO_MAYOREO"].ToString();
-                    strDescuento = resultadoBD["DESCUENTO"].ToString();
-                    strExistencias = resultadoBD["EXISTENCIAS"].ToString();
-                    strMaximo = resultadoBD["MAXIMO_PRODUCTO"].ToString();
-                    strMinimo = resultadoBD["MINIMO_PRODUCTO"].ToString();
-                    strReorden = resultadoBD["REORDENAR"].ToString();
+                    ID = id;
+                    NombreProducto = resultadoBD["NOMBRE_PRODUCTO"].ToString();
+                    Descripcion = resultadoBD["DESCRIPCION_PRODUCTO"].ToString();
+                    Tipo = resultadoBD["TIPO_PRODUCTO"].ToString();
+                    Menudeo = double.Parse(resultadoBD["PRECIO_MENUDEO"].ToString());
+                    Mayoreo = double.Parse(resultadoBD["PRECIO_MAYOREO"].ToString());
+                    Descuento = double.Parse(resultadoBD["DESCUENTO"].ToString());
+                    Existencias = int.Parse(resultadoBD["EXISTENCIAS"].ToString());
+                    Maximo = int.Parse(resultadoBD["MAXIMO_PRODUCTO"].ToString());
+                    Minimo = int.Parse(resultadoBD["MINIMO_PRODUCTO"].ToString());
+                    Reorden = int.Parse(resultadoBD["REORDENAR"].ToString());
                     conn.Close();
                     return true;
                 }

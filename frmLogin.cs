@@ -39,7 +39,7 @@ namespace Ferreteria
                     {
                         frmVentas frm = new frmVentas();
                         frm.Show();
-                        this.Hide();
+                        this.Dispose(false);
                     }
                     else
                     {

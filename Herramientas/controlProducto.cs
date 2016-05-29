@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Ferreteria.Herramientas
 {
-    class controlProducto:TextBox
+    class controlProducto:entero
     {
             public controlProducto()
             {
@@ -15,10 +15,6 @@ namespace Ferreteria.Herramientas
 
         private void texto(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(this.Text, "[^0-9]"))
-            {
-                this.Text = this.Text.Remove(this.Text.Length - 1);
-            }
             if (this.Text.Length >= 13)
             {
                 SendKeys.Send("{TAB}");

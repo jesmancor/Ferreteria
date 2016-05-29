@@ -87,7 +87,7 @@
     <Compile Include="Herramientas\controlProveedor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Herramientas\doble.cs">
+    <Compile Include="Herramientas\moneda.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Herramientas\entero.cs">

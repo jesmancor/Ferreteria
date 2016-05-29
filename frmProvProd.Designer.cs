@@ -34,9 +34,9 @@
             this.lblProveedor = new System.Windows.Forms.Label();
             this.txtProveedorNombre = new System.Windows.Forms.TextBox();
             this.txtProductoNombre = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtProducto
@@ -54,6 +54,8 @@
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(46, 20);
             this.txtProveedor.TabIndex = 7;
+            this.txtProveedor.GotFocus += new System.EventHandler(this.txtProveedor_GotFocus);
+            this.txtProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.txtProveedor_Validating);
             // 
             // lblProducto
             // 
@@ -89,13 +91,13 @@
             this.txtProductoNombre.Size = new System.Drawing.Size(287, 20);
             this.txtProductoNombre.TabIndex = 11;
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(92, 190);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 200);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(92, 190);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(443, 200);
+            this.dgvProductos.TabIndex = 12;
             // 
             // textBox1
             // 
@@ -109,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(852, 420);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.txtProductoNombre);
             this.Controls.Add(this.txtProveedorNombre);
             this.Controls.Add(this.lblProveedor);
@@ -124,9 +126,9 @@
             this.Controls.SetChildIndex(this.lblProveedor, 0);
             this.Controls.SetChildIndex(this.txtProveedorNombre, 0);
             this.Controls.SetChildIndex(this.txtProductoNombre, 0);
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Controls.SetChildIndex(this.dgvProductos, 0);
             this.Controls.SetChildIndex(this.textBox1, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,7 +142,7 @@
         private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.TextBox txtProveedorNombre;
         private System.Windows.Forms.TextBox txtProductoNombre;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -99,11 +99,11 @@ namespace Ferreteria
                     validacionConsulta = Producto.consulta(strIDVenta, intCantidad);
                         if (validacionConsulta)
                         {
-                            nombreRepetido(Producto.strNombreProducto);
+                            nombreRepetido(Producto.NombreProducto);
                             doubPrecio = Producto.consultaPrecio(strIDVenta,intCantidad) * intCantidad;
                             if (doubPrecio > 0)
                             {
-                                dgVenta.Rows.Add(strIDVenta, Producto.strNombreProducto, strCantidad, Producto.doubPrecioUnitario, doubPrecio);
+                                dgVenta.Rows.Add(strIDVenta, Producto.NombreProducto, strCantidad, Producto.doubPrecioUnitario, doubPrecio);
                                 btnVenta.Enabled = true;
                                 txtIDVenta.Text = string.Empty;
                                 doubTotalVenta = doubTotalVenta + doubPrecio;

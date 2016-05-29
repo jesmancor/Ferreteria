@@ -30,7 +30,7 @@
         {
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtEfectivo = new Ferreteria.Herramientas.doble();
+            this.txtEfectivo = new Ferreteria.Herramientas.moneda();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -85,6 +85,6 @@
 
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private Herramientas.doble txtEfectivo;
+        private Herramientas.moneda txtEfectivo;
     }
 }
