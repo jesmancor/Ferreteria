@@ -87,7 +87,7 @@ namespace Ferreteria
                 proveedor Proveedor = new proveedor();
                 if (Proveedor.validaExistencia(txtProveedor.Text))
                 {
-                    txtProveedorNombre.Text = Proveedor.strNombreProveedor;
+                    txtProveedorNombre.Text = Proveedor.NombreProveedor;
                 }
                 else
                 {
@@ -117,6 +117,9 @@ namespace Ferreteria
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Producto.Existencias = txtNuevas.valor();
+            Producto.Maximo = Convert.ToInt32(txtMaximo.Value);
+            Producto.Minimo = Convert.ToInt32(txtMinimo.Value);
+            Producto.Reorden = Convert.ToInt32(txtReorden.Value);
             Producto.Proveedor = txtProveedor.Text;
             Producto.Cantidad = txtAgregar.Value.ToString();
             if (Producto.agregarExistencias())

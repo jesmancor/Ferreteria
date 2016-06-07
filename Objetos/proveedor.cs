@@ -9,13 +9,14 @@ namespace Ferreteria.Objetos
     public class proveedor
     {
         //Varibles
-        public string strIDProveedor { get; set; }
-        public string strNombreProveedor { get; set; }
+        public string IDProveedor { get; set; }
+        public string NombreProveedor { get; set; }
+        public List<string[]> listaProductos { get; set; }
 
         public proveedor()
         {
-            strIDProveedor = null;
-            strNombreProveedor = null;
+            IDProveedor = null;
+            NombreProveedor = null;
         }
 
         //Método que realiza una consulta para validar si un proveedor existe o no
@@ -37,7 +38,7 @@ namespace Ferreteria.Objetos
                 MySqlDataReader resultadoBD = cmd.ExecuteReader();
                 if (resultadoBD.Read())
                 {
-                    strNombreProveedor = resultadoBD["NOMBRE_PROVEEDOR"].ToString();
+                    NombreProveedor = resultadoBD["NOMBRE_PROVEEDOR"].ToString();
                     existe = true;
                 }
                 else
@@ -188,6 +189,73 @@ namespace Ferreteria.Objetos
                 MessageBox.Show("Falló la conexión con la base de datos al buscar el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Lista.Clear();
                 return Lista;
+            }
+        }
+
+        public bool consulta(string id)
+        {
+            List<string[]> Lista = new List<string[]>();
+            bool blnConsulta = false;
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "provprodCon";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader resultadoBD = cmd.ExecuteReader();
+                while (resultadoBD.Read())
+                {
+                    string[] arreglo = new string[3];
+                    arreglo[0] = resultadoBD["ID_PRODUCTO"].ToString();
+                    arreglo[1] = resultadoBD["PRECIO_PRODUCTO"].ToString();
+                    arreglo[2] = resultadoBD["ID_PROVEEDOR"].ToString();
+                    Lista.Add(arreglo);
+                    blnConsulta = true;
+                }
+                conn.Close();
+                listaProductos = Lista;
+                return blnConsulta;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al buscar el producto: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool asignarProducto(string producto, double precio, string proveedor)
+        {
+            MySqlConnection conn = new MySqlConnection(constantes.CONEXION_MYSQL);
+            try
+            {
+                conn.Open();
+                string sp = "provprodAlt";
+                MySqlCommand cmd = new MySqlCommand(sp, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@producto", producto);
+                cmd.Parameters.AddWithValue("@precio", precio);
+                cmd.Parameters.AddWithValue("@proveedor", proveedor);
+                int exito = cmd.ExecuteNonQuery();
+                conn.Close();
+                if (exito > 0)
+                {
+                    MessageBox.Show("Se asignó el producto " + producto + " al proveedor " + proveedor, "Registro eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Falló la conexión con la base de datos al dar de baja el proveedor: " + exc.ToString(), "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }

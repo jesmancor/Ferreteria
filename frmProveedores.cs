@@ -19,7 +19,7 @@ namespace Ferreteria
                 proveedor Proveedor = new proveedor();
                 if (Proveedor.validaExistencia(txtID.Text))
                 {
-                    txtNombre.Text = Proveedor.strNombreProveedor;
+                    txtNombre.Text = Proveedor.NombreProveedor;
                     btnEliminar.Enabled = true;
                     btnModificar.Enabled = true;
                 }

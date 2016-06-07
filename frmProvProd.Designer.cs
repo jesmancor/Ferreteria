@@ -35,7 +35,12 @@
             this.txtProveedorNombre = new System.Windows.Forms.TextBox();
             this.txtProductoNombre = new System.Windows.Forms.TextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.PROV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PROD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPrecio = new Ferreteria.Herramientas.moneda();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,15 +50,15 @@
             this.txtProducto.MaxLength = 13;
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(150, 20);
-            this.txtProducto.TabIndex = 6;
+            this.txtProducto.TabIndex = 1;
             // 
             // txtProveedor
             // 
             this.txtProveedor.Location = new System.Drawing.Point(92, 93);
             this.txtProveedor.MaxLength = 3;
             this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(46, 20);
-            this.txtProveedor.TabIndex = 7;
+            this.txtProveedor.Size = new System.Drawing.Size(32, 20);
+            this.txtProveedor.TabIndex = 0;
             this.txtProveedor.GotFocus += new System.EventHandler(this.txtProveedor_GotFocus);
             this.txtProveedor.Validating += new System.ComponentModel.CancelEventHandler(this.txtProveedor_Validating);
             // 
@@ -78,9 +83,9 @@
             // txtProveedorNombre
             // 
             this.txtProveedorNombre.Enabled = false;
-            this.txtProveedorNombre.Location = new System.Drawing.Point(144, 93);
+            this.txtProveedorNombre.Location = new System.Drawing.Point(130, 93);
             this.txtProveedorNombre.Name = "txtProveedorNombre";
-            this.txtProveedorNombre.Size = new System.Drawing.Size(287, 20);
+            this.txtProveedorNombre.Size = new System.Drawing.Size(301, 20);
             this.txtProveedorNombre.TabIndex = 10;
             // 
             // txtProductoNombre
@@ -94,23 +99,63 @@
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(92, 190);
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PROV,
+            this.PROD,
+            this.PRECIO});
+            this.dgvProductos.Location = new System.Drawing.Point(92, 238);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(443, 200);
-            this.dgvProductos.TabIndex = 12;
+            this.dgvProductos.Size = new System.Drawing.Size(570, 200);
+            this.dgvProductos.TabIndex = 4;
             // 
-            // textBox1
+            // PROV
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 13;
+            this.PROV.HeaderText = "Proveedor";
+            this.PROV.Name = "PROV";
+            // 
+            // PROD
+            // 
+            this.PROD.HeaderText = "Producto";
+            this.PROD.Name = "PROD";
+            // 
+            // PRECIO
+            // 
+            this.PRECIO.HeaderText = "Precio";
+            this.PRECIO.Name = "PRECIO";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(92, 164);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.TabIndex = 2;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(-3, 167);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(90, 13);
+            this.lblPrecio.TabIndex = 14;
+            this.lblPrecio.Text = "Precio de compra";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(92, 200);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // frmProvProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(852, 420);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(852, 485);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.lblPrecio);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.txtProductoNombre);
             this.Controls.Add(this.txtProveedorNombre);
@@ -127,7 +172,9 @@
             this.Controls.SetChildIndex(this.txtProveedorNombre, 0);
             this.Controls.SetChildIndex(this.txtProductoNombre, 0);
             this.Controls.SetChildIndex(this.dgvProductos, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txtPrecio, 0);
+            this.Controls.SetChildIndex(this.lblPrecio, 0);
+            this.Controls.SetChildIndex(this.btnAgregar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,6 +190,11 @@
         private System.Windows.Forms.TextBox txtProveedorNombre;
         private System.Windows.Forms.TextBox txtProductoNombre;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.TextBox textBox1;
+        private Herramientas.moneda txtPrecio;
+        private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PROV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PROD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
     }
 }

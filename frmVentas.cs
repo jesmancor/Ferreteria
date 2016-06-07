@@ -162,6 +162,7 @@ namespace Ferreteria
             }
         }
 
+        //Procesa la venta, limpia los valores en pantalla
         private void btnVenta_Click(object sender, EventArgs e)
         {
             realizaVenta();

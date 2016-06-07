@@ -9,7 +9,7 @@ namespace Ferreteria.Herramientas
         {
             this.PreviewKeyDown += new PreviewKeyDownEventHandler(desplegar);
             this.TextChanged += new EventHandler(texto);
-            this.Size = new System.Drawing.Size(46, 20);
+            this.Size = new System.Drawing.Size(32, 20);
             this.MaxLength = 3;
         }
 
